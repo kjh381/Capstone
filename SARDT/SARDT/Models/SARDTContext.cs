@@ -9,6 +9,13 @@ namespace SARDT.Models
 {
     public class SARDTContext: DbContext
     {
+        public SARDTContext() : base("SARDTContext")
+        {
+            Database.SetInitializer<SARDTContext>(new DBInitializer());
+        }
+
+
         //TODO DbSets
+        public System.Data.Entity.DbSet<SARDT.Models.WebText> WebTexts { get; set; }
     }
 }
