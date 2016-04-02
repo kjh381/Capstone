@@ -1,0 +1,51 @@
+﻿@model SARDT.Models.WebText
+
+@{
+    ViewBag.Title = "EditText";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EditText</h2>
+
+<div>
+    <h4>WebText</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Section)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Section)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Body)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Body)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastChangedOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastChangedOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastChangeBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastChangeBy)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WebTextID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
