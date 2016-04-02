@@ -22,9 +22,10 @@ namespace SARDT.Models
 
             WebText historyText = new WebText { WebTextID = 2, Section = "History", Body = "History of the diveteam", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
-
-            base.Seed(context);
+            
             context.SaveChanges();
+            base.Seed(context);
+            
         }
     }
 }
