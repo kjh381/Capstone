@@ -10,6 +10,7 @@ using SARDT.Models;
 
 namespace SARDT.Controllers
 {
+    //[Authorize(Roles="Admin")]
     public class WebContentController : Controller
     {
         private SARDTContext db = new SARDTContext();
@@ -114,6 +115,22 @@ namespace SARDT.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
+        public ActionResult Test()
+        {
+            //WebText webtext = db.WebTexts.Find(id);
+            WebText history = (from s in db.WebTexts
+                               where s.Section == "History"
+                               select s).FirstOrDefault();
+
+            if (history == null)
+            {
+                return HttpNotFound();
+            }
+            return View(history);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
