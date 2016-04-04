@@ -14,5 +14,35 @@ namespace SARDT.Controllers
         {
             return View();
         }
+
+        public ActionResult Team()
+        {
+            return View();
+        }
+
+        public ActionResult History()
+        {
+            return View();
+        }
+
+        public ActionResult Member()
+        {
+            return View();
+        }
+
+        public ActionResult Donate()
+        {
+            return View();
+        }
+
+        public ActionResult Application()
+        {
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            return View();
+        }
     }
 }
