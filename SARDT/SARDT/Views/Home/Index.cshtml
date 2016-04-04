@@ -2,24 +2,11 @@
 @{
     ViewBag.Title = "Home";
 }
-
-    <!-- The menu is meant for single line per list item.
-    Multiple lines will require custom code not provided by Bootstrap. -->
-    <div class="masthead">
-        <h3 class="text-muted">Lane County Search and Rescue Dive Team</h3>
-        <nav>
-            <ul class="nav nav-justified">
-                <li class="active"><a href="Index">Home</a></li>
-                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
-                <li><a href="@Url.Action("History", "Home")">History</a></li>
-                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-            </ul>
-        </nav>
-    </div>
     
+
+        <h2>Welcome Home</h2>
+        @Html.ActionLink("Edit Text", "Index", "WebContent")
+
      <!-- Jumbotron -->
     <div class="jumbotron">
         <div class="Social">
@@ -32,13 +19,13 @@
         <!--needs to be replaced with a video from the dive team-->
         <p class="lead">A really awesome video from the dive team</p>
         <p>
-            <iframe width="420" height="315" src="https://www.youtube.com/embed/ndsaoMFz9J4"></iframe>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/OCEQ8NQmMAw"></iframe>
         </p>
         <!--row of columns Place holder data-->
         <div class="row">
             <div class="col-lg-4">
                 <h2>News</h2>
-                <img style="float: left; margin: 0px 15px 15px 0px;" src="~/pics/ph.jpg" width="100" />
+                <img style="float: left; margin: 0px 15px 15px 0px;" src="~/pics/ph2.jpg" width="200" />
                 <p class="text-danger">Bacon ipsum dolor amet dolor pork belly swine corned beef reprehenderit consequat pastrami alcatra. Spare ribs short loin minim pig ad. Aliqua capicola corned beef sausage alcatra. Sint short ribs reprehenderit tempor, nulla shankle andouille laborum id fatback. In kielbasa chicken sunt fugiat dolor sausage laborum commodo. Fugiat reprehenderit hamburger do, ea pastrami spare ribs pork loin tri-tip pork chop biltong.</p>
                 <p>Tri-tip nostrud shankle in short loin pork. Dolore excepteur adipisicing landjaeger dolore aute et in ut ad ullamco filet mignon. Beef ribs short loin eiusmod, pork loin consectetur reprehenderit spare ribs biltong nulla ipsum meatball pariatur shankle frankfurter id. Eu incididunt ipsum ut doner capicola meatloaf meatball pig pork loin. Dolore laboris nisi sint lorem. </p>
                 <p><a class="btn btn-primary" href="#" role="button">Read More &raquo;</a></p>
@@ -53,4 +40,3 @@
                 <p><a class="btn btn-primary" href="#" role="button">View Even More Event Stuff &raquo;</a></p>
             </div>
         </div>
-    </div>

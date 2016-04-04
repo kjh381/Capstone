@@ -36,6 +36,28 @@ namespace SARDT.Controllers
             return View(webtext);
         }
 
+        // GET: /Default1/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: /Default1/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include="WebTextID,Section,Body,LastChangedOn,LastChangeBy")] WebText webtext)
+        {
+            if (ModelState.IsValid)
+            {
+                db.WebTexts.Add(webtext);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(webtext);
+        }
 
         // GET: /Default1/Edit/5
         public ActionResult Edit(int? id)
@@ -67,6 +89,33 @@ namespace SARDT.Controllers
             }
             return View(webtext);
         }
+
+        // GET: /Default1/Delete/5
+        public ActionResult Delete(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WebText webtext = db.WebTexts.Find(id);
+            if (webtext == null)
+            {
+                return HttpNotFound();
+            }
+            return View(webtext);
+        }
+
+        // POST: /Default1/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            WebText webtext = db.WebTexts.Find(id);
+            db.WebTexts.Remove(webtext);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
 
         public ActionResult Test()
         {
