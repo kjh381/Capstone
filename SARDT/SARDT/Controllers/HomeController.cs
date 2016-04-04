@@ -9,9 +9,17 @@ namespace SARDT.Controllers
 {
     public class HomeController : Controller
     {
+        SARDTContext db = new SARDTContext();
+
         // GET: Home
         public ActionResult Index()
         {
+            WebText home = (from s in db.WebTexts
+                               where s.Section == "Home"
+                               select s).FirstOrDefault();
+
+            ViewBag.BodyText = home.Body;
+
             return View();
         }
 
@@ -22,6 +30,12 @@ namespace SARDT.Controllers
 
         public ActionResult History()
         {
+            WebText history = (from s in db.WebTexts
+                               where s.Section == "History"
+                               select s).FirstOrDefault();
+
+            ViewBag.BodyText = history.Body;
+
             return View();
         }
 
