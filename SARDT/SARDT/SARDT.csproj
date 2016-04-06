@@ -182,12 +182,16 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AECController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\DBInitializer.cs" />
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\SARDTContext.cs" />
     <Compile Include="Models\WebText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -208,6 +212,8 @@
     <Content Include="Views\WebContent\Edit.cshtml" />
     <Content Include="Views\WebContent\Index.cshtml" />
     <Content Include="Views\WebContent\Test.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

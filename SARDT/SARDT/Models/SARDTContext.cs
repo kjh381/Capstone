@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Common;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SARDT.Models
 {
@@ -17,5 +18,6 @@ namespace SARDT.Models
 
         //TODO DbSets
         public System.Data.Entity.DbSet<SARDT.Models.WebText> WebTexts { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.Member> Members { get; set; }
     }
 }
