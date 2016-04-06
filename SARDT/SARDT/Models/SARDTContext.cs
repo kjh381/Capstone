@@ -17,5 +17,6 @@ namespace SARDT.Models
 
         //TODO DbSets
         public System.Data.Entity.DbSet<SARDT.Models.WebText> WebTexts { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.Event> Events { get; set; }
     }
 }
