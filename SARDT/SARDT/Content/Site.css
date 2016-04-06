@@ -19,6 +19,14 @@
   font-size: 21px;
 }
 
+.col-lg-4{
+    text-align: left;
+}
+
+.col-lg-4 h2{
+    text-align: center;
+}
+
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
