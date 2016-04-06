@@ -9,10 +9,16 @@ namespace SARDT.Controllers
 {
     public class HomeController : Controller
     {
+        private SARDTContext db = new SARDTContext();
         // GET: Home
         public ActionResult Index()
         {
-            return View();
+            Video currentVideo = new Video();
+            currentVideo.Title = "invalid";
+            currentVideo.URL = "invalid";
+            if (db.CurrentVideo.Count() > 0)
+                currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
+            return View(currentVideo);
         }
 
         public ActionResult Team()
