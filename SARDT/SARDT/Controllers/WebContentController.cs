@@ -117,20 +117,62 @@ namespace SARDT.Controllers
         }
 
 
-        public ActionResult Test()
+        public ActionResult EditText()
         {
-            //WebText webtext = db.WebTexts.Find(id);
-            WebText history = (from s in db.WebTexts
-                               where s.Section == "History"
-                               select s).FirstOrDefault();
+            return View();
+        }
 
-            if (history == null)
+        public ActionResult HistoryEdit()
+        {
+            List<WebText> historyTexts = (from s in db.WebTexts
+                               where s.Page == "History"
+                               select s).ToList();
+
+            if (historyTexts == null)
             {
                 return HttpNotFound();
             }
-            return View(history);
+            return View(historyTexts);
         }
 
+        public ActionResult ApplicationEdit()
+        {
+            List<WebText> applicationTexts = (from s in db.WebTexts
+                               where s.Page == "Application"
+                               select s).ToList();
+
+            if (applicationTexts == null)
+            {
+                return HttpNotFound();
+            }
+            return View(applicationTexts);
+        }
+
+        public ActionResult IndexEdit()
+        {
+            List<WebText> indexTexts = (from s in db.WebTexts
+                                         where s.Page == "Index"
+                                         select s).ToList();
+
+            if (indexTexts == null)
+            {
+                return HttpNotFound();
+            }
+            return View(indexTexts);
+        }
+
+        public ActionResult ContactEdit()
+        {
+            List<WebText> contactTexts = (from s in db.WebTexts
+                                   where s.Page == "Contact"
+                                   select s).ToList();
+
+            if (contactTexts == null)
+            {
+                return HttpNotFound();
+            }
+            return View(contactTexts);
+        }
 
         protected override void Dispose(bool disposing)
         {

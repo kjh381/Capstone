@@ -123,7 +123,6 @@ C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Razo
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers.xml
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll.config
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.pdb

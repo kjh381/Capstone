@@ -171,6 +171,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\pic1.jpg" />
+    <Content Include="Images\pic2.jpg" />
+    <Content Include="Images\pic3.jpg" />
     <Content Include="pics\ph.jpg" />
     <Content Include="pics\ph2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -191,6 +194,7 @@
     </Compile>
     <Compile Include="Models\DBInitializer.cs" />
     <Compile Include="Models\SARDTContext.cs" />
+    <Compile Include="Models\WebImage.cs" />
     <Compile Include="Models\WebText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -216,6 +220,7 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\WebContent\EditText.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
