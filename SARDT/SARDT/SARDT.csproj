@@ -221,12 +221,7 @@
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\WebContent\EditText.cshtml" />
-    <Content Include="Views\WebContent\ApplicationEdit.cshtml" />
-    <Content Include="Views\WebContent\HistoryEdit.cshtml" />
-    <Content Include="Views\WebContent\ContactEdit.cshtml" />
-    <Content Include="Views\WebContent\IndexEdit.cshtml" />
-    <Content Include="Views\WebContent\TeamEdit.cshtml" />
-    <Content Include="Views\WebContent\TextEditor.cshtml" />
+    <Content Include="Views\WebContent\TextEditorIndex.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

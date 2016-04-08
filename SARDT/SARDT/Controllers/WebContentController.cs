@@ -36,29 +36,6 @@ namespace SARDT.Controllers
             return View(webtext);
         }
 
-        // GET: /Default1/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: /Default1/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="WebTextID,Section,Body,LastChangedOn,LastChangeBy")] WebText webtext)
-        {
-            if (ModelState.IsValid)
-            {
-                db.WebTexts.Add(webtext);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(webtext);
-        }
-
         // GET: /Default1/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -81,26 +58,15 @@ namespace SARDT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="WebTextID,Section,Page,Body,LastChangedOn,LastChangeBy")] WebText webtext)
         {
+            webtext.LastChangedOn = DateTime.Now;
+            //TODO: Enable after identity is implemented.
+            //webtext.LastChangeBy = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 db.Entry(webtext).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("EditText");
-            }
-            return View(webtext);
-        }
-
-        // GET: /Default1/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            WebText webtext = db.WebTexts.Find(id);
-            if (webtext == null)
-            {
-                return HttpNotFound();
+                return RedirectToAction("TextEditorIndex", new {pageName = webtext.Page});
             }
             return View(webtext);
         }

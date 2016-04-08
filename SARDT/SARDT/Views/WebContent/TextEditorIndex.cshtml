@@ -7,9 +7,6 @@
 
 <h2>Text Editor for the @ViewBag.pageName Page</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
@@ -43,10 +40,9 @@
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WebTextID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WebTextID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WebTextID })
+            @Html.ActionLink("Details", "Details", new { id=item.WebTextID })
         </td>
     </tr>
 }
-
 </table>
+@Html.ActionLink("Return to Page List", "EditText", "WebContent")
