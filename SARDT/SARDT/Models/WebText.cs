@@ -21,11 +21,11 @@ namespace SARDT.Models
         [Editable(false)]
         public string Page { get; set; }
 
-        [Display(Name="Last Changed On")]
+        [Display(Name="Last Updated On")]
         [Editable(false)]
         public DateTime LastChangedOn { get; set; }
 
-        [Display(Name = "Last Changed By")]
+        [Display(Name = "Last Updated By")]
         [Editable(false)]
         public string LastChangeBy { get; set; }
 

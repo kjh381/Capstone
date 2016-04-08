@@ -79,13 +79,13 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="WebTextID,Section,Body,LastChangedOn,LastChangeBy")] WebText webtext)
+        public ActionResult Edit([Bind(Include="WebTextID,Section,Page,Body,LastChangedOn,LastChangeBy")] WebText webtext)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(webtext).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EditText");
             }
             return View(webtext);
         }
@@ -119,59 +119,27 @@ namespace SARDT.Controllers
 
         public ActionResult EditText()
         {
-            return View();
+                return View();
         }
 
-        public ActionResult HistoryEdit()
+        public ActionResult TextEditorIndex(string pageName)
         {
-            List<WebText> historyTexts = (from s in db.WebTexts
-                               where s.Page == "History"
-                               select s).ToList();
-
-            if (historyTexts == null)
+            if (pageName == null)
+                return RedirectToAction("EditText");
+            else
             {
-                return HttpNotFound();
+                List<WebText> textList = (from s in db.WebTexts
+                                          where s.Page == pageName
+                                          select s).ToList();
+
+                if (textList == null)
+                {
+                    return HttpNotFound();
+                }
+
+                ViewBag.pageName = pageName;
+                return View(textList);                
             }
-            return View(historyTexts);
-        }
-
-        public ActionResult ApplicationEdit()
-        {
-            List<WebText> applicationTexts = (from s in db.WebTexts
-                               where s.Page == "Application"
-                               select s).ToList();
-
-            if (applicationTexts == null)
-            {
-                return HttpNotFound();
-            }
-            return View(applicationTexts);
-        }
-
-        public ActionResult IndexEdit()
-        {
-            List<WebText> indexTexts = (from s in db.WebTexts
-                                         where s.Page == "Index"
-                                         select s).ToList();
-
-            if (indexTexts == null)
-            {
-                return HttpNotFound();
-            }
-            return View(indexTexts);
-        }
-
-        public ActionResult ContactEdit()
-        {
-            List<WebText> contactTexts = (from s in db.WebTexts
-                                   where s.Page == "Contact"
-                                   select s).ToList();
-
-            if (contactTexts == null)
-            {
-                return HttpNotFound();
-            }
-            return View(contactTexts);
         }
 
         protected override void Dispose(bool disposing)

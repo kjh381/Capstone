@@ -17,11 +17,25 @@
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.WebTextID)
 
+        <!--Placeholders, these need set in the controller-->
+        @Html.HiddenFor(model => model.LastChangeBy)
+        @Html.HiddenFor(model => model.LastChangedOn)
+        @Html.HiddenFor(model => model.Section)
+        @Html.HiddenFor(model => model.Page)
+
         <div class="form-group">
             @Html.LabelFor(model => model.Section, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Section)
-                @Html.ValidationMessageFor(model => model.Section)
+                @Html.DisplayFor(model => model.Section)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Page, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.Page)
+                @*@Html.EditorFor(model => model.Page)
+                @Html.ValidationMessageFor(model => model.Page)*@
             </div>
         </div>
 
@@ -30,22 +44,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Body)
                 @Html.ValidationMessageFor(model => model.Body)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangedOn, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangedOn)
-                @Html.ValidationMessageFor(model => model.LastChangedOn)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangeBy, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangeBy)
-                @Html.ValidationMessageFor(model => model.LastChangeBy)
             </div>
         </div>
 
