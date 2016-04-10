@@ -5,11 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>ChangeImage</h2>
+<h2>Change Image</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@Html.ActionLink("Back to Active Images", "WebImageIndex")
 <table class="table">
     <tr>
         <th>
@@ -19,8 +17,9 @@
             @Html.DisplayNameFor(model => model.Caption)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.InUse)
+            Preview
         </th>
+        <th>Active Image</th>
         <th></th>
     </tr>
 
@@ -33,14 +32,31 @@
             @Html.DisplayFor(modelItem => item.Caption)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.InUse)
+            <img src="~/Images/@item.FileName" width="50" height="50"/>
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.WebImageID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.WebImageID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.WebImageID })
+            @{
+                if (item.InUse == false)
+                {
+                    @Html.ActionLink("Set Active", "ChangeActiveImage", new { imageList = Model.ToList(), activeID = item.WebImageID})
+                }
+            }
+            
+        </td>
+        <td>
+            @Html.ActionLink("Edit Caption For Image", "EditImage", new { id = item.WebImageID }) <br />
+            
+            @{
+                if (item.InUse == false) 
+                { 
+                  @Html.ActionLink("Delete Image", "DeleteImage", new { id=item.WebImageID })
+                }
+            }
+            
         </td>
     </tr>
 }
 
 </table>
+
+@Html.ActionLink("Add Images", "AddImage")

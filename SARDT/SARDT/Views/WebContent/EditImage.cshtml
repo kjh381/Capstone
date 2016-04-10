@@ -16,13 +16,11 @@
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.WebImageID)
+        @Html.HiddenFor(model => model.FileName)
+        @Html.HiddenFor(model => model.InUse)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.FileName, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.FileName)
-                @Html.ValidationMessageFor(model => model.FileName)
-            </div>
+        <div>
+            <img src="~/Images/@Model.FileName"  width="100" height="100"/>
         </div>
 
         <div class="form-group">
@@ -30,14 +28,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Caption)
                 @Html.ValidationMessageFor(model => model.Caption)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.InUse, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.InUse)
-                @Html.ValidationMessageFor(model => model.InUse)
             </div>
         </div>
 
@@ -50,5 +40,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Images", "WebImageIndex")
 </div>

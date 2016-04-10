@@ -118,21 +118,31 @@ namespace SARDT.Controllers
         }
 
         [HttpGet]
-        public ActionResult ChangeImage()
+        public ActionResult ChangeImage(int id)
         {
             List<WebImage> images = (from i in db.WebImages
                                      where i.InUse == false
                                      select i).ToList();
+            
+            WebImage active = db.WebImages.Find(id);
+
+            images.Insert(0, active);
             return View(images);
         }
 
+        //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
         [HttpPost]
-        public ActionResult ChangeImage([Bind(Include = "WebImageID,FileName,Caption,InUse")] WebImage webimage)
+        public ActionResult ChangeActiveImage(List<WebImage> imageList, int activeID)
         {
-            return RedirectToAction("WebImageIndex");
+            imageList[0].InUse = false;
+            imageList[activeID].InUse = true;
+
+            db.SaveChanges();
+
+            return RedirectToAction("ChangeImage", new {id = activeID});
         }
 
-        public ActionResult DeleteImages(int? id)
+        public ActionResult DeleteImage(int? id)
         {
             if (id == null)
             {
@@ -146,16 +156,15 @@ namespace SARDT.Controllers
             return View(image);
         }
 
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("DeleteImage")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteImageConfirmed(int id)
         {
             WebImage image = db.WebImages.Find(id);
             db.WebImages.Remove(image);
             db.SaveChanges();
-            return RedirectToAction("WebImageIndex");
+            return RedirectToAction("ChangeImage");
         }
-
 
         public ActionResult AddImage()
         {
@@ -205,6 +214,38 @@ namespace SARDT.Controllers
             return RedirectToAction("AddImage");
 
         }
+
+
+        public ActionResult EditImage(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WebImage webimage = db.WebImages.Find(id);
+            if (webimage == null)
+            {
+                return HttpNotFound();
+            }
+            return View(webimage);
+        }
+
+        // POST: /WebImages/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,FileName,InUse")] WebImage webimage)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(webimage).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("WebImageIndex");
+            }
+            return View(webimage);
+        }
+        
 
         protected override void Dispose(bool disposing)
         {

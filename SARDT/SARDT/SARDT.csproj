@@ -224,13 +224,11 @@
     <Content Include="Views\WebContent\EditText.cshtml" />
     <Content Include="Views\WebContent\TextEditorIndex.cshtml" />
     <Content Include="Views\WebContent\WebImageIndex.cshtml" />
-    <Content Include="Views\WebImages\Create.cshtml" />
-    <Content Include="Views\WebImages\Delete.cshtml" />
     <Content Include="Views\WebImages\Details.cshtml" />
-    <Content Include="Views\WebImages\Edit.cshtml" />
-    <Content Include="Views\WebImages\Index.cshtml" />
+    <Content Include="Views\WebContent\EditImage.cshtml" />
     <Content Include="Views\WebContent\ChangeImage.cshtml" />
     <Content Include="Views\WebContent\AddImage.cshtml" />
+    <Content Include="Views\WebContent\DeleteImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

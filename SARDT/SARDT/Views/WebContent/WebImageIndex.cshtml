@@ -15,6 +15,7 @@
         <th>
             @Html.DisplayNameFor(model => model.Caption)
         </th>
+        <th>Preview</th>
         <th></th>
     </tr>
 
@@ -27,7 +28,11 @@
             @Html.DisplayFor(modelItem => item.Caption)
         </td>
         <td>
-            @Html.ActionLink("Change Image", "ChangeImage")
+            <img src="~/Images/@item.FileName" width="50" height="50" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit Caption For Image", "EditImage", new { id = item.WebImageID }) <br />
+            @Html.ActionLink("Change Active Image", "ChangeImage", new { id = item.WebImageID })
         </td>
     </tr>
 }
