@@ -12,10 +12,11 @@ namespace SARDT.Models
         public string Type { get; set; }
         [DataType(DataType.Date)]
         public DateTime EventDate { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public int StartTime { get; set; }
+        public int EndTime { get; set; }
         public string EventTitle { get; set; }
         public string Description { get; set; }
+        [DataType(DataType.Date)]
         public DateTime LastChangedOn { get; set; }
         public string LastChangeBy { get; set; }
     }

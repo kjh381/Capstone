@@ -38,6 +38,7 @@ namespace SARDT.Controllers
         // GET: /Event/Create
         public ActionResult Create()
         {
+            fillSelectList();
             return View();
         }
 
@@ -122,6 +123,14 @@ namespace SARDT.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void fillSelectList()
+        {
+            ViewBag.EventType = new List<SelectListItem> { 
+                new SelectListItem { Text = "Public Events", Value = "Public" },
+                new SelectListItem { Text = "Team Events", Value = "Team" }
+            };
         }
     }
 }

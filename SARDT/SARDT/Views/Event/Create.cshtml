@@ -19,7 +19,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Type)
+                @Html.DropDownList("EventType", string.Empty)
                 @Html.ValidationMessageFor(model => model.Type)
             </div>
         </div>
