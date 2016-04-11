@@ -19,5 +19,6 @@ namespace SARDT.Models
         public System.Data.Entity.DbSet<SARDT.Models.WebText> WebTexts { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.Video> Videos { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.CurrentVideos> CurrentVideo { get; set; }
+
     }
 }

@@ -1,4 +1,3 @@
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\SARDT.dll.config
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\SARDT.dll
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\SARDT.pdb
@@ -250,3 +249,4 @@ C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Mvc.xml
 C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
 C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
