@@ -38,7 +38,7 @@
             @{
                 if (item.InUse == false)
                 {
-                    @Html.ActionLink("Set Active", "ChangeImage", new {newID = item.WebImageID, oldID = Model.First().WebImageID})
+                    @Html.ActionLink("Set Active", "ChangeActive", new {newID = item.WebImageID, oldID = Model.First().WebImageID})
                 }
             }
             

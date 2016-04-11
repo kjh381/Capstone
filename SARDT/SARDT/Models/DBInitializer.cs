@@ -32,10 +32,14 @@ namespace SARDT.Models
 
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Location="Home"};
             WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = false, Location = "Test" };
-            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "Test" };
+            WebImage image3 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "" };
+            WebImage image4 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Location = "" };
+            WebImage image5 = new WebImage { WebImageID = 5, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Location = "" };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);
+            context.WebImages.Add(image4);
+            context.WebImages.Add(image5);
 
             context.SaveChanges();
             base.Seed(context);

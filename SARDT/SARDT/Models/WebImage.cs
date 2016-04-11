@@ -16,7 +16,7 @@ namespace SARDT.Models
 
         public bool InUse { get; set; }
 
-        public string? Location { get; set; }
+        public string Location { get; set; }
 
     }
 }
