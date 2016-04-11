@@ -132,15 +132,19 @@ namespace SARDT.Controllers
 
         //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
         [HttpPost]
-        public ActionResult ChangeActiveImage(List<WebImage> imageList, int activeID)
+        public ActionResult ChangeImage(int oldID, int newID)
         {
-            imageList[0].InUse = false;
-            imageList[activeID].InUse = true;
+            WebImage nowActive = db.WebImages.Find(newID);
+            WebImage oldImage = db.WebImages.Find(oldID);
 
+            nowActive.InUse = true;
+            oldImage.InUse = false;
+            
             db.SaveChanges();
 
-            return RedirectToAction("ChangeImage", new {id = activeID});
+            return RedirectToAction("ChangeImage", new {id = newID});
         }
+
 
         public ActionResult DeleteImage(int? id)
         {
@@ -179,14 +183,6 @@ namespace SARDT.Controllers
             if (file != null && file.ContentLength > 0)
                 try
                 {                
-                    //string unique = GenerateRandomText(10);
-                    //string name = image.LocationID.ToString() + "/" + unique + file.FileName;
-                    //string name = unique + file.FileName;
-                    //string pathString = ("~/Images/"+image.LocationID);
-                    //string path = Server.MapPath(pathString);
-                    //Server.MapPath(pathString);
-                    
-                    //WAS WORKING
                     string path = Path.Combine(Server.MapPath("~/Images"),Path.GetFileName(file.FileName));
                     
                     file.SaveAs(path);

@@ -30,9 +30,9 @@ namespace SARDT.Models
             context.WebTexts.Add(applicationText1);
             context.WebTexts.Add(applicationText2);
 
-            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true };
-            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = false };
-            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false };
+            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Location="Home"};
+            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = false, Location = "Test" };
+            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "Test" };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);

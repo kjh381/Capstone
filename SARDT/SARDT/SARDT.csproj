@@ -189,7 +189,6 @@
     <Compile Include="Controllers\AECController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\WebImagesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -224,7 +223,6 @@
     <Content Include="Views\WebContent\EditText.cshtml" />
     <Content Include="Views\WebContent\TextEditorIndex.cshtml" />
     <Content Include="Views\WebContent\WebImageIndex.cshtml" />
-    <Content Include="Views\WebImages\Details.cshtml" />
     <Content Include="Views\WebContent\EditImage.cshtml" />
     <Content Include="Views\WebContent\ChangeImage.cshtml" />
     <Content Include="Views\WebContent\AddImage.cshtml" />
