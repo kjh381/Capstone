@@ -1,39 +1,153 @@
 ﻿<!DOCTYPE html>
-<html>
+@{
+    string page = @ViewBag.Title;
+}
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <!-- Custom styles for this site -->
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <!-- font Awesome core -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-            </div>
+
+    <div class="container">
+        <!-- The menu is meant for single line per list item.
+         Multiple lines will require custom code not provided by Bootstrap. -->
+        <div class="masthead">
+            
+            <h3 class="text-muted">Lane County Search and Rescue Dive Team</h3>
+            @switch(page)
+            {
+                case "Home":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li class="active"><a href="Index">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                                <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>                               
+                                <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+
+                            </ul>
+                        </nav>
+                    break;
+                case "Team":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li class="active"><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                case "History":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li class ="active"><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                case "Member":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li class="active"><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                case "Donate":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li class="active"><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                case "Application":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li class="active"><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                case "Contact":
+                        <nav>
+                            <ul class="nav nav-justified">
+                                <li ><a href="Index">Home</a></li>
+                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
+                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                <li class="active"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                            </ul>
+                        </nav>
+                break;
+                
+                
+            }
+
         </div>
-    </div>
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <div class="Social">
+                <i class="fa fa-facebook-square fa-2x"></i>
+                <i class="fa fa-twitter-square fa-2x"></i>
+                <i class="fa fa-youtube-square fa-2x"></i>
+            </div>
+            @RenderBody()
+        </div>
 
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+            <!-- Site footer -->
+            <footer class="footer">
+                <p>&copy; 2016 Company, Inc.</p>
+            </footer>
 
+        </div> <!-- /container -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
 </body>
