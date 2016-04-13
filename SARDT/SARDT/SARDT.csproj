@@ -176,6 +176,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\DatePickerReady.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
@@ -184,6 +185,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\DBInitializer.cs" />
     <Compile Include="Models\Month.cs" />
+    <Compile Include="Models\Event.cs" />
     <Compile Include="Models\SARDTContext.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\VideoVM.cs" />
@@ -222,6 +225,12 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Event\Create.cshtml" />
+    <Content Include="Views\Event\Delete.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\Event\Edit.cshtml" />
+    <Content Include="Views\Event\Index.cshtml" />
+    <Content Include="Views\Shared\Date.cshtml" />
     <Content Include="Views\Videos\Create.cshtml" />
     <Content Include="Views\Videos\Delete.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
@@ -266,7 +275,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
