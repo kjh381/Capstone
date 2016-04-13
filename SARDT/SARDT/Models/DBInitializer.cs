@@ -23,7 +23,16 @@ namespace SARDT.Models
             WebText historyText = new WebText { WebTextID = 2, Section = "History", Body = "History of the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
 
-            
+            Event firstEvent = new Event { Description = "This is the first event!", StartTime = 1200, EndTime = 1400, EventDate = Convert.ToDateTime("04/30/2016"), EventTitle = "First Event", LastChangeBy = "guy", LastChangedOn = Convert.ToDateTime("04/30/2016"), Type = Event.EventType.Public };
+
+            Event secondEvent = new Event { Description = "Second event here!", StartTime = 800, EndTime = 1000, EventDate = Convert.ToDateTime("04/21/2016"), EventTitle = "Second Event", LastChangeBy = "dude", LastChangedOn = Convert.ToDateTime("04/21/2016"), Type = Event.EventType.Public };
+
+            Event thirdEvent = new Event { Description = "WOOOHOOO!", StartTime = 1700, EndTime = 2000, EventDate = Convert.ToDateTime("05/10/2016"), EventTitle = "Last Event", LastChangeBy = "person", LastChangedOn = Convert.ToDateTime("05/10/2016"), Type = Event.EventType.Private };
+
+            context.Events.Add(firstEvent);
+            context.Events.Add(secondEvent);
+            context.Events.Add(thirdEvent);
+
             context.SaveChanges();
             base.Seed(context);
             

@@ -153,7 +153,7 @@ namespace SARDT.Controllers
         */
         private CalendarVM CreateCalendarFromDate(int year, int month)
         {
-            string dateString = month.ToString("##") + "/01/" + year.ToString("##") + " 12:00:00.00";
+            string dateString = month.ToString("##") + "/01/" + year.ToString("##");
             DateTime date = Convert.ToDateTime(dateString);
             CalendarVM calendar = new CalendarVM();
             calendar.Month.Num = month;
