@@ -171,6 +171,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Images\pic1.jpg" />
+    <Content Include="Images\pic2.jpg" />
+    <Content Include="Images\pic3.jpg" />
     <Content Include="pics\ph.jpg" />
     <Content Include="pics\ph2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
@@ -199,6 +202,7 @@
     <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\SARDTContext.cs" />
+    <Compile Include="Models\WebImage.cs" />
     <Compile Include="Models\Video.cs" />
     <Compile Include="Models\VideoVM.cs" />
     <Compile Include="Models\WebText.cs" />
@@ -228,6 +232,14 @@
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
 
+    <Content Include="Views\WebContent\EditText.cshtml" />
+    <Content Include="Views\WebContent\TextEditorIndex.cshtml" />
+    <Content Include="Views\WebContent\WebImageIndex.cshtml" />
+    <Content Include="Views\WebContent\EditImage.cshtml" />
+    <Content Include="Views\WebContent\ChangeImage.cshtml" />
+    <Content Include="Views\WebContent\AddImage.cshtml" />
+    <Content Include="Views\WebContent\DeleteImage.cshtml" />
+
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\LogOut.cshtml" />
     <Content Include="Views\Auth\CreateRole.cshtml" />
@@ -246,6 +258,7 @@
     <Content Include="Views\Videos\Delete.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
     <Content Include="Views\Videos\VideoView.cshtml" />
+
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
