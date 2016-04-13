@@ -43,6 +43,12 @@
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>                               
+                                <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+
+
+
                             </ul>
                         </nav>
                     break;
@@ -124,6 +130,8 @@
                             </ul>
                         </nav>
                 break;
+
+
                 default:
                         <nav>
                             <ul class="nav nav-justified">
@@ -137,6 +145,7 @@
                             </ul>
                         </nav>
                 break;
+
                 
                 
             }

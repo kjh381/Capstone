@@ -184,6 +184,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
@@ -193,6 +194,9 @@
     </Compile>
     <Compile Include="Models\CurrentVideo.cs" />
     <Compile Include="Models\DBInitializer.cs" />
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\SARDTContext.cs" />
     <Compile Include="Models\Video.cs" />
@@ -215,12 +219,23 @@
     <Content Include="Views\WebContent\Edit.cshtml" />
     <Content Include="Views\WebContent\Index.cshtml" />
     <Content Include="Views\WebContent\Test.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
     <Content Include="Views\Home\Member.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\LogOut.cshtml" />
+    <Content Include="Views\Auth\CreateRole.cshtml" />
+    <Content Include="Views\Auth\Delete.cshtml" />
+    <Content Include="Views\Auth\EditRole.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\ManageUserRoles.cshtml" />
+
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
@@ -266,7 +281,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
