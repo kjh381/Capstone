@@ -188,8 +188,11 @@
     <Compile Include="Controllers\AECController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
 
+
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
+
+
 
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -199,11 +202,17 @@
     <Compile Include="Models\CurrentVideo.cs" />
     <Compile Include="Models\DBInitializer.cs" />
 
+
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\Member.cs" />
     <Compile Include="Models\RegistrationModel.cs" />
 
     <Compile Include="Models\Event.cs" />
+
+
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
 
     <Compile Include="Models\SARDTContext.cs" />
     <Compile Include="Models\Video.cs" />
@@ -226,6 +235,7 @@
     <Content Include="Views\WebContent\Edit.cshtml" />
     <Content Include="Views\WebContent\Index.cshtml" />
     <Content Include="Views\WebContent\Test.cshtml" />
+
 
     <Content Include="Views\Auth\LogIn.cshtml" />
 
@@ -254,6 +264,10 @@
     <Content Include="Views\Videos\Delete.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
     <Content Include="Views\Videos\VideoView.cshtml" />
+
+
+    <Content Include="Views\Auth\LogIn.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
 
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

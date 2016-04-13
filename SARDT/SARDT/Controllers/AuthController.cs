@@ -10,6 +10,9 @@ using System.Web;
 using System.Web.Mvc;
 
 
+
+
+
 namespace SARDT.Controllers
 {
     public class AuthController : Controller
@@ -22,10 +25,13 @@ namespace SARDT.Controllers
         [Authorize(Roles = "Admin, BossesBoss")]
         public ActionResult Index()
         {
+
              
             var roles = db.Roles.ToList();
             return View(roles);
             
+
+
         }
 
         [AllowAnonymous]
@@ -146,6 +152,7 @@ namespace SARDT.Controllers
             base.Dispose(disposing);
         }
 
+
         //*************************************  Roles   ***************************
         //GET: /Roles/Create
        [Authorize(Roles = "Admin, BossesBoss")]
@@ -212,7 +219,7 @@ namespace SARDT.Controllers
             }
         }
 
-       // [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize(Roles = "Admin, BossesBoss")]
         public ActionResult ManageUserRoles()
         {
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr =>
@@ -251,5 +258,6 @@ namespace SARDT.Controllers
             }
             return View("ManageUserRoles");
         }
+
     }
 }
