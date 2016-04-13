@@ -35,7 +35,7 @@ namespace SARDT.Controllers
             }
             return View(webtext);
         }
-
+        [Authorize]
         // GET: /Default1/Create
         public ActionResult Create()
         {
@@ -60,6 +60,7 @@ namespace SARDT.Controllers
         }
 
         // GET: /Default1/Edit/5
+    [Authorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)

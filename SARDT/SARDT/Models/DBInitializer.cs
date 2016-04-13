@@ -24,11 +24,13 @@ namespace SARDT.Models
             context.WebTexts.Add(aboutText);
 
             WebText historyText = new WebText { WebTextID = 2, Section = "History", Body = "History of the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            context.WebTexts.Add(historyText);
+
+            
 
             Member firstMember = new Member { MemberID=1, Address = "1825 donald street", AttendencePercent = 20, City = "Eugene", DOB = "04/05/1978", Email = "Karrill29@gmail.com", LastName = "Swearingen", FirstName = "Quiante", IsDiveEligible = true , EmergencyContact = "Becky Swearingen 541-337-5208", HomeNumber = 541 - 222 - 2222, ZipCode = 97405, WorkPhone = 000 - 000 - 0000 };
             
-            context.Users.Add(firstMember);
+            //context.Users.Add();
+            context.WebTexts.Add(historyText);
 
             context.SaveChanges();
             base.Seed(context); 

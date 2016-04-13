@@ -53,6 +53,9 @@ C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ca6650c74282a23e1c8fabc56a31864a4c4fbfff
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
@@ -115,8 +118,9 @@ C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\karri_000\Desktop\Capstone search and rescue\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.xml
-=======
 <<<<<<< HEAD
+
+
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
@@ -171,7 +175,7 @@ C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
-=======
+
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
@@ -228,5 +232,12 @@ C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Web
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
+<<<<<<< HEAD
 >>>>>>> master
 >>>>>>> master
+=======
+
+
+=======
+>>>>>>> 2810c97f2b20d4d91a12b1407778d911fec7308b
+>>>>>>> ca6650c74282a23e1c8fabc56a31864a4c4fbfff

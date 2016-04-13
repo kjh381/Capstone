@@ -227,6 +227,15 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\LogOut.cshtml" />
+    <Content Include="Views\Auth\CreateRole.cshtml" />
+    <Content Include="Views\Auth\Delete.cshtml" />
+    <Content Include="Views\Auth\EditRole.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\ManageUserRoles.cshtml" />
+
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
