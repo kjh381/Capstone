@@ -1,8 +1,47 @@
-﻿
+﻿@model SARDT.Models.Video
+
 @{
     ViewBag.Title = "Home";
 }
+    
 
-<h2>Welcome Home</h2>
+        <h2>Welcome Home</h2>
+        @Html.ActionLink("Edit Text", "Index", "WebContent")
 
-@Html.ActionLink("Edit Text","Index","WebContent")
+     <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="Social">
+            <i class="fa fa-facebook-square fa-2x"></i>
+            <i class="fa fa-twitter-square fa-2x"></i>
+            <i class="fa fa-youtube-square fa-2x"></i>
+        </div>
+        <h2>Home</h2>
+        @ViewBag.BodyText <br />
+        <!--needs to be replaced with a video from the dive team-->
+        <p class="lead">A really awesome video from the dive team</p>
+        <p>
+            @if (Model.Title != "invalid" && Model.URL != "invalid")
+            { 
+                <iframe width="420" height="315" src="@Model.URL"></iframe>
+            }
+
+        </p>
+        <!--row of columns Place holder data-->
+        <div class="row">
+            <div class="col-lg-4">
+                <h2>News</h2>
+                <img style="float: left; margin: 0px 15px 15px 0px;" src="~/pics/ph2.jpg" width="200" />
+                <p class="text-danger">Bacon ipsum dolor amet dolor pork belly swine corned beef reprehenderit consequat pastrami alcatra. Spare ribs short loin minim pig ad. Aliqua capicola corned beef sausage alcatra. Sint short ribs reprehenderit tempor, nulla shankle andouille laborum id fatback. In kielbasa chicken sunt fugiat dolor sausage laborum commodo. Fugiat reprehenderit hamburger do, ea pastrami spare ribs pork loin tri-tip pork chop biltong.</p>
+                <p>Tri-tip nostrud shankle in short loin pork. Dolore excepteur adipisicing landjaeger dolore aute et in ut ad ullamco filet mignon. Beef ribs short loin eiusmod, pork loin consectetur reprehenderit spare ribs biltong nulla ipsum meatball pariatur shankle frankfurter id. Eu incididunt ipsum ut doner capicola meatloaf meatball pig pork loin. Dolore laboris nisi sint lorem. </p>
+                <p><a class="btn btn-primary" href="#" role="button">Read More &raquo;</a></p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Upcoming Events</h2>
+                <p>Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror. </p>
+            </div>
+            <div class="col-lg-4">
+                <h2>Even More Events</h2>
+                <p>Cupcake ipsum dolor sit amet carrot cake halvah marshmallow. Biscuit bear claw gummi bears donut cotton candy. Cotton candy macaroon lollipop I love jelly jelly-o candy canes biscuit. Fruitcake jelly-o toffee I love. Powder chocolate cake pastry I love bonbon danish toffee icing. I love ice cream jelly beans I love brownie caramels cheesecake sugar plum. Apple pie I love bonbon fruitcake. Sugar plum cake sweet roll icing candy topping wafer. Bonbon jujubes danish soufflé I love sesame snaps. Gummies apple pie biscuit biscuit lollipop icing.</p>
+                <p><a class="btn btn-primary" href="#" role="button">View Even More Event Stuff &raquo;</a></p>
+            </div>
+        </div>
