@@ -131,7 +131,7 @@ namespace SARDT.Controllers
         }
 
         //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
-        //[HttpPost]
+        [HttpPost]
         public ActionResult ChangeActive(int oldID, int newID)
         {
             WebImage nowActive = db.WebImages.Find(newID);

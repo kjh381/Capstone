@@ -38,10 +38,18 @@
             @{
                 if (item.InUse == false)
                 {
-                    @Html.ActionLink("Set Active", "ChangeActive", new {newID = item.WebImageID, oldID = Model.First().WebImageID})
+                    @Html.BeginForm("ChangeActive", "WebContent")
+                    {
+                        @Html.Hidden("newID", item.WebImageID);
+                        @Html.Hidden("oldID", Model.First().WebImageID);
+                        <input type="submit" value="Change Active Image" />
+                    }
                 }
             }
             
+            
+
+
         </td>
         <td>
             @Html.ActionLink("Edit Caption For Image", "EditImage", new { id = item.WebImageID }) <br />
@@ -52,11 +60,10 @@
                   @Html.ActionLink("Delete Image", "DeleteImage", new { id=item.WebImageID })
                 }
             }
-            
         </td>
     </tr>
 }
 
 </table>
 
-@Html.ActionLink("Add Images", "AddImage")
+@Html.ActionLink("Add More Images", "AddImage")

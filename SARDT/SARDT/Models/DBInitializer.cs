@@ -23,7 +23,6 @@ namespace SARDT.Models
             WebText aboutText = new WebText { WebTextID = 1, Page="Team", Section = "About", Body = "Info about the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(aboutText);
 
-
             WebText historyText = new WebText { WebTextID = 2, Page="History", Section = "History", Body = "History of the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
 
@@ -36,21 +35,16 @@ namespace SARDT.Models
 
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Location="Home"};
             WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = false, Location = "Test" };
-            WebImage image3 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "" };
-            WebImage image4 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Location = "" };
-            WebImage image5 = new WebImage { WebImageID = 5, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Location = "" };
+            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "" };
+            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Location = "" };
+            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Location = "" };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);
             context.WebImages.Add(image4);
             context.WebImages.Add(image5);
 
-
             Member firstMember = new Member { MemberID=1, Address = "1825 donald street", AttendencePercent = 20, City = "Eugene", DOB = "04/05/1978", Email = "Karrill29@gmail.com", LastName = "Swearingen", FirstName = "Quiante", IsDiveEligible = true , EmergencyContact = "Becky Swearingen 541-337-5208", HomeNumber = 541 - 222 - 2222, ZipCode = 97405, WorkPhone = 000 - 000 - 0000 };
-            
-            //context.Users.Add();
-            context.WebTexts.Add(historyText);
-
 
             context.SaveChanges();
             base.Seed(context); 
