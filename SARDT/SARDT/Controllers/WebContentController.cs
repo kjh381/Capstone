@@ -109,8 +109,14 @@ namespace SARDT.Controllers
             }
         }
 
-        public ActionResult WebImageIndex()
+        public ActionResult WebImageIndex(string message)
         {
+            if (message == null)
+            {
+                message = "";
+            }
+            ViewBag.Message = message;
+
             List<WebImage> images = (from i in db.WebImages
                                      where i.InUse == true
                                      select i).ToList();
@@ -167,10 +173,19 @@ namespace SARDT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteImageConfirmed(int id)
         {
-            WebImage image = db.WebImages.Find(id);
-            db.WebImages.Remove(image);
-            db.SaveChanges();
-            return RedirectToAction("ChangeImage");
+            try
+            {
+                string success = "Image successfully deleted.";
+                WebImage image = db.WebImages.Find(id);
+                db.WebImages.Remove(image);
+                db.SaveChanges();
+                return RedirectToAction("WebImageIndex", new {message = success});
+            }
+            catch
+            {
+                string failure = "Delete image failed, Please try again.";
+                return RedirectToAction("WebImageIndex", new { message = failure });
+            }
         }
 
         public ActionResult AddImage()
@@ -196,6 +211,7 @@ namespace SARDT.Controllers
                     img.InUse = false;
                     img.FileName = file.FileName;
                     img.Caption = image.Caption;
+                    img.Location = "";
 
                     db.WebImages.Add(img);
                     db.SaveChanges();
@@ -234,7 +250,7 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,FileName,InUse")] WebImage webimage)
+        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,Location,FileName,InUse")] WebImage webimage)
         {
             if (ModelState.IsValid)
             {
@@ -244,7 +260,23 @@ namespace SARDT.Controllers
             }
             return View(webimage);
         }
-        
+
+
+        public ActionResult Test()
+        {
+            PublicVM pageContent = new PublicVM();
+
+            pageContent.textList = (from t in db.WebTexts
+                                    where t.Page == "Home"
+                                    select t).ToList();
+
+            pageContent.imageList = (from i in db.WebImages
+                                     where i.Location == "Home"
+                                     select i).ToList();
+
+            return View(pageContent);
+        }
+
 
         protected override void Dispose(bool disposing)
         {

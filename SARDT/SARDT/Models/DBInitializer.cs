@@ -10,15 +10,19 @@ using Microsoft.Owin;
 
 namespace SARDT.Models
 {
-   // public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
-    public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
+      public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
+    //public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
     {
         protected override void Seed(SARDTContext context)
         {
             //TODO: Add seeds to context here. 
             //context.class.Add(newObjName)
-            WebText homeText = new WebText{ WebTextID = 0, Page="Home", Section="Home", Body = "Here is some test text for the home page", LastChangedOn=new DateTime(2016,4,2), LastChangeBy="Kyle"};
+            WebText homeText = new WebText{ WebTextID = 0, Page="Home", Section="Home", Body = "Welcome to LCSARDT Web site. Hi2u!", LastChangedOn=new DateTime(2016,4,2), LastChangeBy="Kyle"};
+            WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "News", Body = "This just in...somethingsomething", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText homeText2 = new WebText { WebTextID = 2, Page = "Home", Section = "Announcements", Body = "Announcements, Announcements, Announcements...please?", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(homeText);
+            context.WebTexts.Add(homeText1);
+            context.WebTexts.Add(homeText2);
 
             WebText aboutText = new WebText { WebTextID = 1, Page="Team", Section = "About", Body = "Info about the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(aboutText);

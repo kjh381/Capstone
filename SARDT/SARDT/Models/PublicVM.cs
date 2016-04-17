@@ -7,7 +7,7 @@ namespace SARDT.Models
 {
     public class PublicVM
     {
-        List<WebText> textList { get; set; }
-        List<WebImage> imageList { get; set; }
+        public List<WebText> textList { get; set; }
+        public List<WebImage> imageList { get; set; }
     }
 }

@@ -8,6 +8,7 @@
 <h2>Change Image</h2>
 
 @Html.ActionLink("Back to Active Images", "WebImageIndex")
+
 <table class="table">
     <tr>
         <th>
@@ -38,17 +39,13 @@
             @{
                 if (item.InUse == false)
                 {
-                    @Html.BeginForm("ChangeActive", "WebContent")
-                    {
-                        @Html.Hidden("newID", item.WebImageID);
-                        @Html.Hidden("oldID", Model.First().WebImageID);
+                    <form action="/WebContent/ChangeActive" method="post">
+                        @Html.Hidden("newID", item.WebImageID)
+                        @Html.Hidden("oldID", Model.First().WebImageID)
                         <input type="submit" value="Change Active Image" />
-                    }
+                    </form>
                 }
             }
-            
-            
-
 
         </td>
         <td>
