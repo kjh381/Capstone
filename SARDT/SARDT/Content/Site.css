@@ -27,6 +27,13 @@
     text-align: center;
 }
 
+.col-sm-8{
+    text-align: left;
+}
+
+.col-sm-8 h2{
+    text-align: left;
+}
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 

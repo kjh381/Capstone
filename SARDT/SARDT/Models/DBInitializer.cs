@@ -17,8 +17,8 @@ namespace SARDT.Models
         {
             //TODO: Add seeds to context here. 
             //context.class.Add(newObjName)
-            WebText homeText = new WebText{ WebTextID = 0, Page="Home", Section="Home", Body = "Welcome to LCSARDT Web site. Hi2u!", LastChangedOn=new DateTime(2016,4,2), LastChangeBy="Kyle"};
-            WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "News", Body = "This just in...somethingsomething", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText homeText = new WebText { WebTextID = 0, Page = "Home", Section = "News", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "More News", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText homeText2 = new WebText { WebTextID = 2, Page = "Home", Section = "Announcements", Body = "Announcements, Announcements, Announcements...please?", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(homeText);
             context.WebTexts.Add(homeText1);
@@ -38,7 +38,7 @@ namespace SARDT.Models
             context.WebTexts.Add(applicationText2);
 
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Location="Home"};
-            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = false, Location = "Test" };
+            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Location = "Home" };
             WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "" };
             WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Location = "" };
             WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Location = "" };
@@ -50,8 +50,13 @@ namespace SARDT.Models
 
             Member firstMember = new Member { MemberID=1, Address = "1825 donald street", AttendencePercent = 20, City = "Eugene", DOB = "04/05/1978", Email = "Karrill29@gmail.com", LastName = "Swearingen", FirstName = "Quiante", IsDiveEligible = true , EmergencyContact = "Becky Swearingen 541-337-5208", HomeNumber = 541 - 222 - 2222, ZipCode = 97405, WorkPhone = 000 - 000 - 0000 };
 
+            Video seedVid = new Video { ID = 2, Title = "Insert Title", URL = "https://www.youtube.com/embed/6OHmn4Tcfd4?rel=0" };
+            context.Videos.Add(seedVid);
+            CurrentVideos video = new CurrentVideos { CurrentVideo = seedVid, ID = 2};
+            context.CurrentVideo.Add(video);
+
             context.SaveChanges();
-            base.Seed(context); 
+            base.Seed(context);
             
         }
     }

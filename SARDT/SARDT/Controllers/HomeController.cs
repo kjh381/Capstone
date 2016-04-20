@@ -17,20 +17,25 @@ namespace SARDT.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            WebText home = (from s in db.WebTexts
-                               where s.Section == "Home"
-                               select s).FirstOrDefault();
+            PublicVM pageContent = new PublicVM();
 
-            ViewBag.BodyText = home.Body;
-
-            
             Video currentVideo = new Video();
             currentVideo.Title = "invalid";
             currentVideo.URL = "invalid";
             if (db.CurrentVideo.Count() > 0)
                 currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
 
-            return View(currentVideo);
+            pageContent.currentVideo = currentVideo;
+
+            pageContent.textList = (from t in db.WebTexts
+                                    where t.Page == "Home"
+                                    select t).ToList();
+
+            pageContent.imageList = (from i in db.WebImages
+                                     where i.Location == "Home"
+                                     select i).ToList();
+
+            return View(pageContent);
 
         }
 

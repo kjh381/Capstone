@@ -239,7 +239,6 @@
     <Content Include="Views\WebContent\ChangeImage.cshtml" />
     <Content Include="Views\WebContent\AddImage.cshtml" />
     <Content Include="Views\WebContent\DeleteImage.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Auth\LogOut.cshtml" />
     <Content Include="Views\Auth\CreateRole.cshtml" />
     <Content Include="Views\Auth\Delete.cshtml" />

@@ -9,5 +9,9 @@ namespace SARDT.Models
     {
         public List<WebText> textList { get; set; }
         public List<WebImage> imageList { get; set; }
+
+        public List<Event> eventList { get; set; }
+
+        public Video currentVideo { get; set; }
     }
 }
