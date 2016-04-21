@@ -8,7 +8,6 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
-        <h2>Home</h2>
         <p>
             @if (Model.currentVideo.Title != "invalid" && Model.currentVideo.URL != "invalid")
             {
@@ -24,7 +23,7 @@
         </div>
         <div class="col-sm-4">
             <figure>
-                <img src="~/Images/@Model.imageList[0].FileName" width="250" height="250" />
+                <img src="~/Images/@Model.imageList[0].FileName" width="300" height="300" />
                 <figcaption>@Model.imageList[0].Caption</figcaption>
             </figure>
         </div>
@@ -40,7 +39,7 @@
     <div class="row">
         <div class="col-sm-4">
             <figure>
-                <img src="~/Images/@Model.imageList[1].FileName" width="250" height="250" />
+                <img src="~/Images/@Model.imageList[1].FileName" width="300" height="300" />
                 <figcaption>@Model.imageList[1].Caption</figcaption>
             </figure>
         </div>

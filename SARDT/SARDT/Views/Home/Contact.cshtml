@@ -1,8 +1,19 @@
-﻿
+﻿@model SARDT.Models.PublicVM
 @{
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<table>
 
-        <h2>Contact Info will go here</h2>
-        @Html.ActionLink("Edit Text", "Index", "WebContent")
+    @foreach (var item in Model.textList)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(item.Section)
+            </td>
+            <td>
+                @Html.DisplayFor(item.Body)
+            </td>
+        </tr>
+    }
+</table>
