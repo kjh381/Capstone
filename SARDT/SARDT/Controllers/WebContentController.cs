@@ -119,6 +119,8 @@ namespace SARDT.Controllers
 
             List<WebImage> images = (from i in db.WebImages
                                      where i.InUse == true
+                                     orderby i.Page
+                                     orderby i.Location
                                      select i).ToList();
             return View(images);
         }
@@ -145,9 +147,11 @@ namespace SARDT.Controllers
 
             nowActive.InUse = true;
             oldImage.InUse = false;
+            nowActive.Page = oldImage.Page;
+            oldImage.Page = "";
 
             nowActive.Location = oldImage.Location;
-            oldImage.Location = "";
+            oldImage.Location = null;
             
             db.SaveChanges();
 
@@ -211,7 +215,7 @@ namespace SARDT.Controllers
                     img.InUse = false;
                     img.FileName = file.FileName;
                     img.Caption = image.Caption;
-                    img.Location = "";
+                    img.Location = null;
 
                     db.WebImages.Add(img);
                     db.SaveChanges();
@@ -271,7 +275,7 @@ namespace SARDT.Controllers
                                     select t).ToList();
 
             pageContent.imageList = (from i in db.WebImages
-                                     where i.Location == "Home"
+                                     where i.Page == "Home"
                                      select i).ToList();
 
             return View(pageContent);

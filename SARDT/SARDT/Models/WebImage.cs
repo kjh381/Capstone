@@ -20,7 +20,10 @@ namespace SARDT.Models
         public bool InUse { get; set; }
 
         [Editable(false)]
-        public string Location { get; set; }
+        public string Page { get; set; }
+
+        [Editable(false)]
+        public int? Location { get; set; }
 
     }
 }

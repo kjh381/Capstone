@@ -17,13 +17,20 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-8">
+        <div class="col-sm-12 text-left">
             <h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
-                @Html.DisplayFor(model => model.textList[0].Body)
+            <p>@Html.DisplayFor(model => model.textList[0].Body)</p>
         </div>
-        <div class="col-sm-4">
+    </div>
+
+    <div class="row">
+        <div class="col-sm-7">
+            <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
+            <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
+        </div>
+        <div class="col-sm-5">
             <figure>
-                <img src="~/Images/@Model.imageList[0].FileName" width="300" height="300" />
+                <img src="~/Images/@Model.imageList[0].FileName" />
                 <figcaption>@Model.imageList[0].Caption</figcaption>
             </figure>
         </div>
@@ -37,14 +44,14 @@
 </div>
 
     <div class="row">
-        <div class="col-sm-4">
+        <div class="col-sm-5">
             <figure>
-                <img src="~/Images/@Model.imageList[1].FileName" width="300" height="300" />
+                <img src="~/Images/@Model.imageList[1].FileName" />
                 <figcaption>@Model.imageList[1].Caption</figcaption>
             </figure>
         </div>
-        <div class="col-sm-8">
-            <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
-            @Html.DisplayFor(model => model.textList[1].Body)
+        <div class="col-sm-7">
+            <h2>@Html.DisplayFor(model => model.textList[2].Section)</h2>
+            <p>@Html.DisplayFor(model => model.textList[2].Body)</p>
         </div>
     </div>

@@ -46,11 +46,11 @@ namespace SARDT.Models
             context.WebTexts.Add(applicationText1);
             context.WebTexts.Add(applicationText2);
 
-            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Location="Home"};
-            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Location = "Home" };
-            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Location = "" };
-            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Location = "" };
-            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Location = "" };
+            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page="Home", Location=1};
+            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page="Home", Location = 2 };
+            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Page="", Location = null };
+            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Page ="", Location = null };
+            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Page ="", Location = null };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);

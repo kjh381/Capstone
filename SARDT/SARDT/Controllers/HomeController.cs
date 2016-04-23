@@ -17,26 +17,8 @@ namespace SARDT.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            PublicVM pageContent = new PublicVM();
-
-            Video currentVideo = new Video();
-            currentVideo.Title = "invalid";
-            currentVideo.URL = "invalid";
-            if (db.CurrentVideo.Count() > 0)
-                currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
-
-            pageContent.currentVideo = currentVideo;
-
-            pageContent.textList = (from t in db.WebTexts
-                                    where t.Page == "Home"
-                                    select t).ToList();
-
-            pageContent.imageList = (from i in db.WebImages
-                                     where i.Location == "Home"
-                                     select i).ToList();
-
+            PublicVM pageContent = GetPageContent("Home", true, "");
             return View(pageContent);
-
         }
 
         public ActionResult Team()
@@ -46,16 +28,7 @@ namespace SARDT.Controllers
 
         public ActionResult History()
         {
-            PublicVM pageContent = new PublicVM();
-
-            pageContent.textList = (from s in db.WebTexts
-                                     where s.Page == "History"
-                                     select s).ToList();
-
-            pageContent.imageList = (from i in db.WebImages
-                                     where i.Location == "History"
-                                     select i).ToList();
-
+            PublicVM pageContent = GetPageContent("History", false, "");
             return View(pageContent);
         }
 
@@ -114,7 +87,8 @@ namespace SARDT.Controllers
                                     select s).ToList();
 
             pageContent.imageList = (from i in db.WebImages
-                                     where i.Location == pageName
+                                     where i.Page == pageName
+                                     orderby i.Location
                                      select i).ToList();
 
             return (pageContent);

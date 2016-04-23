@@ -3,17 +3,47 @@
     ViewBag.Title = "Contact";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<table>
 
-    @foreach (var item in Model.textList)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(item.Section)
-            </td>
-            <td>
-                @Html.DisplayFor(item.Body)
-            </td>
-        </tr>
-    }
-</table>
+<div class="row">
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[0].Section):
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[0].Body)
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[1].Section):
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[1].Body)
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[2].Section):
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[2].Body)
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[3].Section):
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[3].Body)
+    </div>
+    <div class="col-sm-6">
+    </div>
+</div>

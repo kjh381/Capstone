@@ -27,13 +27,25 @@
     text-align: center;
 }
 
-.col-sm-8{
+.col-sm-8, .col-sm-4, .col-sm-3, .col-sm-6, .col-sm-5,.col-sm-7{
     text-align: left;
 }
 
 .col-sm-8 h2{
     text-align: left;
 }
+figure {
+    width:100%;
+    text-align:center;
+}
+figure img {
+    width:100%;
+    margin-top:75px;
+    max-height:700px;
+    max-width:500px;
+}
+
+
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
