@@ -46,111 +46,6 @@ namespace SARDT.Controllers
             return View("Index", calendarVM);
         }
 
-        /*
-        // GET: /Calendar/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Year year = db.Years.Find(id);
-            if (year == null)
-            {
-                return HttpNotFound();
-            }
-            return View(year);
-        }
-
-        // GET: /Calendar/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: /Calendar/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Num")] Year year)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Years.Add(year);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(year);
-        }
-
-        // GET: /Calendar/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Year year = db.Years.Find(id);
-            if (year == null)
-            {
-                return HttpNotFound();
-            }
-            return View(year);
-        }
-
-        // POST: /Calendar/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Num")] Year year)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(year).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(year);
-        }
-
-        // GET: /Calendar/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Year year = db.Years.Find(id);
-            if (year == null)
-            {
-                return HttpNotFound();
-            }
-            return View(year);
-        }
-
-        // POST: /Calendar/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Year year = db.Years.Find(id);
-            db.Years.Remove(year);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-        */
         private CalendarVM CreateCalendarFromDate(int year, int month)
         {
             string dateString = month.ToString("##") + "/01/" + year.ToString("##");
@@ -167,6 +62,9 @@ namespace SARDT.Controllers
                 newDay.Month = date.Month;
                 newDay.DayOfWeek = (int)date.DayOfWeek;
                 newDay.DayOfMonth = date.Day;
+                newDay.Events = (from e in db.Events
+                                    where e.EventDate == date
+                                    select e).OrderBy(thisEvent => thisEvent.StartTime).ToList();
                 calendar.Month.Days.Add(newDay);
                 count++;
                 date = date.AddDays(1.0);
@@ -195,6 +93,7 @@ namespace SARDT.Controllers
             }
             return CreateCalendarFromDate(year, month);
         }
+
 
         private string GetDayName(int dayNum)
         {            string dayName = "";

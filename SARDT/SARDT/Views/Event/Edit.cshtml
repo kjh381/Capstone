@@ -26,10 +26,10 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EventDate, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="EventDate">Event Date</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EventDate)
-                @Html.ValidationMessageFor(model => model.EventDate)
+                <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@Model.EventDate.ToString("yyyy-MM-dd")" />
+                <span class="field-validation-valid" data-valmsg-for="EventDate" data-valmsg-replace="true"></span>
             </div>
         </div>
 
@@ -65,11 +65,12 @@
             </div>
         </div>
 
+
         <div class="form-group">
-            @Html.LabelFor(model => model.LastChangedOn, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="LastChangedOn">LastChangedOn</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangedOn)
-                @Html.ValidationMessageFor(model => model.LastChangedOn)
+                <input class="text-box single-line" data-val="true" data-val-date="Last Changed On must be a date." data-val-required="The LastChangedOn field is required." id="LastChangedOn" name="LastChangedOn" type="date" value="@Model.LastChangedOn.ToString("yyyy-MM-dd")" />
+                <span class="field-validation-valid" data-valmsg-for="EventDate" data-valmsg-replace="true"></span>
             </div>
         </div>
 

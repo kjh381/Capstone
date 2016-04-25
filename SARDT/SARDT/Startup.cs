@@ -12,7 +12,7 @@ namespace SARDT
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = "ApplicationCookie",
-                LoginPath = new PathString("/Home/Index")
+                LoginPath = new PathString("/Auth/Login")
             });
         }
     }

@@ -168,6 +168,7 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Calendar.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -185,6 +186,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
@@ -197,6 +199,9 @@
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\DBInitializer.cs" />
     <Compile Include="Models\Month.cs" />
+    <Compile Include="Models\LogInModel.cs" />
+    <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\RegistrationModel.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="Models\SARDTContext.cs" />
     <Compile Include="Models\Video.cs" />
@@ -219,12 +224,20 @@
     <Content Include="Views\WebContent\Edit.cshtml" />
     <Content Include="Views\WebContent\Index.cshtml" />
     <Content Include="Views\WebContent\Test.cshtml" />
+    <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
     <Content Include="Views\Home\Member.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
+    <Content Include="Views\Auth\LogOut.cshtml" />
+    <Content Include="Views\Auth\CreateRole.cshtml" />
+    <Content Include="Views\Auth\Delete.cshtml" />
+    <Content Include="Views\Auth\EditRole.cshtml" />
+    <Content Include="Views\Auth\Index.cshtml" />
+    <Content Include="Views\Auth\ManageUserRoles.cshtml" />
     <Content Include="Views\Event\Create.cshtml" />
     <Content Include="Views\Event\Delete.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
@@ -235,10 +248,6 @@
     <Content Include="Views\Videos\Delete.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
     <Content Include="Views\Videos\VideoView.cshtml" />
-    <Content Include="Views\Calendar\Create.cshtml" />
-    <Content Include="Views\Calendar\Delete.cshtml" />
-    <Content Include="Views\Calendar\Details.cshtml" />
-    <Content Include="Views\Calendar\Edit.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

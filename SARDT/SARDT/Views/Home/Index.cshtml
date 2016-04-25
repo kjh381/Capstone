@@ -5,6 +5,24 @@
 }
     
 
+
+        <h2>Welcome Home</h2>
+        @Html.ActionLink("Edit Text", "Index", "WebContent")
+
+     <!-- Jumbotron -->
+    <div class="jumbotron">
+        <div class="Social">
+            <i class="fa fa-facebook-square fa-2x"></i>
+            <i class="fa fa-twitter-square fa-2x"></i>
+            <i class="fa fa-youtube-square fa-2x"></i>
+        </div>
+        <h2>Home</h2>
+        @ViewBag.BodyText <br />
+        <!--needs to be replaced with a video from the dive team-->
+        <p class="lead">A really awesome video from the dive team</p>
+        <p>
+            <iframe width="420" height="315" src="https://www.youtube.com/embed/OCEQ8NQmMAw"></iframe>
+
         <h2>Welcome Home</h2>
         @Html.ActionLink("Edit Text", "Index", "WebContent")
 
@@ -24,6 +42,7 @@
             { 
                 <iframe width="420" height="315" src="@Model.URL"></iframe>
             }
+
 
         </p>
         <!--row of columns Place holder data-->

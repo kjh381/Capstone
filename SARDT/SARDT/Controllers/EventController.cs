@@ -35,11 +35,24 @@ namespace SARDT.Controllers
             return View(@event);
         }
 
-        // GET: /Event/Create
-        public ActionResult Create()
+
+
+        //Custom Create with Month, Day, Year passed in
+        public ActionResult Create(int? month, int? day, int? year)
         {
             fillSelectList();
-            return View();
+            if (month == null || day == null || year == null)
+            {
+                return View();
+            }
+            else
+            {
+                Event newEvent = new Event();
+                string dateString = month.Value.ToString("##") + "/" + day.Value.ToString("##") + "/" + year.Value.ToString("##");
+                DateTime date = Convert.ToDateTime(dateString);
+                newEvent.EventDate = date;
+                return View(newEvent);
+            }
         }
 
         // POST: /Event/Create

@@ -8,7 +8,7 @@ namespace SARDT.Models
 {
     public class Event
     {
-        public enum EventType { Public, Private }
+        public enum EventType { Public, Team }
         public int EventID { get; set; }
         public EventType Type { get; set; }
         [DataType(DataType.Date)]

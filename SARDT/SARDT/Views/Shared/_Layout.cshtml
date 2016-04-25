@@ -17,6 +17,9 @@
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom styles for this site -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <!-- Calendar specific styling -->
+    <link href="~/Content/Calendar.css" rel="stylesheet" type="text/css" />
+
     <!-- font Awesome core -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -43,6 +46,12 @@
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>                               
+                                <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+
+
+
                             </ul>
                         </nav>
                     break;
@@ -124,6 +133,8 @@
                             </ul>
                         </nav>
                 break;
+
+
                 default:
                         <nav>
                             <ul class="nav nav-justified">
@@ -137,6 +148,7 @@
                             </ul>
                         </nav>
                 break;
+
                 
                 
             }

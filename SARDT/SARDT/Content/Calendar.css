@@ -1,0 +1,13 @@
+﻿.calendar {
+    min-width: 800px;
+}
+
+.pager-text {
+    font-size: small;
+}
+
+.calendar-event {
+    font-size: small;
+    vertical-align: bottom;
+}
+
