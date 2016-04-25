@@ -28,6 +28,7 @@
             <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
         </div>
+
         <div class="col-sm-5">
             <figure>
                 <img src="~/Images/@Model.imageList[0].FileName" />
@@ -36,12 +37,15 @@
         </div>
     </div>
 
-<div class="row">
-    <div class="col-sm-12">
-        <h3>Placeholder for Events listing</h3>
-        <br /><br /><br />
-    </div>
-</div>
+	<div class="row">
+		<div class="col-sm-12">
+			@foreach(var item in @ViewBag.EventsText)
+					{
+						<p>@item</p>
+					}
+			<br /><br /><br />
+		</div>
+	</div>
 
     <div class="row">
         <div class="col-sm-5">
@@ -53,5 +57,6 @@
         <div class="col-sm-7">
             <h2>@Html.DisplayFor(model => model.textList[2].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[2].Body)</p>
+
         </div>
     </div>

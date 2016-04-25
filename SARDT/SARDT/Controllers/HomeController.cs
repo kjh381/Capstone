@@ -16,6 +16,23 @@ namespace SARDT.Controllers
         {
             PublicVM pageContent = GetPageContent("Home", true, "");
             return View(pageContent);
+
+            List<String> publicEvents = new List<String>();
+
+            var events = from ev in db.Events
+                         where ev.Type == "public"
+                         select ev;
+
+            foreach (var e in events)
+            {
+                var eventDate = e.EventDate.Date;
+                var eventTime = ParseMilitaryTime(e.StartTime.ToString());
+
+                publicEvents.Add(eventDate.ToString("d") + " " + e.EventTitle + " " + eventTime.ToString("t"));
+            }
+        
+            ViewBag.EventsText = publicEvents;
+
         }
 
         public ActionResult Team()
@@ -90,6 +107,32 @@ namespace SARDT.Controllers
                                      select i).ToList();
 
             return (pageContent);
+        }
+
+        public static DateTime ParseMilitaryTime(string time)
+        {
+	    //
+	    // Convert hour part of string to integer.
+	    //
+	    string hour = time.Substring(0, 2);
+	    int hourInt = int.Parse(hour);
+	    if (hourInt >= 24)
+	    {
+	        throw new ArgumentOutOfRangeException("Invalid hour");
+	    }
+	    //
+	    // Convert minute part of string to integer.
+	    //
+	    string minute = time.Substring(2, 2);
+	    int minuteInt = int.Parse(minute);
+	    if (minuteInt >= 60)
+	    {
+	        throw new ArgumentOutOfRangeException("Invalid minute");
+	    }
+	    //
+	    // Return the DateTime.
+	    //
+	    return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
 
     }
