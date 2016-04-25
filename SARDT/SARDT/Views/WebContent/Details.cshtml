@@ -8,9 +8,9 @@
 <h2>Details</h2>
 
 <div>
-    <h4>WebText</h4>
 	<hr />
     <dl class="dl-horizontal">
+
         <dt>
             @Html.DisplayNameFor(model => model.Section)
         </dt>
@@ -47,5 +47,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.WebTextID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "TextEditorIndex", new { pageName = Model.Page })
 </p>

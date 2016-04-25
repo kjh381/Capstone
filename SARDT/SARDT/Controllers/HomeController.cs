@@ -9,7 +9,10 @@ namespace SARDT.Controllers
 {
     public class HomeController : Controller
     {
+
+
         private SARDTContext db = new SARDTContext();
+
 
         // GET: Home
         public ActionResult Index()
@@ -46,7 +49,7 @@ namespace SARDT.Controllers
             }
         
             ViewBag.EventsText = publicEvents;
-            
+
             Video currentVideo = new Video();
             currentVideo.Title = "invalid";
             currentVideo.URL = "invalid";
@@ -54,6 +57,7 @@ namespace SARDT.Controllers
                 currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
 
             return View(currentVideo);
+
         }
 
         public ActionResult Team()

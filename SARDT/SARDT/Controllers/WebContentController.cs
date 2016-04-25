@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using SARDT.Models;
+using System.IO;
 
 namespace SARDT.Controllers
 {
@@ -36,29 +37,6 @@ namespace SARDT.Controllers
             return View(webtext);
         }
 
-        // GET: /Default1/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: /Default1/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="WebTextID,Section,Body,LastChangedOn,LastChangeBy")] WebText webtext)
-        {
-            if (ModelState.IsValid)
-            {
-                db.WebTexts.Add(webtext);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(webtext);
-        }
-
         // GET: /Default1/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -79,28 +57,17 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="WebTextID,Section,Body,LastChangedOn,LastChangeBy")] WebText webtext)
+        public ActionResult Edit([Bind(Include="WebTextID,Section,Page,Body,LastChangedOn,LastChangeBy")] WebText webtext)
         {
+            webtext.LastChangedOn = DateTime.Now;
+            //TODO: Enable after identity is implemented.
+            //webtext.LastChangeBy = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 db.Entry(webtext).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(webtext);
-        }
-
-        // GET: /Default1/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            WebText webtext = db.WebTexts.Find(id);
-            if (webtext == null)
-            {
-                return HttpNotFound();
+                return RedirectToAction("TextEditorIndex", new {pageName = webtext.Page});
             }
             return View(webtext);
         }
@@ -117,20 +84,167 @@ namespace SARDT.Controllers
         }
 
 
-        public ActionResult Test()
+        public ActionResult EditText()
         {
-            //WebText webtext = db.WebTexts.Find(id);
-            WebText history = (from s in db.WebTexts
-                               where s.Section == "History"
-                               select s).FirstOrDefault();
+                return View();
+        }
 
-            if (history == null)
+        public ActionResult TextEditorIndex(string pageName)
+        {
+            if (pageName == null)
+                return RedirectToAction("EditText");
+            else
+            {
+                List<WebText> textList = (from s in db.WebTexts
+                                          where s.Page == pageName
+                                          select s).ToList();
+
+                if (textList == null)
+                {
+                    return HttpNotFound();
+                }
+
+                ViewBag.pageName = pageName;
+                return View(textList);                
+            }
+        }
+
+        public ActionResult WebImageIndex()
+        {
+            List<WebImage> images = (from i in db.WebImages
+                                     where i.InUse == true
+                                     select i).ToList();
+            return View(images);
+        }
+
+        [HttpGet]
+        public ActionResult ChangeImage(int id)
+        {
+            List<WebImage> images = (from i in db.WebImages
+                                     where i.InUse == false
+                                     select i).ToList();
+            
+            WebImage active = db.WebImages.Find(id);
+
+            images.Insert(0, active);
+            return View(images);
+        }
+
+        //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
+        //[HttpPost]
+        public ActionResult ChangeActive(int oldID, int newID)
+        {
+            WebImage nowActive = db.WebImages.Find(newID);
+            WebImage oldImage = db.WebImages.Find(oldID);
+
+            nowActive.InUse = true;
+            oldImage.InUse = false;
+
+            nowActive.Location = oldImage.Location;
+            oldImage.Location = "";
+            
+            db.SaveChanges();
+
+            return RedirectToAction("ChangeImage", new {id = newID});
+        }
+
+
+        public ActionResult DeleteImage(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WebImage image = db.WebImages.Find(id);
+            if (image == null)
             {
                 return HttpNotFound();
             }
-            return View(history);
+            return View(image);
         }
 
+        [HttpPost, ActionName("DeleteImage")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteImageConfirmed(int id)
+        {
+            WebImage image = db.WebImages.Find(id);
+            db.WebImages.Remove(image);
+            db.SaveChanges();
+            return RedirectToAction("ChangeImage");
+        }
+
+        public ActionResult AddImage()
+        {
+            var image = new WebImage();
+            return View(image);
+        }
+
+        [HttpPost]
+        public ActionResult AddImage(HttpPostedFileBase file, [Bind(Include = "WebImageID, Caption")] WebImage image)
+        {
+
+            if (file != null && file.ContentLength > 0)
+                try
+                {                
+                    string path = Path.Combine(Server.MapPath("~/Images"),Path.GetFileName(file.FileName));
+                    
+                    file.SaveAs(path);
+                    ViewBag.Message = "File uploaded successfully";
+
+                    var img = new WebImage();
+                    img.WebImageID = image.WebImageID;
+                    img.InUse = false;
+                    img.FileName = file.FileName;
+                    img.Caption = image.Caption;
+
+                    db.WebImages.Add(img);
+                    db.SaveChanges();
+
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+            
+            return RedirectToAction("AddImage");
+
+        }
+
+
+        public ActionResult EditImage(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            WebImage webimage = db.WebImages.Find(id);
+            if (webimage == null)
+            {
+                return HttpNotFound();
+            }
+            return View(webimage);
+        }
+
+        // POST: /WebImages/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,FileName,InUse")] WebImage webimage)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(webimage).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("WebImageIndex");
+            }
+            return View(webimage);
+        }
+        
 
         protected override void Dispose(bool disposing)
         {
