@@ -9,10 +9,7 @@ namespace SARDT.Controllers
 {
     public class HomeController : Controller
     {
-
-
         private SARDTContext db = new SARDTContext();
-
 
         // GET: Home
         public ActionResult Index()
@@ -44,7 +41,8 @@ namespace SARDT.Controllers
 
         public ActionResult Application()
         {
-            return View();
+            PublicVM pageContent = GetPageContent("Application", false, "");
+            return View(pageContent);
         }
 
         public ActionResult Contact()

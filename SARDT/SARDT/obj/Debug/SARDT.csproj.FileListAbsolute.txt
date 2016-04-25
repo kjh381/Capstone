@@ -186,3 +186,4 @@ C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Mvc.xml
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache

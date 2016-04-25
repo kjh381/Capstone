@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>WebText</h4>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.WebTextID)
@@ -27,8 +26,6 @@
             @Html.LabelFor(model => model.Page, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DisplayFor(model => model.Page)
-                @*@Html.EditorFor(model => model.Page)
-                @Html.ValidationMessageFor(model => model.Page)*@
             </div>
         </div>
 

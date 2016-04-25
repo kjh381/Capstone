@@ -30,21 +30,30 @@ namespace SARDT.Models
             WebText historyText = new WebText { WebTextID = 7, Page="History", Section = "History of the Dive Team", Body = "A long long time ago...in a galaxy far away...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
 
-            WebText contactText1 = new WebText { WebTextID = 8, Page = "Contact", Section = "Name", Body = "Contact Me", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText contactText2 = new WebText { WebTextID = 9, Page = "Contact", Section = "Email", Body = "something@something.com", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText contactText3 = new WebText { WebTextID = 10, Page = "Contact", Section = "Phone", Body = "541-123-4567", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText contactText4 = new WebText { WebTextID = 11, Page = "Contact", Section = "Address", Body = "Downtown Eugene", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText1 = new WebText { WebTextID = 8, Page = "Contact", Section = "Expected Response", Body = "This can be a generic message...once contacted you can expect a response within a certian amount of time...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText2 = new WebText { WebTextID = 9, Page = "Contact", Section = "Name", Body = "Contact Me", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText3 = new WebText { WebTextID = 10, Page = "Contact", Section = "Email", Body = "something@something.com", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText4 = new WebText { WebTextID = 11, Page = "Contact", Section = "Phone", Body = "541-123-4567", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText5 = new WebText { WebTextID = 12, Page = "Contact", Section = "Address", Body = "Downtown Eugene", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText6 = new WebText { WebTextID = 13, Page = "Contact", Section = "Map URL", Body = "https://www.google.com/maps/d/embed?mid=1eeqA5dx0Qtw9GB6zqbfBlOk8hCI", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(contactText1);
             context.WebTexts.Add(contactText2);
             context.WebTexts.Add(contactText3);
             context.WebTexts.Add(contactText4);
+            context.WebTexts.Add(contactText5);
+            context.WebTexts.Add(contactText6);
 
-            WebText applicationText0 = new WebText { WebTextID = 3, Page = "Application", Section = "1", Body = "App part 1", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText applicationText1 = new WebText { WebTextID = 4, Page = "Application", Section = "2", Body = "App part 2", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText applicationText2 = new WebText { WebTextID = 5, Page = "Application", Section = "3", Body = "App part 3", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText0 = new WebText { WebTextID = 3, Page = "Application", Section = "Requirements", Body = "Application Process", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText1 = new WebText { WebTextID = 4, Page = "Application", Section = "1", Body = "App part 1", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText2 = new WebText { WebTextID = 5, Page = "Application", Section = "2", Body = "App part 2", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText3 = new WebText { WebTextID = 14, Page = "Application", Section = "3", Body = "App part 3", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText4 = new WebText { WebTextID = 15, Page = "Application", Section = "4", Body = "App part 4", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            //TODO Need a way to upload new version of the dive application
             context.WebTexts.Add(applicationText0);
             context.WebTexts.Add(applicationText1);
             context.WebTexts.Add(applicationText2);
+            context.WebTexts.Add(applicationText3);
+            context.WebTexts.Add(applicationText4);
 
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page="Home", Location=1};
             WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page="Home", Location = 2 };

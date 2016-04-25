@@ -223,7 +223,6 @@
     <Content Include="Views\WebContent\Details.cshtml" />
     <Content Include="Views\WebContent\Edit.cshtml" />
     <Content Include="Views\WebContent\Index.cshtml" />
-    <Content Include="Views\WebContent\Test.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
@@ -264,6 +263,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Application\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>

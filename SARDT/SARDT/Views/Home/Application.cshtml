@@ -1,10 +1,20 @@
-﻿
+﻿@model SARDT.Models.PublicVM
 @{
     ViewBag.Title = "Application";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-        <h2>Application Page</h2>
-        @Html.ActionLink("Edit Text", "Index", "WebContent")
 
+<h2>@Html.DisplayFor(model => model.textList[0].Body)</h2>
 
+<div class="row">
+    <div class="col-sm-1 text-left">
+        @Html.DisplayFor(model => model.textList[1].Section)
+    </div>
+    <div class="col-sm-6 text-left">
+        @Html.DisplayFor(model => model.textList[1].Body)
+    </div>
+    <div class="col-sm-5">
+        <a href="~/Application/Application.pdf">Download application</a>
+    </div>
+@*</div>*@

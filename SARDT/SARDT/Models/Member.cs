@@ -11,7 +11,7 @@ namespace SARDT.Models
     {
 
         public string MemberName { get; set; }
-      public int MemberID { get; set; }
+        public int MemberID { get; set; }
 
 
         public string FirstName { get; set; }
