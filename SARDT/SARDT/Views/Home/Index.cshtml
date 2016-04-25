@@ -25,6 +25,7 @@
             <i class="fa fa-twitter-square fa-2x"></i>
             <i class="fa fa-youtube-square fa-2x"></i>
         </div>
+        </div>
         <h2>Home</h2>
         @ViewBag.BodyText <br />
         <!--needs to be replaced with a video from the dive team-->
@@ -46,8 +47,12 @@
                 <p>Tri-tip nostrud shankle in short loin pork. Dolore excepteur adipisicing landjaeger dolore aute et in ut ad ullamco filet mignon. Beef ribs short loin eiusmod, pork loin consectetur reprehenderit spare ribs biltong nulla ipsum meatball pariatur shankle frankfurter id. Eu incididunt ipsum ut doner capicola meatloaf meatball pig pork loin. Dolore laboris nisi sint lorem. </p>
                 <p><a class="btn btn-primary" href="#" role="button">Read More &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
+            <div id="divCenter" class="col-lg-4">
                 <h2>Upcoming Events</h2>
+                @foreach(var item in @ViewBag.EventsText)
+                {
+                    <p>@item</p>
+                }
                 <p>Zombies reversus ab inferno, nam malum cerebro. De carne animata corpora quaeritis. Summus sit​​, morbo vel maleficia? De Apocalypsi undead dictum mauris. Hi mortuis soulless creaturas, imo monstra adventus vultus comedat cerebella viventium. Qui offenderit rapto, terribilem incessu. The voodoo sacerdos suscitat mortuos comedere carnem. Search for solum oculi eorum defunctis cerebro. Nescio an Undead zombies. Sicut malus movie horror. </p>
             </div>
             <div class="col-lg-4">
