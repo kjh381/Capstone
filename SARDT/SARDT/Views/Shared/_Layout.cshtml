@@ -39,131 +39,204 @@
                                 <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
                                 <li><a href="@Url.Action("Team", "Home")">Team</a></li>
                                 <li><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
 
-                                <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>                               
-                                <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
-
-
-
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                     break;
                 case "Team":
                         <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
                                 <li class="active"><a href="@Url.Action("Team", "Home")">Team</a></li>
                                 <li><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
                 case "History":
                         <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li class ="active"><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li class="active"><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
                 case "Member":
                         <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li class="active"><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
                 case "Donate":
                         <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li class="active"><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
                 case "Application":
-                        <nav>
+                       <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li class="active"><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
                 case "Contact":
-                        <nav>
+                       <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li class="active"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
 
 
                 default:
-                        <nav>
+                       <nav>
                             <ul class="nav nav-justified">
-                                <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
+                                <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                <li><a href="@Url.Action("History", "Home")">History</a></li>
                                 <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
                                 <li><a href="@Url.Action("Application", "Home")">Application</a></li>
                                 <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+
+                                @{
+                                    if (User.Identity.IsAuthenticated)
+                                    {
+                                        <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                    }
+                                    else
+                                    {
+                                        <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>
+                                    }
+                                 }
                             </ul>
                         </nav>
                 break;
-
-                
                 
             }
 
         </div>
         <!-- Jumbotron -->
         <div class="jumbotron">
-            <div class="Social">
+         <!--   <div class="Social">
                 <i class="fa fa-facebook-square fa-2x"></i>
                 <i class="fa fa-twitter-square fa-2x"></i>
                 <i class="fa fa-youtube-square fa-2x"></i>
             </div>
+             -->
             @RenderBody()
         </div>
 
             <!-- Site footer -->
             <footer class="footer">
-                <p>&copy; 2016 Company, Inc.</p>
+                <p>&copy;2016 Lane Co. Search and Rescue</p>
             </footer>
 
         </div> <!-- /container -->
