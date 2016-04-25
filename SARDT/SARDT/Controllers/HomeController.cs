@@ -14,9 +14,10 @@ namespace SARDT.Controllers
         // GET: Home
         public ActionResult Index()
         {
-            PublicVM pageContent = GetPageContent("Home", true, "");
+            PublicVM pageContent = GetPageContent("Home", true, "public");
             return View(pageContent);
 
+            /*
             List<String> publicEvents = new List<String>();
 
             var events = from ev in db.Events
@@ -32,7 +33,7 @@ namespace SARDT.Controllers
             }
         
             ViewBag.EventsText = publicEvents;
-
+            */
         }
 
         public ActionResult Team()

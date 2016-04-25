@@ -39,9 +39,9 @@
 
 	<div class="row">
 		<div class="col-sm-12">
-			@foreach(var item in @ViewBag.EventsText)
+			@foreach(var item in Model.eventList)
 					{
-						<p>@item</p>
+						<p>@item.EventDate.ToString("d") - @item.EventTitle - @Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
 					}
 			<br /><br /><br />
 		</div>
