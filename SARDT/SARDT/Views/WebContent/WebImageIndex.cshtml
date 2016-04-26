@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SARDT.Models.WebImage>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<p>@ViewBag.Message</p>
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FileName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Caption)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Page)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>Preview</th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FileName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Caption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Page)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Location)
+        </td>
+        <td>
+            <img src="~/Images/@item.FileName" width="50" height="50" />
+        </td>
+        <td>
+            @Html.ActionLink("Edit Caption For Image", "EditImage", new { id = item.WebImageID }) <br />
+            @Html.ActionLink("Change Active Image", "ChangeImage", new { id = item.WebImageID })
+        </td>
+    </tr>
+}
+
+</table>
+
+@Html.ActionLink("Add Images", "AddImage")

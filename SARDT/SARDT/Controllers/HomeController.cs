@@ -9,29 +9,31 @@ namespace SARDT.Controllers
 {
     public class HomeController : Controller
     {
-
-
         private SARDTContext db = new SARDTContext();
-
 
         // GET: Home
         public ActionResult Index()
         {
-            WebText home = (from s in db.WebTexts
-                               where s.Section == "Home"
-                               select s).FirstOrDefault();
+            PublicVM pageContent = GetPageContent("Home", true, "public");
+            return View(pageContent);
 
-            ViewBag.BodyText = home.Body;
+            /*
+            List<String> publicEvents = new List<String>();
 
-            
-            Video currentVideo = new Video();
-            currentVideo.Title = "invalid";
-            currentVideo.URL = "invalid";
-            if (db.CurrentVideo.Count() > 0)
-                currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
+            var events = from ev in db.Events
+                         where ev.Type == "public"
+                         select ev;
 
-            return View(currentVideo);
+            foreach (var e in events)
+            {
+                var eventDate = e.EventDate.Date;
+                var eventTime = ParseMilitaryTime(e.StartTime.ToString());
 
+                publicEvents.Add(eventDate.ToString("d") + " " + e.EventTitle + " " + eventTime.ToString("t"));
+            }
+        
+            ViewBag.EventsText = publicEvents;
+            */
         }
 
         public ActionResult Team()
@@ -41,13 +43,8 @@ namespace SARDT.Controllers
 
         public ActionResult History()
         {
-            WebText history = (from s in db.WebTexts
-                               where s.Section == "History"
-                               select s).FirstOrDefault();
-
-            ViewBag.BodyText = history.Body;
-
-            return View();
+            PublicVM pageContent = GetPageContent("History", false, "");
+            return View(pageContent);
         }
 
         public ActionResult Member()
@@ -62,12 +59,82 @@ namespace SARDT.Controllers
 
         public ActionResult Application()
         {
-            return View();
+            PublicVM pageContent = GetPageContent("Application", false, "");
+            return View(pageContent);
         }
 
         public ActionResult Contact()
         {
-            return View();
+            PublicVM pageContent = GetPageContent("Contact", false, "");
+            return View(pageContent);
         }
+
+
+        private PublicVM GetPageContent(string pageName, bool getVideo, string getEvents)
+        {
+            PublicVM pageContent = new PublicVM();
+
+            if (getEvents == "public")
+            {
+                pageContent.eventList = (from ev in db.Events
+                                         where ev.Type == "public"
+                                         select ev).ToList();
+            }
+            if (getEvents == "team")
+            {
+                pageContent.eventList = (from ev in db.Events
+                                         where ev.Type == "team"
+                                         select ev).ToList();
+            }
+
+            if (getVideo == true)
+            {
+                Video currentVideo = new Video();
+                currentVideo.Title = "invalid";
+                currentVideo.URL = "invalid";
+                if (db.CurrentVideo.Count() > 0)
+                    currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
+
+                pageContent.currentVideo = currentVideo;
+            }
+
+            pageContent.textList = (from s in db.WebTexts
+                                    where s.Page == pageName
+                                    select s).ToList();
+
+            pageContent.imageList = (from i in db.WebImages
+                                     where i.Page == pageName
+                                     orderby i.Location
+                                     select i).ToList();
+
+            return (pageContent);
+        }
+
+        public static DateTime ParseMilitaryTime(string time)
+        {
+	    //
+	    // Convert hour part of string to integer.
+	    //
+	    string hour = time.Substring(0, 2);
+	    int hourInt = int.Parse(hour);
+	    if (hourInt >= 24)
+	    {
+	        throw new ArgumentOutOfRangeException("Invalid hour");
+	    }
+	    //
+	    // Convert minute part of string to integer.
+	    //
+	    string minute = time.Substring(2, 2);
+	    int minuteInt = int.Parse(minute);
+	    if (minuteInt >= 60)
+	    {
+	        throw new ArgumentOutOfRangeException("Invalid minute");
+	    }
+	    //
+	    // Return the DateTime.
+	    //
+	    return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
+        }
+
     }
 }

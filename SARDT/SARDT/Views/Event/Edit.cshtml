@@ -13,6 +13,7 @@
     
     <div class="form-horizontal">
         <h4>Event</h4>
+        <p>@ViewBag.error</p>
         <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.EventID)

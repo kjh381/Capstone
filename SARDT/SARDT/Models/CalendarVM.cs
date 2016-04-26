@@ -21,16 +21,17 @@ namespace SARDT.Models
             }
         }
         public int Year { get; set; }
-        public string ParseMilitaryAsNormalTime(int militaryTime)
+        public string ParseMilitaryAsNormalTime(string militaryTime)
         {
+            int militaryNum = int.Parse(militaryTime);
             string normalTime = "";
             string amPMString = "AM";
-            if (militaryTime > 1259)
+            if (militaryNum > 1259)
             {
-                militaryTime = militaryTime - 1200;
+                militaryNum = militaryNum - 1200;
                 amPMString = "PM";
             }
-            string militaryString = militaryTime.ToString("D4");
+            string militaryString = militaryNum.ToString("D4");
             normalTime = militaryString.Substring(0, 2) + ":" + militaryString.Substring(2, 2) + " " + amPMString;
             return normalTime;
         }

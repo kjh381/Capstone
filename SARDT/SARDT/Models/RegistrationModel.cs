@@ -10,7 +10,7 @@ namespace SARDT.Models
     {
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public override string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]

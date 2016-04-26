@@ -8,14 +8,26 @@ namespace SARDT.Models
 {
     public class Event
     {
-        public enum EventType { Public, Team }
         public int EventID { get; set; }
-        public EventType Type { get; set; }
+        public string Type { get; set; }
+
         [DataType(DataType.Date)]
         public DateTime EventDate { get; set; }
-        public int StartTime { get; set; }
-        public int EndTime { get; set; }
+
+        [Required(ErrorMessage = "Start Time is required")]
+        [RegularExpression(@"^\d{4}$", 
+            ErrorMessage = "Must be in 24 hour time format 1200")]
+        public string StartTime { get; set; }
+
+        [Required(ErrorMessage = "End Time is required")]
+        [RegularExpression(@"^\d{4}$",
+            ErrorMessage = "Must be in 24 hour time format 1200")]
+        public string EndTime { get; set; }
+
+        [Required(ErrorMessage = "Title is required")]
         public string EventTitle { get; set; }
+
+        [Required(ErrorMessage = "Description is required")]
         public string Description { get; set; }
         [DataType(DataType.Date)]
         public DateTime LastChangedOn { get; set; }

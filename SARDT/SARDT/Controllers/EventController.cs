@@ -40,7 +40,7 @@ namespace SARDT.Controllers
         //Custom Create with Month, Day, Year passed in
         public ActionResult Create(int? month, int? day, int? year)
         {
-            fillSelectList();
+            typeSelectList();
             if (month == null || day == null || year == null)
             {
                 return View();
@@ -56,15 +56,26 @@ namespace SARDT.Controllers
         }
 
         // POST: /Event/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangeBy")] Event @event)
+        public ActionResult Create([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangeBy")] Event @event, string EventType)
         {
             if (ModelState.IsValid)
             {
-                db.Events.Add(@event);
+                Event newEvent = new Event() {
+                    Type = EventType,
+                    EventDate = @event.EventDate,
+                    StartTime = @event.StartTime,
+                    EndTime = @event.EndTime,
+                    EventTitle = @event.EventTitle,
+                    Description = @event.Description,
+                    LastChangedOn = @event.LastChangedOn,
+                    LastChangeBy = @event.LastChangeBy
+                };
+
+                db.Events.Add(newEvent);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -79,6 +90,7 @@ namespace SARDT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            typeSelectList();
             Event @event = db.Events.Find(id);
             if (@event == null)
             {
@@ -88,17 +100,24 @@ namespace SARDT.Controllers
         }
 
         // POST: /Event/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangeBy")] Event @event)
+        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(@event).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (@event.Type == "public" || @event.Type == "team")
+                {
+                    db.Entry(@event).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    ViewBag.error = "Type must be public or team";
+                }
             }
             return View(@event);
         }
@@ -138,11 +157,11 @@ namespace SARDT.Controllers
             base.Dispose(disposing);
         }
 
-        private void fillSelectList()
+        private void typeSelectList()
         {
-            ViewBag.EventType = new List<SelectListItem> { 
-                new SelectListItem { Text = "Public Events", Value = "Public" },
-                new SelectListItem { Text = "Team Events", Value = "Team" }
+            ViewBag.EventType = new List<SelectListItem> {
+                new SelectListItem { Text = "Public Events", Value = "public" },
+                new SelectListItem { Text = "Team Events", Value = "team" }
             };
         }
     }
