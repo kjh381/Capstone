@@ -35,15 +35,28 @@ namespace SARDT.Controllers
             return View(@event);
         }
 
-        // GET: /Event/Create
-        public ActionResult Create()
+
+
+        //Custom Create with Month, Day, Year passed in
+        public ActionResult Create(int? month, int? day, int? year)
         {
             typeSelectList();
-            return View();
+            if (month == null || day == null || year == null)
+            {
+                return View();
+            }
+            else
+            {
+                Event newEvent = new Event();
+                string dateString = month.Value.ToString("##") + "/" + day.Value.ToString("##") + "/" + year.Value.ToString("##");
+                DateTime date = Convert.ToDateTime(dateString);
+                newEvent.EventDate = date;
+                return View(newEvent);
+            }
         }
 
         // POST: /Event/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -51,7 +64,7 @@ namespace SARDT.Controllers
         {
             if (ModelState.IsValid)
             {
-                Event newEvent = new Event() { 
+                Event newEvent = new Event() {
                     Type = EventType,
                     EventDate = @event.EventDate,
                     StartTime = @event.StartTime,
@@ -87,7 +100,7 @@ namespace SARDT.Controllers
         }
 
         // POST: /Event/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -146,7 +159,7 @@ namespace SARDT.Controllers
 
         private void typeSelectList()
         {
-            ViewBag.EventType = new List<SelectListItem> { 
+            ViewBag.EventType = new List<SelectListItem> {
                 new SelectListItem { Text = "Public Events", Value = "public" },
                 new SelectListItem { Text = "Team Events", Value = "team" }
             };

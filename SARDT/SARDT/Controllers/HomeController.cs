@@ -49,7 +49,7 @@ namespace SARDT.Controllers
 
         public ActionResult Member()
         {
-            return View();
+            return View(db.Users.ToList());
         }
 
         public ActionResult Donate()

@@ -15,7 +15,7 @@ namespace SARDT.Models
     {
         protected override void Seed(SARDTContext context)
         {
-            //TODO: Add seeds to context here. 
+            //TODO: Add seeds to context here.
             //context.class.Add(newObjName)
             WebText homeText = new WebText { WebTextID = 0, Page = "Home", Section = "Welcome", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "News", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
@@ -29,7 +29,7 @@ namespace SARDT.Models
 
             WebText historyText = new WebText { WebTextID = 7, Page="History", Section = "History of the Dive Team", Body = "A long long time ago...in a galaxy far away...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
-
+            
             WebText contactText1 = new WebText { WebTextID = 8, Page = "Contact", Section = "Expected Response", Body = "This can be a generic message...once contacted you can expect a response within a certian amount of time...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText2 = new WebText { WebTextID = 9, Page = "Contact", Section = "Name", Body = "Contact Me", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText3 = new WebText { WebTextID = 10, Page = "Contact", Section = "Email", Body = "something@something.com", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
@@ -66,16 +66,27 @@ namespace SARDT.Models
             context.WebImages.Add(image4);
             context.WebImages.Add(image5);
 
-            Member firstMember = new Member { MemberID=1, Address = "1825 donald street", AttendencePercent = 20, City = "Eugene", DOB = "04/05/1978", Email = "Karrill29@gmail.com", LastName = "Swearingen", FirstName = "Quiante", IsDiveEligible = true , EmergencyContact = "Becky Swearingen 541-337-5208", HomeNumber = 541 - 222 - 2222, ZipCode = 97405, WorkPhone = 000 - 000 - 0000 };
 
             Video seedVid = new Video { ID = 2, Title = "Insert Title", URL = "https://www.youtube.com/embed/6OHmn4Tcfd4?rel=0" };
             context.Videos.Add(seedVid);
             CurrentVideos video = new CurrentVideos { CurrentVideo = seedVid, ID = 2};
             context.CurrentVideo.Add(video);
 
+            Event firstEvent = new Event { Description = "This is the first event!", StartTime = "1200", EndTime = "1400", EventDate = Convert.ToDateTime("04/30/2016"), EventTitle = "First Event", LastChangeBy = "guy", LastChangedOn = Convert.ToDateTime("04/30/2016"), Type = "public" };
+
+            Event secondEvent = new Event { Description = "Second event here!", StartTime = "0800", EndTime = "1000", EventDate = Convert.ToDateTime("04/21/2016"), EventTitle = "Second Event", LastChangeBy = "dude", LastChangedOn = Convert.ToDateTime("04/21/2016"), Type = "public" };
+
+            Event thirdEvent = new Event { Description = "WOOOHOOO!", StartTime = "1700", EndTime = "2000", EventDate = Convert.ToDateTime("05/10/2016"), EventTitle = "Last Event", LastChangeBy = "person", LastChangedOn = Convert.ToDateTime("05/10/2016"), Type = "team" };
+
+            context.Events.Add(firstEvent);
+            context.Events.Add(secondEvent);
+            context.Events.Add(thirdEvent);
+
+
+
+
             context.SaveChanges();
             base.Seed(context);
-            
         }
     }
 }
