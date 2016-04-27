@@ -6,16 +6,15 @@ using System.Web;
 
 namespace SARDT.Models
 {
-    public class RegistrationModel
+    public class RegistrationModel : Member
     {
         [Required]
         [DataType(DataType.EmailAddress)]
-        public string Email { get; set; }
+        public override string Email { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public string MemberName { get; set; }
     }
 }

@@ -13,7 +13,6 @@ namespace SARDT.Models
         [HiddenInput(DisplayValue = false)]
         public int WebTextID { get; set; }
 
-        [Editable(false)]
         public string Section { get; set; }
 
         [DataType(DataType.MultilineText)]

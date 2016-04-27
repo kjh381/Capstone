@@ -9,7 +9,6 @@ namespace SARDT.Models
     public class Event
     {
         public int EventID { get; set; }
-
         public string Type { get; set; }
 
         [DataType(DataType.Date)]

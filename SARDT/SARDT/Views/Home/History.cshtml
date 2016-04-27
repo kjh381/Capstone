@@ -1,13 +1,11 @@
-﻿
+﻿@model SARDT.Models.PublicVM
+
 @{
     ViewBag.Title = "History";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
+@Html.DisplayFor(model => model.textList[0].Body)
 
-        <h2>History of the Dive Team</h2>
-        @ViewBag.BodyText <br />
-
-        <!--remove before go live-->
-        @Html.ActionLink("Edit Text", "Index", "WebContent")
 
 
