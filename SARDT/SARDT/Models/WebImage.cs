@@ -14,6 +14,7 @@ namespace SARDT.Models
 
         public string FileName { get; set; }
 
+        [DataType(DataType.MultilineText)]
         public string Caption { get; set; }
 
         [Editable(false)]

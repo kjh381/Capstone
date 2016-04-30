@@ -43,7 +43,7 @@ namespace SARDT.Models
             context.WebTexts.Add(contactText5);
             context.WebTexts.Add(contactText6);
 
-            WebText applicationText0 = new WebText { WebTextID = 3, Page = "Application", Section = "Requirements", Body = "Application Process", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText0 = new WebText { WebTextID = 3, Page = "Application", Section = "Requirements", Body = "A summary of steps and requirements. Such as background check, fingerprint, rescue cert, probationary period, current fa/cpr...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText1 = new WebText { WebTextID = 4, Page = "Application", Section = "1", Body = "App part 1", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText2 = new WebText { WebTextID = 5, Page = "Application", Section = "2", Body = "App part 2", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText3 = new WebText { WebTextID = 14, Page = "Application", Section = "3", Body = "App part 3", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
