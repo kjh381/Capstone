@@ -4,39 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-        <h2>Member Area</h2>
-        @Html.ActionLink("Edit Text", "Index", "WebContent")
+<h2>Member Area</h2>
+        <a href="@Url.Action("EditText", "WebContent")">Edit Public Text</a><br />
+        <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Public Images</a><br />
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.LabelForModel("First Name")
-        </th>
-        <th>
-            @Html.LabelForModel("Last Name")
-        </th>
-        <th>
-            @Html.LabelForModel("Email")
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FirstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                <a href="mailto:@item.Email" target="_top">Send Email</a>
-            </td>
-        </tr>
-    }
-
-</table>

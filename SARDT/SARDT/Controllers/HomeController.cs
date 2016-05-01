@@ -16,24 +16,6 @@ namespace SARDT.Controllers
         {
             PublicVM pageContent = GetPageContent("Home", true, "public");
             return View(pageContent);
-
-            /*
-            List<String> publicEvents = new List<String>();
-
-            var events = from ev in db.Events
-                         where ev.Type == "public"
-                         select ev;
-
-            foreach (var e in events)
-            {
-                var eventDate = e.EventDate.Date;
-                var eventTime = ParseMilitaryTime(e.StartTime.ToString());
-
-                publicEvents.Add(eventDate.ToString("d") + " " + e.EventTitle + " " + eventTime.ToString("t"));
-            }
-        
-            ViewBag.EventsText = publicEvents;
-            */
         }
 
         public ActionResult Team()
@@ -47,6 +29,7 @@ namespace SARDT.Controllers
             return View(pageContent);
         }
 
+        //[Authorize(Roles="Member, Admin")]
         public ActionResult Member()
         {
             return View(db.Users.ToList());
@@ -66,6 +49,12 @@ namespace SARDT.Controllers
         public ActionResult Contact()
         {
             PublicVM pageContent = GetPageContent("Contact", false, "");
+            
+            pageContent.textList = (from c in pageContent.textList
+                           orderby c.WebTextID
+                           select c).ToList();
+                         
+
             return View(pageContent);
         }
 
