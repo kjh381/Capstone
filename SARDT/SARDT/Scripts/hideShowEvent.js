@@ -1,9 +1,17 @@
 ﻿//Hide or show events
 
 $('.event').click(function () {
-    $('.event').removeClass('current');
-    $('.description').hide();
+    if ($(this).hasClass('current'))
+    {
+        $(this).children('.description').hide();
+        $('.event').removeClass('current');
+    }
+    else
+    {
+        $('.event').removeClass('current');
+        $('.description').hide();
 
-    $(this).addClass('current');
-    $(this).children('.description').show();
+        $(this).addClass('current');
+        $(this).children('.description').show();
+    }   
 });

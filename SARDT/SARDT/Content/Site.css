@@ -18,6 +18,7 @@
 .jumbotron {
   padding: 14px 24px;
   font-size: 21px;
+  clear: both;
 }
 
 .jumbotron p
