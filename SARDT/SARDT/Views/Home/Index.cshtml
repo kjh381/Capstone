@@ -39,30 +39,27 @@
         </div>
     </div>
 
-	<div class="events container">
-        <h2>Events</h2>
-        <div class="col-sm-12">
+	<div class="events">
+          <div class="col-sm-12">
+            <h2>Events</h2>
             @foreach (var item in Model.eventList)
             {
                 <div class="event">
                     <div class="item row">
-                        <div class="col-xs-6">
+                        <div class="col-sm-6">
                             <p class ="title">@item.EventDate.ToString("d") - @item.EventTitle</p>
                         </div>
-                        <div class="col-xs-3">
+                        <div class="col-sm-6">
                             <p class="eventdate">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
                         </div> 
                     </div>
-                    <div class="description row">
-                        <div class="col-xs-6">
-                            <div class="col-xs-3">&nbsp;</div>
+                    <div class="description row text-left">
+                        <div class="col-sm-12">                     
                             <p>@item.Description</p>
-                            <div class="col-xs-3">&nbsp;</div>
                         </div>
                     </div>
                 </div>
             }
-            <br /><br /><br />
         </div>
     </div>
 
