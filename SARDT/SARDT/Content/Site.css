@@ -13,10 +13,29 @@
 .jumbotron {
   text-align: center;
   background-color: transparent;
+  width: 100%;
 }
 .jumbotron {
   padding: 14px 24px;
   font-size: 21px;
+  clear: both;
+}
+
+.jumbotron p
+{
+    float: left;
+}
+
+.welcome
+{
+    width: 50%;
+    float: right;
+}
+
+.news
+{
+    clear: both;
+    width: 100%;
 }
 
 figure {
@@ -87,6 +106,67 @@ figure img {
     border-right: 0;
     border-radius: 0 5px 5px 0;
   }
+}
+
+/*event hiding and showing on public page*/
+p {
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.events {
+  margin: 0 auto;
+	width:100%;
+}
+
+.events h2
+{
+    text-align: left;
+}
+
+.event {
+  color: #222;
+  background: rgba(255,255,255,.9);
+  border-spacing: 2px;
+  border-color: gray;
+  font-family: arial,sans-serif;
+  border-bottom: 1px #e5e5e5 solid;
+}
+
+.current .item {
+  background: rgba(206,220,206,.9);
+}
+
+.item {
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  
+}
+
+.item .source {
+  margin-left: 20px;
+}
+
+.item .title {
+  font-weight: bold;
+}
+
+.item .eventdate {
+  margin-right: 20px;
+}
+
+.item .eventdate {
+  text-align: right;  
+}
+
+.description {
+  display: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* Responsive: Portrait tablets and up */
