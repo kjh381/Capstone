@@ -16,6 +16,8 @@
         </p>
     </div>
 
+<!-- TODO: Bootstrap PUSH/PULL to control order when page changes layout -->
+
     <div class="row">
         <div class="col-sm-12 text-left">
             <h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
@@ -24,12 +26,12 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-7">
+        <div class="col-sm-7 text-left">
             <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
         </div>
 
-        <div class="col-sm-5">
+        <div class="col-sm-5 text-left">
             <figure>
                 <img src="~/Images/@Model.imageList[0].FileName" />
                 <figcaption>@Model.imageList[0].Caption</figcaption>
@@ -48,13 +50,13 @@
 	</div>
 
     <div class="row">
-        <div class="col-sm-5">
+        <div class="col-sm-5 text-left">
             <figure>
                 <img src="~/Images/@Model.imageList[1].FileName" />
                 <figcaption>@Model.imageList[1].Caption</figcaption>
             </figure>
         </div>
-        <div class="col-sm-7">
+        <div class="col-sm-7 text-left">
             <h2>@Html.DisplayFor(model => model.textList[2].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[2].Body)</p>
 

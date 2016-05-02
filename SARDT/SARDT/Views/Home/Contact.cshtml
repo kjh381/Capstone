@@ -4,18 +4,18 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="row">
-    <div class="col-sm-3">
+<div class="row text-left">
+    <div class="col-sm-2">
     </div>
-    <div class="col-sm-6">
+    <div class="col-sm-8">
         <h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[0].Body)</p>
     </div>
-    <div class="col-sm-3">
+    <div class="col-sm-2">
     </div>
 </div>
 
-<div class="row">
+<div class="row text-left">
     <div class="col-sm-3">
     </div>
     <div class="col-sm-3">
@@ -28,20 +28,20 @@
     </div>
 </div>
 
-<div class="row">
+<div class="row text-left">
     <div class="col-sm-3">
     </div>
     <div class="col-sm-3">
         @Html.DisplayFor(model => model.textList[2].Section):
     </div>
     <div class="col-sm-3">
-        @Html.DisplayFor(model => model.textList[2].Body)
+        <a href="mailto:@Html.DisplayFor(model => model.textList[2].Body)">@Html.DisplayFor(model => model.textList[2].Body)</a>
     </div>
     <div class="col-sm-3">
     </div>
 </div>
 
-<div class="row">
+<div class="row text-left">
     <div class="col-sm-3">
     </div>
     <div class="col-sm-3">
@@ -53,7 +53,8 @@
     <div class="col-sm-3">
     </div>
 </div>
-<div class="row">
+
+<div class="row text-left">
     <div class="col-sm-3">
     </div>
     <div class="col-sm-3">
@@ -65,8 +66,24 @@
     <div class="col-sm-3">
     </div>
 </div>
+
+<div class="row text-left">
+    <div class="col-sm-3">
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[5].Section):
+    </div>
+    <div class="col-sm-3">
+        @Html.DisplayFor(model => model.textList[5].Body)<br /> 
+        @Html.DisplayFor(model => model.textList[6].Body), @Html.DisplayFor(model => model.textList[7].Body) @Html.DisplayFor(model => model.textList[8].Body) 
+    </div>
+    <div class="col-sm-3">
+    </div>
+</div>
+    
+<br />
 <div class="row">
     <div class="col-sm-12 text-center">
-        <iframe src="@Html.DisplayFor(model => model.textList[5].Body)" width="640" height="480"></iframe>
+        <iframe src="@Html.DisplayFor(model => model.textList[9].Body)" width="640" height="480"></iframe>
     </div>
 </div>
