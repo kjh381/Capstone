@@ -36,7 +36,7 @@ namespace SARDT.Models
             WebText contactText3 = new WebText { WebTextID = 10, Page = "Contact", Section = "Email", Body = "Jessica.Watson@co.lane.or.us", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText4 = new WebText { WebTextID = 11, Page = "Contact", Section = "Phone", Body = "541-682-6411", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText5 = new WebText { WebTextID = 12, Page = "Contact", Section = "Fax", Body = "541-682-3309", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText contactText6 = new WebText { WebTextID = 13, Page = "Contact", Section = "Street Address", Body = "125 E 8th Ave", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText contactText6 = new WebText { WebTextID = 13, Page = "Contact", Section = "Address", Body = "125 E 8th Ave", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText7 = new WebText { WebTextID = 14, Page = "Contact", Section = "City", Body = "Eugene", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText8 = new WebText { WebTextID = 15, Page = "Contact", Section = "State", Body = "OR", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText9 = new WebText { WebTextID = 16, Page = "Contact", Section = "Zip", Body = "97401", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
