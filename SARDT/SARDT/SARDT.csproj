@@ -191,7 +191,6 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\WebContent\Details.cshtml" />
     <Content Include="Views\WebContent\Edit.cshtml" />
-    <Content Include="Views\WebContent\Index.cshtml" />
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
     <Content Include="Views\Home\History.cshtml" />

@@ -14,18 +14,31 @@
     @Html.HiddenFor(model => model.WebImageID)
     @Html.HiddenFor(model => model.FileName)
     @Html.HiddenFor(model => model.InUse)
-
-    <label for="file">Upload Image:</label>
-    <input type="file" name="file" id="file" /><br><br>
-    <div class="form-group">
-        @Html.LabelFor(model => model.Caption, new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.Caption)
-            @Html.ValidationMessageFor(model => model.Caption)
+    <br />
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            <label for="file">Upload Image</label>
+        </div>
+        <div class="col-sm-8 text-left">
+            <input type="file" name="file" id="file" />
         </div>
     </div>
-    <input type="submit" value="Upload Image" />
-    <br><br>
+    <div class="row">
+        <div class="form-group">
+            <div class="col-sm-4 text-left">
+                @Html.LabelFor(model => model.Caption, new { @class = "control-label col-md-2" })
+            </div>
+            <div class="col-sm-8 text-left">
+                @Html.EditorFor(model => model.Caption)
+                @Html.ValidationMessageFor(model => model.Caption)
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <input type="submit" value="Upload Image" />
+    </div>
+    <br>
     @ViewBag.Message
     <br />
 }
