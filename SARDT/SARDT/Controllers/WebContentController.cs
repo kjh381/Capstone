@@ -179,11 +179,25 @@ namespace SARDT.Controllers
         {
             try
             {
-                string success = "Image successfully deleted.";
                 WebImage image = db.WebImages.Find(id);
-                db.WebImages.Remove(image);
-                db.SaveChanges();
-                return RedirectToAction("WebImageIndex", new {message = success});
+                if (!image.InUse)
+                {
+                    string fullPath = Request.MapPath("~/Images/" + image.FileName);
+
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    db.WebImages.Remove(image);
+                    db.SaveChanges();
+                    string success = "Image successfully deleted.";
+                    return RedirectToAction("WebImageIndex", new { message = success });
+                }
+                else {
+                    string imageInUse = "Image is currently displayed on the website. Please change active image before deleting";
+                    return RedirectToAction("WebImageIndex", new { message = imageInUse });                
+                }
             }
             catch
             {
@@ -219,7 +233,6 @@ namespace SARDT.Controllers
 
                     db.WebImages.Add(img);
                     db.SaveChanges();
-
                 }
                 catch (Exception ex)
                 {
@@ -231,10 +244,8 @@ namespace SARDT.Controllers
             }
             
             return RedirectToAction("AddImage");
-
         }
-
-
+        
         public ActionResult EditImage(int? id)
         {
             if (id == null)
