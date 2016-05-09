@@ -39,29 +39,39 @@
         </div>
     </div>
 
-	<div class="events">
-          <div class="col-sm-12">
-            <h2>Events</h2>
-            @foreach (var item in Model.eventList)
-            {
-                <div class="event">
-                    <div class="item row">
-                        <div class="col-sm-6">
-                            <p class ="title">@item.EventDate.ToString("d") - @item.EventTitle</p>
-                        </div>
-                        <div class="col-sm-6">
-                            <p class="eventdate">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
-                        </div> 
-                    </div>
-                    <div class="description row text-left">
-                        <div class="col-sm-12">                     
-                            <p>@item.Description</p>
-                        </div>
-                    </div>
+	<div class="panel panel-primary">
+        <div class="panel-heading">Events</div>
+        <div class="panel-body">
+            <div class="col-sm-12">
+                    @foreach (var item in Model.eventList)
+                    { 
+                        if (Model.compareDates(item.EventDate) >= 0)
+                        {                         
+                            <div class="event">
+                                <div class="item row">
+                                    <div class="col-sm-2">
+                                        <p class="date">@item.EventDate.ToString("d")</p>
+                                    </div>
+                                    <div class="col-sm-8">
+                                        <p class="title"> @item.EventTitle</p>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <p class="eventtime">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
+                                    </div>
+                                </div>
+                                <div class="description row text-left">
+                                    <div class="col-sm-12">
+                                        <p>@item.Description</p>
+                                    </div>
+                                </div>
+                               </div>
+                        }
+                    }
                 </div>
-            }
+            </div>
         </div>
-    </div>
+
+
 
     <div class="row">
         <div class="col-sm-5 text-left">
