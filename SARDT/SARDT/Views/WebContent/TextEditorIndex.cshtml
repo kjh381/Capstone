@@ -7,11 +7,12 @@
 
 <h2>Text Editor for the @ViewBag.pageName Page</h2>
 
-<table class="table">
+<table class="table col-sm-8">
     <tr>
-        <th>
+        <th class="text-center">
             @Html.DisplayNameFor(model => model.Section)
         </th>
+    @*
         <th>
             @Html.DisplayNameFor(model => model.Page)
         </th>
@@ -21,7 +22,8 @@
         <th>
             @Html.DisplayNameFor(model => model.LastChangeBy)
         </th>
-        <th></th>
+    *@
+        <th class="text-center">Options</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -29,6 +31,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.Section)
         </td>
+    @*
         <td>
             @Html.DisplayFor(modelItem => item.Page)
         </td>
@@ -38,6 +41,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.LastChangeBy)
         </td>
+    *@
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.WebTextID }) |
             @Html.ActionLink("Details", "Details", new { id=item.WebTextID })

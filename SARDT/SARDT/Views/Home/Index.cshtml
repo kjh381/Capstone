@@ -4,7 +4,7 @@
         ViewBag.Title = "Home";
     }
 
-    @Html.ActionLink("Im just here for testing purposes", "EditText", "WebContent")
+    @*@Html.ActionLink("Im just here for testing purposes", "EditText", "WebContent")*@
 
     <!-- Jumbotron -->
     <div class="jumbotron">
@@ -16,8 +16,6 @@
         </p>
     </div>
 
-<!-- TODO: Bootstrap PUSH/PULL to control order when page changes layout -->
-
     <div class="row">
         <div class="col-sm-12 text-left">
             <h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
@@ -26,16 +24,16 @@
     </div>
 
     <div class="row">
-        <div class="col-sm-7 text-left">
-            <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
-            <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
-        </div>
-
-        <div class="col-sm-5 text-left">
+        <div class="col-sm-7 col-sm-push-5 text-left" >
             <figure>
                 <img src="~/Images/@Model.imageList[0].FileName" />
                 <figcaption>@Model.imageList[0].Caption</figcaption>
             </figure>
+        </div>
+
+        <div class="col-sm-5 col-sm-pull-7 text-left">
+            <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
+            <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
         </div>
     </div>
 

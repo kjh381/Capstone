@@ -27,7 +27,7 @@ namespace SARDT.Models
             WebText aboutText = new WebText { WebTextID = 6, Page="Team", Section = "About", Body = "Info about the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(aboutText);
 
-            WebText historyText = new WebText { WebTextID = 7, Page="History", Section = "History of the Dive Team", Body = "A long long time ago...in a galaxy far away...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText historyText = new WebText { WebTextID = 7, Page = "History", Section = "History of the Dive Team", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText historyText1 = new WebText { WebTextID = 20, Page = "History", Section = "Where it started...", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
             context.WebTexts.Add(historyText1);
@@ -56,28 +56,29 @@ namespace SARDT.Models
 
 
             WebText applicationText0 = new WebText { WebTextID = 3, Page = "Application", Section = "Requirements", Body = "A summary of steps and requirements. Such as background check, fingerprint, rescue cert, probationary period, current fa/cpr...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            WebText applicationText1 = new WebText { WebTextID = 4, Page = "Application", Section = "1", Body = "App part 1", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText applicationText1 = new WebText { WebTextID = 4, Page = "Application", Section = "1", Body = "Fill out and return the application form.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText2 = new WebText { WebTextID = 5, Page = "Application", Section = "2", Body = "App part 2", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText3 = new WebText { WebTextID = 18, Page = "Application", Section = "3", Body = "App part 3", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText4 = new WebText { WebTextID = 19, Page = "Application", Section = "4", Body = "App part 4", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            //TODO Need a way to upload new version of the dive application
             context.WebTexts.Add(applicationText0);
             context.WebTexts.Add(applicationText1);
             context.WebTexts.Add(applicationText2);
             context.WebTexts.Add(applicationText3);
             context.WebTexts.Add(applicationText4);
 
+            Application app = new Application { ApplicationID = 0, FileName = "Application.pdf" };
+            context.Applications.Add(app);
+
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page="Home", Location=1};
             WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page="Home", Location = 2 };
-            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = false, Page="", Location = null };
-            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic3.jpg", Caption = "Image Caption4", InUse = false, Page ="", Location = null };
-            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic3.jpg", Caption = "Image Caption5", InUse = false, Page ="", Location = null };
+            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = true, Page="History", Location = 1 };
+            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic4.jpg", Caption = "Image Caption4", InUse = true, Page="History", Location = 2 };
+            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic5.jpg", Caption = "Image Caption5", InUse = false, Page ="", Location = null };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);
             context.WebImages.Add(image4);
             context.WebImages.Add(image5);
-
 
             Video seedVid = new Video { ID = 2, Title = "Insert Title", URL = "https://www.youtube.com/embed/6OHmn4Tcfd4?rel=0" };
             context.Videos.Add(seedVid);
@@ -93,8 +94,6 @@ namespace SARDT.Models
             context.Events.Add(firstEvent);
             context.Events.Add(secondEvent);
             context.Events.Add(thirdEvent);
-
-
 
 
             context.SaveChanges();
