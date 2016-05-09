@@ -7,7 +7,7 @@
 <p>@ViewBag.Message</p>
 <h2>Index</h2>
 
-<table class="table">
+<table class="table text-left">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Page)
@@ -22,7 +22,7 @@
             @Html.DisplayNameFor(model => model.Caption)
         </th>
         <th>Preview</th>
-        <th></th>
+        <th>Options</th>
     </tr>
 
 @foreach (var item in Model) {

@@ -138,6 +138,8 @@
     <Content Include="Images\pic1.jpg" />
     <Content Include="Images\pic2.jpg" />
     <Content Include="Images\pic3.jpg" />
+    <Content Include="Images\pic4.jpg" />
+    <Content Include="Images\pic5.jpg" />
     <Content Include="pics\ph.jpg" />
     <Content Include="pics\ph2.jpg" />
     <Content Include="Scripts\bootstrap.js" />

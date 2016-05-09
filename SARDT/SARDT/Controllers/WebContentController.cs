@@ -119,8 +119,7 @@ namespace SARDT.Controllers
 
             List<WebImage> images = (from i in db.WebImages
                                      where i.InUse == true
-                                     orderby i.Page
-                                     orderby i.Location
+                                     orderby i.Page, i.Location 
                                      select i).ToList();
             return View(images);
         }
@@ -265,7 +264,7 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,Location,FileName,InUse")] WebImage webimage)
+        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,Location,FileName,Page,InUse")] WebImage webimage)
         {
             if (ModelState.IsValid)
             {
