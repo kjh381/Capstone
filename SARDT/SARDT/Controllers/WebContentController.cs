@@ -137,7 +137,6 @@ namespace SARDT.Controllers
             return View(images);
         }
 
-        //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
         [HttpPost]
         public ActionResult ChangeActive(int oldID, int newID)
         {
@@ -244,7 +243,7 @@ namespace SARDT.Controllers
             
             return RedirectToAction("AddImage");
         }
-        
+
         public ActionResult EditImage(int? id)
         {
             if (id == null)
@@ -275,6 +274,58 @@ namespace SARDT.Controllers
             return View(webimage);
         }
 
+        public ActionResult UploadNewApplication(string message)
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadNewApplication(HttpPostedFileBase file)
+        {
+            ViewBag.Message = "";
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Application"), Path.GetFileName(file.FileName));
+
+                    if (System.IO.Path.GetExtension(file.FileName) == ".pdf")
+                    {
+                        Application app = new Application();
+
+                        app = (from a in db.Applications
+                               select a).FirstOrDefault();
+                        
+                        //Delete old application file
+                        string fullPath = Request.MapPath("~/Application/" + app.FileName);
+
+                        if (System.IO.File.Exists(fullPath))
+                        {
+                            System.IO.File.Delete(fullPath);
+                        }
+
+                        app.FileName = file.FileName;
+                        
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        db.SaveChanges();
+                                                
+                        return RedirectToAction("UploadNewApplication", new { message = ViewBag.Message });
+
+                    }
+                    ViewBag.Message = "File must be a PDF";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+
+            return RedirectToAction("UploadNewApplication", new { message = ViewBag.Message });
+        }
 
         public ActionResult Test()
         {

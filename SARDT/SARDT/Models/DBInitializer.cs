@@ -60,12 +60,14 @@ namespace SARDT.Models
             WebText applicationText2 = new WebText { WebTextID = 5, Page = "Application", Section = "2", Body = "App part 2", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText3 = new WebText { WebTextID = 18, Page = "Application", Section = "3", Body = "App part 3", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText applicationText4 = new WebText { WebTextID = 19, Page = "Application", Section = "4", Body = "App part 4", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
-            //TODO Need a way to upload new version of the dive application
             context.WebTexts.Add(applicationText0);
             context.WebTexts.Add(applicationText1);
             context.WebTexts.Add(applicationText2);
             context.WebTexts.Add(applicationText3);
             context.WebTexts.Add(applicationText4);
+
+            Application app = new Application { ApplicationID = 0, FileName = "Application.pdf" };
+            context.Applications.Add(app);
 
             WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page="Home", Location=1};
             WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page="Home", Location = 2 };
@@ -77,7 +79,6 @@ namespace SARDT.Models
             context.WebImages.Add(image3);
             context.WebImages.Add(image4);
             context.WebImages.Add(image5);
-
 
             Video seedVid = new Video { ID = 2, Title = "Insert Title", URL = "https://www.youtube.com/embed/6OHmn4Tcfd4?rel=0" };
             context.Videos.Add(seedVid);
@@ -93,8 +94,6 @@ namespace SARDT.Models
             context.Events.Add(firstEvent);
             context.Events.Add(secondEvent);
             context.Events.Add(thirdEvent);
-
-
 
 
             context.SaveChanges();

@@ -87,6 +87,12 @@ namespace SARDT.Controllers
                 pageContent.currentVideo = currentVideo;
             }
 
+            if (pageName == "Application")
+            {
+                pageContent.application = (from a in db.Applications
+                                           select a).FirstOrDefault();            
+            }
+
             pageContent.textList = (from s in db.WebTexts
                                     where s.Page == pageName
                                     select s).ToList();

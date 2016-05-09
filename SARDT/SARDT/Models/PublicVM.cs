@@ -14,6 +14,8 @@ namespace SARDT.Models
 
         public Video currentVideo { get; set; }
 
+        public Application application { get; set; }
+
         public DateTime ParseMilitaryTime(string time)
         {
             //
