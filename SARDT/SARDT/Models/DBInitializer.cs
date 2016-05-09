@@ -5,6 +5,7 @@ using System.Web;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
+using Microsoft.AspNet.Identity;
 
 //using SARDT.Models;
 
@@ -17,6 +18,10 @@ namespace SARDT.Models
         {
             //TODO: Add seeds to context here.
             //context.class.Add(newObjName)
+
+            UserManager<Member> userManager = new UserManager<Member>(
+                   new UserStore<Member>(context));
+
             WebText homeText = new WebText { WebTextID = 0, Page = "Home", Section = "Welcome", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "News", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText homeText2 = new WebText { WebTextID = 2, Page = "Home", Section = "Announcements", Body = "Announcements, Announcements, Announcements...please?", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
@@ -84,6 +89,30 @@ namespace SARDT.Models
             context.Videos.Add(seedVid);
             CurrentVideos video = new CurrentVideos { CurrentVideo = seedVid, ID = 2};
             context.CurrentVideo.Add(video);
+
+
+            // create various users
+            var userAdmin = new Member { UserName = "admin", Email = "admin@gmail.com", Name = "Admin Johnson"};
+            var adminCreateResult = userManager.Create(userAdmin, "password");
+
+            var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens"};
+            var modCreateResult = userManager.Create(userMod, "password");
+
+            var userBob = new Member { UserName = "bob", Email = "bob@gmail.com", Name = "Bob Dylan"};
+            var bobCreateResult = userManager.Create(userBob, "password");
+
+            var userGuy = new Member { UserName = "guy", Email = "guy@gmail.com", Name = "Guy Pierce"};
+            var guyCreateResult = userManager.Create(userGuy, "password");
+
+
+            // Add all roles
+            context.Roles.Add(new IdentityRole() { Name = "Admin" });
+            context.Roles.Add(new IdentityRole() { Name = "Moderator" });
+            context.SaveChanges();
+
+            // Add role to user
+            userManager.AddToRole(userAdmin.Id, "Admin");
+            userManager.AddToRole(userMod.Id, "Moderator");
 
             Event firstEvent = new Event { Description = "This is the first event!", StartTime = "1200", EndTime = "1400", EventDate = Convert.ToDateTime("04/30/2016"), EventTitle = "First Event", LastChangeBy = "guy", LastChangedOn = Convert.ToDateTime("04/30/2016"), Type = "public" };
 

@@ -121,7 +121,7 @@ namespace SARDT.Controllers
             db.SaveChanges();
         }
 
-        private string ScrubYouTubeURL(string URL)
+        public string ScrubYouTubeURL(string URL)
         {
             string videoKey = URL;
             if (URL.Length > 11 || URL.Contains("http") || URL.Contains("www"))

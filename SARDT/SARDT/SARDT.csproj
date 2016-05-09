@@ -158,6 +158,7 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -169,6 +170,8 @@
     <Compile Include="Models\CurrentVideo.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\DBInitializer.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessagesVM.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\Member.cs" />
@@ -228,6 +231,13 @@
     <Content Include="Views\Videos\VideoView.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\WebContent\ChangeImageConfirm.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Auth\EditProfile.cshtml" />
+    <Content Include="Views\Auth\Profile.cshtml" />
     <Content Include="Views\WebContent\UploadNewApplication.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
