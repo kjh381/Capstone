@@ -13,34 +13,19 @@
 .jumbotron {
   text-align: center;
   background-color: transparent;
-}
-.jumbotron {
+  width: 100%;
   padding: 14px 24px;
   font-size: 21px;
+  clear: both;
 }
 
-.col-lg-4{
-    text-align: left;
-}
-
-.col-lg-4 h2{
-    text-align: center;
-}
-
-.col-sm-8, .col-sm-4, .col-sm-3, .col-sm-6, .col-sm-5,.col-sm-7{
-    text-align: left;
-}
-
-.col-sm-8 h2{
-    text-align: left;
-}
 figure {
     width:100%;
     text-align:center;
 }
 figure img {
     width:100%;
-    margin-top:75px;
+    margin-top:25px;
     max-height:700px;
     max-width:500px;
 }
@@ -109,6 +94,77 @@ figure img {
     border-right: 0;
     border-radius: 0 5px 5px 0;
   }
+}
+
+/*event hiding and showing on public page*/
+p {
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+.events {
+    background-color: #eee;
+    padding: 5px;
+	width:100%;
+}
+
+.events h2
+{
+    text-align: center;
+}
+
+.event {
+  color: #222;
+  background: rgba(255,255,255,.9);
+  border-spacing: 2px;
+  border-color: gray;
+  font-family: arial,sans-serif;
+  border-bottom: 1px #e5e5e5 solid;
+}
+
+.current .item {
+  background: rgba(206,220,206,.9);
+}
+
+.item {
+  cursor: pointer;
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
+.item .source {
+  margin-left: 0px;
+}
+
+.item .date {
+  text-align: center;
+}
+
+.item .title{
+    text-align: center;
+    font-weight: bold;
+}
+
+.item .eventtime {
+  text-align = center;
+}
+
+p .date {
+margin-left:0px;
+padding-left:0px;
+}
+
+.item .eventdate {
+  text-align: right;  
+}
+
+.description {
+  display: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /* Responsive: Portrait tablets and up */

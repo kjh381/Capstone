@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Change Image</h2>
+<h2>Change Active Image</h2>
 
 @Html.ActionLink("Back to Active Images", "WebImageIndex")
 
-<table class="table">
+<table class="table text-left">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.FileName)
@@ -21,7 +21,7 @@
             Preview
         </th>
         <th>Active Image</th>
-        <th></th>
+        <th>Options</th>
     </tr>
 
 @foreach (var item in Model) {
@@ -42,7 +42,7 @@
                     <form action="/WebContent/ChangeActive" method="post">
                         @Html.Hidden("newID", item.WebImageID)
                         @Html.Hidden("oldID", Model.First().WebImageID)
-                        <input type="submit" value="Change Active Image" />
+                        <input type="submit" value="Make Active" />
                     </form>
                 }
             }

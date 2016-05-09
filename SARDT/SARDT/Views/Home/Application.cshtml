@@ -4,17 +4,40 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<div class="row text-left">
+    <h2>@Html.DisplayFor(model => model.textList[0].Section)</h2>
+    <p>@Html.DisplayFor(model => model.textList[0].Body)</p>
+</div>
 
-<h2>@Html.DisplayFor(model => model.textList[0].Body)</h2>
-
+    <div class="row">
+        <div class="col-sm-4 text-left">
+            @Html.DisplayFor(model => model.textList[1].Section)
+        </div>
+        <div class="col-sm-8 text-left">
+            @Html.DisplayFor(model => model.textList[1].Body)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4 text-left">
+        </div>
+        <div class="col-sm-8 text-left">
+            <a href="~/Application/@Model.application.FileName">View/Download Application Form</a><br />
+            <!--<a href="">Background Check Permission Form</a>-->
+        </div>
+    </div>
 <div class="row">
-    <div class="col-sm-1 text-left">
-        @Html.DisplayFor(model => model.textList[1].Section)
+    <div class="col-sm-4 text-left">
+        @Html.DisplayFor(model => model.textList[2].Section)
     </div>
-    <div class="col-sm-6 text-left">
-        @Html.DisplayFor(model => model.textList[1].Body)
+    <div class="col-sm-8 text-left">
+        @Html.DisplayFor(model => model.textList[2].Body)
     </div>
-    <div class="col-sm-5">
-        <a href="~/Application/Application.pdf">Download application</a>
+</div>
+<div class="row">
+    <div class="col-sm-4 text-left">
+        @Html.DisplayFor(model => model.textList[3].Section)
     </div>
-@*</div>*@
+    <div class="col-sm-8 text-left">
+        @Html.DisplayFor(model => model.textList[3].Body)
+    </div>
+</div>

@@ -15,25 +15,12 @@ namespace SARDT.Controllers
         public ActionResult Index()
         {
             PublicVM pageContent = GetPageContent("Home", true, "public");
+
+            pageContent.eventList = (from c in pageContent.eventList
+                                     orderby c.EventDate
+                                     orderby c.StartTime
+                                     select c).ToList();
             return View(pageContent);
-
-            /*
-            List<String> publicEvents = new List<String>();
-
-            var events = from ev in db.Events
-                         where ev.Type == "public"
-                         select ev;
-
-            foreach (var e in events)
-            {
-                var eventDate = e.EventDate.Date;
-                var eventTime = ParseMilitaryTime(e.StartTime.ToString());
-
-                publicEvents.Add(eventDate.ToString("d") + " " + e.EventTitle + " " + eventTime.ToString("t"));
-            }
-        
-            ViewBag.EventsText = publicEvents;
-            */
         }
 
         public ActionResult Team()
@@ -47,6 +34,7 @@ namespace SARDT.Controllers
             return View(pageContent);
         }
 
+        //[Authorize(Roles="Member, Admin")]
         public ActionResult Member()
         {
             return View(db.Users.ToList());
@@ -66,6 +54,12 @@ namespace SARDT.Controllers
         public ActionResult Contact()
         {
             PublicVM pageContent = GetPageContent("Contact", false, "");
+            
+            pageContent.textList = (from c in pageContent.textList
+                           orderby c.WebTextID
+                           select c).ToList();
+                         
+
             return View(pageContent);
         }
 
@@ -96,6 +90,12 @@ namespace SARDT.Controllers
                     currentVideo = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
 
                 pageContent.currentVideo = currentVideo;
+            }
+
+            if (pageName == "Application")
+            {
+                pageContent.application = (from a in db.Applications
+                                           select a).FirstOrDefault();            
             }
 
             pageContent.textList = (from s in db.WebTexts
@@ -135,6 +135,5 @@ namespace SARDT.Controllers
 	    //
 	    return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
-
     }
 }
