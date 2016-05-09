@@ -45,6 +45,13 @@ figure img {
     max-width:500px;
 }
 
+.messagingMemberList {
+    height: 400px;
+    width: 50%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
 
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */

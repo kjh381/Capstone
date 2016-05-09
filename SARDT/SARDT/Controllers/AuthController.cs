@@ -8,6 +8,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 
 
@@ -55,16 +56,19 @@ namespace SARDT.Controllers
                 return View();
             }
 
-            var user = userManager.Find(model.Email, model.Password);
+            var user = userManager.FindByEmail(model.Email);
 
             if (user != null)
             {
-                var identity = userManager.CreateIdentity(
-                    user, DefaultAuthenticationTypes.ApplicationCookie);
+                if (userManager.CheckPassword(user, model.Password))
+                {
+                    var identity = userManager.CreateIdentity(
+                        user, DefaultAuthenticationTypes.ApplicationCookie);
 
-                GetAuthenticationManager().SignIn(identity);
+                    GetAuthenticationManager().SignIn(identity);
 
-                return Redirect(GetRedirectUrl(model.ReturnUrl));
+                    return Redirect(GetRedirectUrl(model.ReturnUrl));
+                }
             }
 
             // user authentication failed
@@ -89,8 +93,8 @@ namespace SARDT.Controllers
 
             var user = new Member
             {
-                UserName = model.Email,
-                MemberName = model.MemberName
+                Email = model.Email,
+                UserName = model.UserName
             };
 
             var result = userManager.Create(user, model.Password);
@@ -152,6 +156,29 @@ namespace SARDT.Controllers
             base.Dispose(disposing);
         }
 
+        public ActionResult Profile()
+        {
+            var user = userManager.FindById(User.Identity.GetUserId());
+            return View(user);
+        }
+
+        public ActionResult EditProfile()
+        {
+            var user = userManager.FindById(User.Identity.GetUserId());
+            return View(user);
+        }
+
+        // POST: /Auth/EditProfile
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile([Bind(Include = "Id,Name,Email,UserName,Address,City,ZipCode,DOB,EmergencyContactName,EmergencyContactPhone")] Member member)
+        {
+            db.Entry(member).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Profile");
+        }
 
         //*************************************  Roles   ***************************
         //GET: /Roles/Create

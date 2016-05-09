@@ -62,3 +62,6 @@ C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Web
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Helpers.xml
