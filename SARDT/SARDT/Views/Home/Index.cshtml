@@ -43,26 +43,26 @@
             <div class="col-sm-12">
                     @foreach (var item in Model.eventList)
                     { 
-                        if (Model.compareDates(item.EventDate) >= 0)
-                        {                         
-                            <div class="event">
-                                <div class="item row">
-                                    <div class="col-sm-2">
-                                        <p class="date">@item.EventDate.ToString("d")</p>
+                        if (Model.compareDates(item.EventDate) == true)
+                        {                       
+                                <div class="event">
+                                    <div class="item row">
+                                        <div class="col-sm-2">
+                                            <p class="date">@item.EventDate.ToString("d")</p>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <p class="title"> @item.EventTitle</p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="eventtime">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <p class="title"> @item.EventTitle</p>
+                                    <div class="description row text-left">
+                                        <div class="col-sm-12">
+                                            <p>@item.Description</p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-2">
-                                        <p class="eventtime">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
-                                    </div>
-                                </div>
-                                <div class="description row text-left">
-                                    <div class="col-sm-12">
-                                        <p>@item.Description</p>
-                                    </div>
-                                </div>
-                               </div>
+                                   </div>
                         }
                     }
                 </div>
