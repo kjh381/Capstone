@@ -138,10 +138,13 @@
     <Content Include="Images\pic1.jpg" />
     <Content Include="Images\pic2.jpg" />
     <Content Include="Images\pic3.jpg" />
+    <Content Include="Images\pic4.jpg" />
+    <Content Include="Images\pic5.jpg" />
     <Content Include="pics\ph.jpg" />
     <Content Include="pics\ph2.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Application\Application.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
     <Content Include="Scripts\hideShowEvent.js" />
@@ -155,16 +158,20 @@
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\EventController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\VideosController.cs" />
     <Compile Include="Controllers\WebContentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Application.cs" />
     <Compile Include="Models\CalendarVM.cs" />
     <Compile Include="Models\CurrentVideo.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\DBInitializer.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessagesVM.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\Member.cs" />
@@ -224,6 +231,14 @@
     <Content Include="Views\Videos\VideoView.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\WebContent\ChangeImageConfirm.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Auth\EditProfile.cshtml" />
+    <Content Include="Views\Auth\Profile.cshtml" />
+    <Content Include="Views\WebContent\UploadNewApplication.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -232,7 +247,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Application\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <PropertyGroup>

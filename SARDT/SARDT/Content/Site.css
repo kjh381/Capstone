@@ -25,9 +25,16 @@ figure {
 }
 figure img {
     width:100%;
-    margin-top:75px;
+    margin-top:25px;
     max-height:700px;
     max-width:500px;
+}
+
+.messagingMemberList {
+    height: 400px;
+    width: 50%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 

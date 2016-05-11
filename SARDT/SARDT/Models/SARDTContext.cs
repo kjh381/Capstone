@@ -22,6 +22,9 @@ namespace SARDT.Models
         public System.Data.Entity.DbSet<SARDT.Models.Event> Events { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.Video> Videos { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.CurrentVideos> CurrentVideo { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.Application> Applications { get; set; }
+
+        public System.Data.Entity.DbSet<SARDT.Models.Message> Messages { get; set; }
 
     }
 }
