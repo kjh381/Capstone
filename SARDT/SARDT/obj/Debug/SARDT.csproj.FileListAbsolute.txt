@@ -79,6 +79,6 @@ C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.xml
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Deployment.xml
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Razor.xml
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers.xml
-C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+C:\Users\james\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
