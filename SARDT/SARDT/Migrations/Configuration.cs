@@ -1,26 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Data.Entity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin;
-using Microsoft.AspNet.Identity;
-
-//using SARDT.Models;
-
-namespace SARDT.Models
+namespace SARDT.Migrations
 {
-      public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
-    //public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
+    using System;
+    using System.Data.Entity;
+    using System.Data.Entity.Migrations;
+    using System.Linq;
+    using SARDT.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+
+    internal sealed class Configuration : DbMigrationsConfiguration<SARDT.Models.SARDTContext>
     {
-        protected override void Seed(SARDTContext context)
+        public Configuration()
         {
-            //TODO: Add seeds to context here.
-            //context.class.Add(newObjName)
-            /*
+            AutomaticMigrationsEnabled = true;
+            ContextKey = "SARDT.Models.SARDTContext";
+        }
+
+        protected override void Seed(SARDT.Models.SARDTContext context)
+        {
+            //  This method will be called after migrating to the latest version.
+
+            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
+            //  to avoid creating duplicate seed data. E.g.
+            //
+            //    context.People.AddOrUpdate(
+            //      p => p.FullName,
+            //      new Person { FullName = "Andrew Peters" },
+            //      new Person { FullName = "Brice Lambson" },
+            //      new Person { FullName = "Rowan Miller" }
+            //    );
+            //
             UserManager<Member> userManager = new UserManager<Member>(
-                   new UserStore<Member>(context));
+                  new UserStore<Member>(context));
 
             WebText homeText = new WebText { WebTextID = 0, Page = "Home", Section = "Welcome", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText homeText1 = new WebText { WebTextID = 1, Page = "Home", Section = "News", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
@@ -29,14 +40,14 @@ namespace SARDT.Models
             context.WebTexts.Add(homeText1);
             context.WebTexts.Add(homeText2);
 
-            WebText aboutText = new WebText { WebTextID = 6, Page="Team", Section = "About", Body = "Info about the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
+            WebText aboutText = new WebText { WebTextID = 6, Page = "Team", Section = "About", Body = "Info about the dive team", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(aboutText);
 
             WebText historyText = new WebText { WebTextID = 7, Page = "History", Section = "History of the Dive Team", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText historyText1 = new WebText { WebTextID = 20, Page = "History", Section = "Where it started...", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             context.WebTexts.Add(historyText);
             context.WebTexts.Add(historyText1);
-            
+
 
             WebText contactText1 = new WebText { WebTextID = 8, Page = "Contact", Section = "Expected Response", Body = "This can be a generic message...once contacted you can expect a response within a certian amount of time...", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
             WebText contactText2 = new WebText { WebTextID = 9, Page = "Contact", Section = "Name", Body = "Jessica Watson", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
@@ -74,11 +85,11 @@ namespace SARDT.Models
             Application app = new Application { ApplicationID = 0, FileName = "Application.pdf" };
             context.Applications.Add(app);
 
-            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page="Home", Location=1};
-            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page="Home", Location = 2 };
-            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = true, Page="History", Location = 1 };
-            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic4.jpg", Caption = "Image Caption4", InUse = true, Page="History", Location = 2 };
-            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic5.jpg", Caption = "Image Caption5", InUse = false, Page ="", Location = null };
+            WebImage image1 = new WebImage { WebImageID = 0, FileName = "pic1.jpg", Caption = "Image Caption1", InUse = true, Page = "Home", Location = 1 };
+            WebImage image2 = new WebImage { WebImageID = 1, FileName = "pic2.jpg", Caption = "Image Caption2", InUse = true, Page = "Home", Location = 2 };
+            WebImage image3 = new WebImage { WebImageID = 2, FileName = "pic3.jpg", Caption = "Image Caption3", InUse = true, Page = "History", Location = 1 };
+            WebImage image4 = new WebImage { WebImageID = 3, FileName = "pic4.jpg", Caption = "Image Caption4", InUse = true, Page = "History", Location = 2 };
+            WebImage image5 = new WebImage { WebImageID = 4, FileName = "pic5.jpg", Caption = "Image Caption5", InUse = false, Page = "", Location = null };
             context.WebImages.Add(image1);
             context.WebImages.Add(image2);
             context.WebImages.Add(image3);
@@ -87,21 +98,21 @@ namespace SARDT.Models
 
             Video seedVid = new Video { ID = 2, Title = "Insert Title", URL = "https://www.youtube.com/embed/6OHmn4Tcfd4?rel=0" };
             context.Videos.Add(seedVid);
-            CurrentVideos video = new CurrentVideos { CurrentVideo = seedVid, ID = 2};
+            CurrentVideos video = new CurrentVideos { CurrentVideo = seedVid, ID = 2 };
             context.CurrentVideo.Add(video);
 
 
             // create various users
-            var userAdmin = new Member { UserName = "admin", Email = "admin@gmail.com", Name = "Admin Johnson"};
+            var userAdmin = new Member { UserName = "admin", Email = "admin@gmail.com", Name = "Admin Johnson" };
             var adminCreateResult = userManager.Create(userAdmin, "password");
 
-            var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens"};
+            var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens" };
             var modCreateResult = userManager.Create(userMod, "password");
 
-            var userBob = new Member { UserName = "bob", Email = "bob@gmail.com", Name = "Bob Dylan"};
+            var userBob = new Member { UserName = "bob", Email = "bob@gmail.com", Name = "Bob Dylan" };
             var bobCreateResult = userManager.Create(userBob, "password");
 
-            var userGuy = new Member { UserName = "guy", Email = "guy@gmail.com", Name = "Guy Pierce"};
+            var userGuy = new Member { UserName = "guy", Email = "guy@gmail.com", Name = "Guy Pierce" };
             var guyCreateResult = userManager.Create(userGuy, "password");
 
 
@@ -124,9 +135,6 @@ namespace SARDT.Models
             context.Events.Add(secondEvent);
             context.Events.Add(thirdEvent);
 
-            */
-            //context.SaveChanges();
-            base.Seed(context);
         }
     }
 }

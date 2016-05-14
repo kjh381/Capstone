@@ -39,3 +39,5 @@ C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers.xml
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
+C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.Migrations.Init.resources
+C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csproj.GenerateResource.Cache
