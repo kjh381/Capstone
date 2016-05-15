@@ -128,7 +128,7 @@ C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.W
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
+C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
