@@ -74,6 +74,20 @@ namespace SARDT.Controllers
                                          where ev.Type == "public"
                                          select ev).ToList();
 
+                foreach (Event e in pageContent.eventList.ToList())
+                {
+                    if (compareDates(e.EventDate) != true)
+                    {
+                        pageContent.eventList.Remove(e);
+                    }
+                }
+
+                if (pageContent.eventList.Count() == 0)
+                {
+                    Event noUpcomingEvents = new Event { EventTitle = "No Upcoming Events, Please Check Back", Description = "", EventDate = DateTime.Today, StartTime = "0000" };
+                    pageContent.eventList.Add(noUpcomingEvents);
+                }
+           
             }
             if (getEvents == "team")
             {
@@ -81,23 +95,8 @@ namespace SARDT.Controllers
                                          where ev.Type == "team"
                                          select ev).ToList();
             }
+            
 
-            for (int e = 0; e < pageContent.eventList.Count() ; e++ )
-            {
-                if (compareDates(pageContent.eventList[e].EventDate) != true)
-                {
-                    pageContent.eventList.Remove(pageContent.eventList[e]);
-                }
-            }
-
-            int count = pageContent.eventList.Count();
-
-            if (count == 0)
-            {
-                Event noUpcomingEvents = new Event { EventTitle = "No Upcoming Events, Please Check Back", Description = "", EventDate= DateTime.Today, StartTime="0000" };
-                pageContent.eventList.Add(noUpcomingEvents);
-            }
-           
 
             if (getVideo == true)
             {

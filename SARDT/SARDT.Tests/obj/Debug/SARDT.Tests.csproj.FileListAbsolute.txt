@@ -132,3 +132,4 @@ C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
