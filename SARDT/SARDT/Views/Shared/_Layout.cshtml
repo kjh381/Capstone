@@ -58,7 +58,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -94,7 +94,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -130,7 +130,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -167,7 +167,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -203,7 +203,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -239,7 +239,7 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
@@ -266,7 +266,7 @@
                             </div>
                             <div class="collapse navbar-collapse" id="myNavbar">
                               <ul class="nav navbar-nav">
-                                  <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
                                   <li><a href="@Url.Action("Team", "Home")">Team</a></li>
                                   <li><a href="@Url.Action("History", "Home")">History</a></li>
                                   <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
@@ -277,13 +277,13 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
+                                                  <li class="active"><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
-                                                  <li><a href="@Url.Action("Member", "Home")">Login</a></li>
+                                                <li class="active"><a href="@Url.Action("Member", "Home")">Login</a></li>
                                         }
-                                  }
+}
                               </ul>
                             </div>
                           </div>
