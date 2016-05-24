@@ -198,7 +198,6 @@
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Auth\Register.cshtml" />
     <Content Include="Views\WebContent\EditText.cshtml" />
     <Content Include="Views\WebContent\TextEditorIndex.cshtml" />
     <Content Include="Views\WebContent\WebImageIndex.cshtml" />
@@ -224,6 +223,7 @@
     <Content Include="Views\Videos\VideoView.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\WebContent\ChangeImageConfirm.cshtml" />
+    <Content Include="Views\Auth\Register.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

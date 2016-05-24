@@ -11,138 +11,49 @@ namespace SARDT.Models
     {
 
         public string MemberName { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int MemberID { get; set; }
 
+        public  string Password{ get; set; }
+
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string FirstName { get; set; }
 
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string LastName { get; set; }
 
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string Address { get; set; }
+
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public int AttendencePercent { get; set; }
 
+        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string City { get; set; }
-       
-        public int ZipCode { get; set; }
-       
-        public string DOB { get; set; }
-        public bool IsDiveEligible { get; set; }
-        
-        public string EmergencyContact { get; set; }
-        public int HomeNumber { get; set; }
-        public int WorkPhone { get; set; }
-        [System.Web.Mvc.HiddenInput(DisplayValue=false)]
-        public override bool PhoneNumberConfirmed { get; set; }
 
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override bool TwoFactorEnabled
-        {
-            get
-            {
-                return base.TwoFactorEnabled;
-            }
-            set
-            {
-                base.TwoFactorEnabled = value;
-            }
-        }
+        public int ZipCode { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override DateTime? LockoutEndDateUtc
-        {
-            get
-            {
-                return base.LockoutEndDateUtc;
-            }
-            set
-            {
-                base.LockoutEndDateUtc = value;
-            }
-        }
-        
+        public string DOB { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override bool LockoutEnabled
-        {
-            get
-            {
-                return base.LockoutEnabled;
-            }
-            set
-            {
-                base.LockoutEnabled = value;
-            }
-        }
+        public bool IsDiveEligible { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override int AccessFailedCount
-        {
-            get
-            {
-                return base.AccessFailedCount;
-            }
-            set
-            {
-                base.AccessFailedCount = value;
-            }
-        }
+        public string EmergencyContact { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override string Id
-        {
-            get
-            {
-                return base.Id;
-            }
-            set
-            {
-                base.Id = value;
-            }
-        }
-        
+        public int HomeNumber { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override string PasswordHash
-        {
-            get
-            {
-                return base.PasswordHash;
-            }
-            set
-            {
-                base.PasswordHash = value;
-            }
-        }
+        public int WorkPhone { get; set; }
+
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override string SecurityStamp
-        {
-            get
-            {
-                return base.SecurityStamp;
-            }
-            set
-            {
-                base.SecurityStamp = value;
-            }
-        }
-        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override string UserName
-        {
-            get
-            {
-                return base.UserName;
-            }
-            set
-            {
-                base.UserName = value;
-            }
-        }
-        [System.Web.Mvc.HiddenInput(DisplayValue = false)]
-        public override bool EmailConfirmed
-        {
-            get
-            {
-                return base.EmailConfirmed;
-            }
-            set
-            {
-                base.EmailConfirmed = value;
-            }
-        }
+        public override bool PhoneNumberConfirmed { get; set; }
+
+
     }
+    
 }

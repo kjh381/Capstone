@@ -22,7 +22,7 @@ namespace SARDT.Controllers
         UserManager<Member> userManager = new UserManager<Member>(
                new UserStore<Member>(new SARDTContext()));
 
-        [Authorize(Roles = "Admin, BossesBoss")]
+       // [Authorize(Roles = "Moderator")]
         public ActionResult Index()
         {
 
@@ -90,7 +90,7 @@ namespace SARDT.Controllers
             var user = new Member
             {
                 UserName = model.Email,
-                MemberName = model.MemberName
+               // MemberName = model.MemberName
             };
 
             var result = userManager.Create(user, model.Password);
@@ -98,6 +98,7 @@ namespace SARDT.Controllers
             if (result.Succeeded)
             {
                 SignIn(user);
+                
                 return RedirectToAction("index", "home");
             }
 
@@ -155,7 +156,7 @@ namespace SARDT.Controllers
 
         //*************************************  Roles   ***************************
         //GET: /Roles/Create
-       [Authorize(Roles = "Admin, BossesBoss")]
+        //  [Authorize(Roles = "Moderator")]
         public ActionResult CreateRole()
         {
             return View();
@@ -182,19 +183,22 @@ namespace SARDT.Controllers
             }
         }
 
-       [Authorize(Roles = "Admin, BossesBoss")]
-        public ActionResult Delete(string RoleName)
+        //   [Authorize(Roles = "Moderator")]
+        public ActionResult Delete(string UserName, string RoleName)
         {
-            var thisRole = db.Roles.Where(r => r.Name.Equals(
-                RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-            db.Roles.Remove(thisRole);
+            //var thisRole = db.Roles.Where(r => r.Name.Equals(
+               // RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            Member user = db.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+           // userManager.AddToRole(user.Id, RoleName);
+            userManager.RemoveFromRole(user.Id, RoleName); //  =>id.(sequencing number)  name => member(name of role)     user => index ([0])
+
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         //
         //GET: /Roles/Edit
-      [Authorize(Roles = "Admin, BossesBoss")]
+        //   [Authorize(Roles = "Moderator")]
         public ActionResult EditRole(string roleName)
         {
             var thisRole = db.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -219,27 +223,41 @@ namespace SARDT.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin, BossesBoss")]
+        //   [Authorize(Roles = "Moderator")]
         public ActionResult ManageUserRoles()
         {
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr =>
                 new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+
+            var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+                new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
+
+
             ViewBag.Roles = list;
+            ViewBag.Users = Userlist;
+
             return View();
         }
 
+        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-    [Authorize(Roles = "Admin, BossesBoss")]
+        // [Authorize(Roles = "Moderator")]
         public ActionResult RoleAddToUser(string UserName, string RoleName)
         {
             Member user = db.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             userManager.AddToRole(user.Id, RoleName);
+            
+            var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+               new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
 
             ViewBag.ResultMessage = "Role created successfully!";
 
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
+
+            ViewBag.Users = Userlist;
             return View("ManageUserRoles");
         }
 
@@ -253,8 +271,12 @@ namespace SARDT.Controllers
 
                 ViewBag.RolesForThisUser = userManager.GetRoles(user.Id);
 
+                var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+               new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
+
                 var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
                 ViewBag.Roles = list;
+                ViewBag.Users = Userlist;
             }
             return View("ManageUserRoles");
         }

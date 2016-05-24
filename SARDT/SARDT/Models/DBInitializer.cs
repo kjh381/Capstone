@@ -5,16 +5,32 @@ using System.Web;
 using System.Data.Entity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
+using Microsoft.AspNet.Identity;
+
+
 
 //using SARDT.Models;
 
 namespace SARDT.Models
 {
-      public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
-    //public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
+//public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
+    public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
     {
         protected override void Seed(SARDTContext context)
         {
+            UserManager<Member> manager = new UserManager<Member>(new UserStore<Member>(new SARDTContext()));
+            Member user = new Member { MemberName = "testSubject1",Password = "password", };
+            manager.Create(user, "testSubject1");
+            manager.AddToRole(user.Id, "Moderator");
+
+           //UserManager<Member> manager1 = new UserManager<Member>(new UserStore<Member>(new SARDTContext()));
+           //Member  user2 = new Member { Email = "admin@myemail.com", UserName = "admin@myemail.com" };
+           //manager1.Create(user, "testSubject2");
+           //manager.AddToRole(user.Id, "Admin");
+
+           
+          
+            
             //TODO: Add seeds to context here.
             //context.class.Add(newObjName)
             WebText homeText = new WebText { WebTextID = 0, Page = "Home", Section = "Welcome", Body = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.", LastChangedOn = new DateTime(2016, 4, 2), LastChangeBy = "Kyle" };
