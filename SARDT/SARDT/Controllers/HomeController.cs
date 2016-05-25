@@ -34,12 +34,6 @@ namespace SARDT.Controllers
             return View(pageContent);
         }
 
-        //[Authorize(Roles="Member, Admin")]
-        public ActionResult Member()
-        {
-            return View(db.Users.ToList());
-        }
-
         public ActionResult Donate()
         {
             return View();

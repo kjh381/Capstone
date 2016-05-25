@@ -6,8 +6,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>@Model.Year</h2>
-<h2>@Model.Month.Name</h2>
+<h2>Member Area</h2>
+<h3>@Model.Month.Name @Model.Year</h3>
 
 <!--<nav class="navbar navbar-default">
     <div class="container-fluid">
@@ -121,3 +121,19 @@
     }
     </table>
 </div>
+@if (HttpContext.Current.User.IsInRole("Admin"))
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">Edit Content</div>
+        <div class="panel-body">
+            <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
+            <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
+            <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
+            <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
+        </div>
+    </div>
+}
+else
+{
+    <br/>
+}

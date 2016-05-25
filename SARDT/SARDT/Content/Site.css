@@ -112,6 +112,7 @@ figure img {
 .panel-primary
 {
     border-color: #0F0F0F;
+    
 }
 
 .panel-primary > .panel-heading
@@ -119,6 +120,7 @@ figure img {
     background-color: #BCD3CA;
     color: #0F0F0F;
     border-color: #0F0F0F;
+    text-align: left;
 }
 
 /*event hiding and showing on public page*/
