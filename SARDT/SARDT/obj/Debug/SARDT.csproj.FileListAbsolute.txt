@@ -84,3 +84,4 @@ C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.Migrat
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csproj.GenerateResource.Cache
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
