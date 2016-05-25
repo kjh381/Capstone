@@ -249,7 +249,7 @@
                                         }
                                         else
                                         {
-                                                  <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                                  <li class="active"><a href="@Url.Action("Index","Calendar")">Log In</a></li>
                                         }
                                   }
                               </ul>
@@ -283,12 +283,12 @@
                                   @{
                                         if (User.Identity.IsAuthenticated)
                                         {
-                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li class="active"><a href="@Url.Action("Index","Calendar")">Member</a></li>
                                                   <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
                                         }
                                         else
                                         {
-                                                <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                            <li class="active"><a href="@Url.Action("Index","Calendar")">Log In</a></li>
                                         }
 }
                               </ul>
