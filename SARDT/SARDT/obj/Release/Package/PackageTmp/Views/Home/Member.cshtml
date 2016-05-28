@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SARDT.Models.Member>
+@{
+    ViewBag.Title = "Member";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Member Area</h2>
+        <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
+        <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
+        <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
+        <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
+

@@ -1,0 +1,48 @@
+﻿@model SARDT.Models.MessagesVM
+
+@{
+    ViewBag.Title = "Send Message";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Send Message</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+
+        <div class="messagingMemberList list-group">
+            @for (int i = 0; i < Model.SelectedMembers.Count; i++)
+            {
+                @Html.EditorFor(listItem => Model.SelectedMembers[i])            
+            }
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Message.Subject, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Message.Subject)
+                @Html.ValidationMessageFor(model => model.Message.Subject)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Message.Body, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Message.Body)
+                @Html.ValidationMessageFor(model => model.Message.Body)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Submit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
