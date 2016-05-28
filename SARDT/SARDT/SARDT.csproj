@@ -146,8 +146,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Application\Application.pdf" />
     <None Include="Properties\PublishProfiles\divelcso - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\divelcso - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\divelcso - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %283%29.pubxml" />
     <None Include="Properties\PublishProfiles\divelcso - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
@@ -170,10 +172,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605142229013_Init.cs" />
-    <Compile Include="Migrations\201605142229013_Init.Designer.cs">
-      <DependentUpon>201605142229013_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Application.cs" />
@@ -259,11 +257,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605142229013_Init.resx">
-      <DependentUpon>201605142229013_Init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,23 +1,23 @@
 namespace SARDT.Migrations
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using SARDT.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-    using SARDT.Models;
-    using Microsoft.AspNet.Identity;
-    using Microsoft.AspNet.Identity.EntityFramework;
 
     internal sealed class Configuration : DbMigrationsConfiguration<SARDT.Models.SARDTContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            ContextKey = "SARDT.Models.SARDTContext";
         }
 
         protected override void Seed(SARDT.Models.SARDTContext context)
         {
+            //SARDTContext context = new SARDTContext();
 
             UserManager<Member> userManager = new UserManager<Member>(
                   new UserStore<Member>(context));
@@ -125,7 +125,6 @@ namespace SARDT.Migrations
 
             context.SaveChanges();
             base.Seed(context);
-
         }
     }
 }

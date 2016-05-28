@@ -34,8 +34,14 @@ figure img {
     height:inherit;
 }
 
+.imgcontain {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .imgright {
-    margin-top:75px;
+    margin-top:50px;
 }
 .messagingMemberList {
     height: 400px;
