@@ -119,8 +119,7 @@ namespace SARDT.Controllers
 
             List<WebImage> images = (from i in db.WebImages
                                      where i.InUse == true
-                                     orderby i.Page
-                                     orderby i.Location
+                                     orderby i.Page, i.Location 
                                      select i).ToList();
             return View(images);
         }
@@ -138,7 +137,6 @@ namespace SARDT.Controllers
             return View(images);
         }
 
-        //[Bind(Include = "WebImageID,FileName,Caption,InUse")] 
         [HttpPost]
         public ActionResult ChangeActive(int oldID, int newID)
         {
@@ -179,11 +177,25 @@ namespace SARDT.Controllers
         {
             try
             {
-                string success = "Image successfully deleted.";
                 WebImage image = db.WebImages.Find(id);
-                db.WebImages.Remove(image);
-                db.SaveChanges();
-                return RedirectToAction("WebImageIndex", new {message = success});
+                if (!image.InUse)
+                {
+                    string fullPath = Request.MapPath("~/Images/" + image.FileName);
+
+                    if (System.IO.File.Exists(fullPath))
+                    {
+                        System.IO.File.Delete(fullPath);
+                    }
+
+                    db.WebImages.Remove(image);
+                    db.SaveChanges();
+                    string success = "Image successfully deleted.";
+                    return RedirectToAction("WebImageIndex", new { message = success });
+                }
+                else {
+                    string imageInUse = "Image is currently displayed on the website. Please change active image before deleting";
+                    return RedirectToAction("WebImageIndex", new { message = imageInUse });                
+                }
             }
             catch
             {
@@ -219,7 +231,6 @@ namespace SARDT.Controllers
 
                     db.WebImages.Add(img);
                     db.SaveChanges();
-
                 }
                 catch (Exception ex)
                 {
@@ -231,9 +242,7 @@ namespace SARDT.Controllers
             }
             
             return RedirectToAction("AddImage");
-
         }
-
 
         public ActionResult EditImage(int? id)
         {
@@ -254,7 +263,7 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,Location,FileName,InUse")] WebImage webimage)
+        public ActionResult EditImage([Bind(Include = "WebImageID,Caption,Location,FileName,Page,InUse")] WebImage webimage)
         {
             if (ModelState.IsValid)
             {
@@ -265,6 +274,58 @@ namespace SARDT.Controllers
             return View(webimage);
         }
 
+        public ActionResult UploadNewApplication(string message)
+        {
+            ViewBag.Message = message;
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult UploadNewApplication(HttpPostedFileBase file)
+        {
+            ViewBag.Message = "";
+            if (file != null && file.ContentLength > 0)
+                try
+                {
+                    string path = Path.Combine(Server.MapPath("~/Application"), Path.GetFileName(file.FileName));
+
+                    if (System.IO.Path.GetExtension(file.FileName) == ".pdf")
+                    {
+                        Application app = new Application();
+
+                        app = (from a in db.Applications
+                               select a).FirstOrDefault();
+                        
+                        //Delete old application file
+                        string fullPath = Request.MapPath("~/Application/" + app.FileName);
+
+                        if (System.IO.File.Exists(fullPath))
+                        {
+                            System.IO.File.Delete(fullPath);
+                        }
+
+                        app.FileName = file.FileName;
+                        
+                        file.SaveAs(path);
+                        ViewBag.Message = "File uploaded successfully";
+                        db.SaveChanges();
+                                                
+                        return RedirectToAction("UploadNewApplication", new { message = ViewBag.Message });
+
+                    }
+                    ViewBag.Message = "File must be a PDF";
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            else
+            {
+                ViewBag.Message = "You have not specified a file.";
+            }
+
+            return RedirectToAction("UploadNewApplication", new { message = ViewBag.Message });
+        }
 
         public ActionResult Test()
         {

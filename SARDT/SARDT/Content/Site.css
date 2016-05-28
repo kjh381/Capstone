@@ -25,9 +25,16 @@ figure {
 }
 figure img {
     width:100%;
-    margin-top:75px;
+    margin-top:25px;
     max-height:700px;
     max-width:500px;
+}
+
+.messagingMemberList {
+    height: 400px;
+    width: 50%;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 
@@ -99,13 +106,14 @@ p {
 }
 
 .events {
- 
+    background-color: #eee;
+    padding: 5px;
 	width:100%;
 }
 
 .events h2
 {
-    text-align: left;
+    text-align: center;
 }
 
 .event {
@@ -131,16 +139,20 @@ p {
   margin-left: 0px;
 }
 
-.item .title {
-  font-weight: bold;
-  text-align: left;
+.item .date {
+  text-align: center;
 }
 
-.item .eventdate {
-  margin-right: 20px;
+.item .title{
+    text-align: center;
+    font-weight: bold;
 }
 
-p .title {
+.item .eventtime {
+  text-align = center;
+}
+
+p .date {
 margin-left:0px;
 padding-left:0px;
 }

@@ -15,6 +15,11 @@ namespace SARDT.Controllers
         public ActionResult Index()
         {
             PublicVM pageContent = GetPageContent("Home", true, "public");
+
+            pageContent.eventList = (from c in pageContent.eventList
+                                     orderby c.EventDate
+                                     orderby c.StartTime
+                                     select c).ToList();
             return View(pageContent);
         }
 
@@ -87,6 +92,12 @@ namespace SARDT.Controllers
                 pageContent.currentVideo = currentVideo;
             }
 
+            if (pageName == "Application")
+            {
+                pageContent.application = (from a in db.Applications
+                                           select a).FirstOrDefault();            
+            }
+
             pageContent.textList = (from s in db.WebTexts
                                     where s.Page == pageName
                                     select s).ToList();
@@ -124,6 +135,5 @@ namespace SARDT.Controllers
 	    //
 	    return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
-
     }
 }

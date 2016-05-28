@@ -21,8 +21,8 @@
 
 <nav>
     <ul class="pager">
-        <li class="previous pager-text"><a href="@Url.Action("PreviousMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num})"><span aria-hidden="true">&larr;</span> Older</a></li>
-        <li class="next pager-text"><a href="@Url.Action("NextMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num })">Newer <span aria-hidden="true">&rarr;</span></a></li>
+        <li class="previous pager-text"><a href="@Url.Action("PreviousMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num})"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        <li class="next pager-text"><a href="@Url.Action("NextMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num })">Next <span aria-hidden="true">&rarr;</span></a></li>
     </ul>
 </nav>
 <div class="table-responsive">
@@ -83,7 +83,7 @@
                                             @Model.ParseMilitaryAsNormalTime(CurrentEvent.StartTime) - @Model.ParseMilitaryAsNormalTime(CurrentEvent.EndTime): @CurrentEvent.EventTitle
                                         </a></li>
                                     }
-                                    @if (Request.IsAuthenticated)
+                                    @if (HttpContext.Current.User.IsInRole("Admin"))
                                     {
                                         <li role="separator" class="divider"></li>
                                         <li><a href="@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })">Add New Event</a></li>
@@ -93,7 +93,7 @@
                         }
                         else
                         {
-                            if (Request.IsAuthenticated)
+                            if (HttpContext.Current.User.IsInRole("Admin"))
                             { 
                                 <button type="button" class="btn" onclick="location.href = '@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })';">Add Event</button>
                             }
