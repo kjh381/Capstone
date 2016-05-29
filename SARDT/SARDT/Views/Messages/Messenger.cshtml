@@ -1,0 +1,60 @@
+﻿@model SARDT.Models.MessengerVM
+
+@{
+    ViewBag.Title = "Messenger";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Messenger</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <table class="messenger-header">
+            <tr>
+                <td class="messenger-header-text text-left">You</td>
+                <td class="messenger-header-text text-right"><button class="btn btn-default" type="button" id="changeUser" onclick="location.href='@Url.Action("StartConversation", "Messages")'" >Change Member</button>  @Model.SecondMember.Name
+</td>
+            </tr>
+        </table>
+    </div>
+    <div class="panel-body messenger-content">
+        @foreach (var item in Model.Conversation.UserMessages)
+        {
+            <div class="row">
+                @if (item.AuthorID == Model.CurrentMember.Id)
+                {
+                    <div class="alert alert-info col-sm-7" role="alert">
+                        <p class="text-left messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
+                    </div>
+                }
+                else
+                {
+                    <div class="alert alert-success col-sm-7 col-sm-offset-5" role="alert">
+                        <p class="text-right messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+    @Html.HiddenFor(model => model.Conversation.FirstMemberID)
+    @Html.HiddenFor(model => model.Conversation.ID)
+    @Html.HiddenFor(model => model.Conversation.UserMessages)
+    @Html.HiddenFor(model => model.Conversation.SecondMemberID)
+    @Html.HiddenFor(model => model.SecondMember.Id)
+    <div class="panel-footer">
+        <div class="row">
+            <div>
+                <div class="input-group">
+                    @Html.TextBoxFor(message => Model.CurrentMessage)
+                    <span class="input-group-btn">
+                        <button class="btn btn-info" type="submit" >Send</button>
+                    </span>
+                </div><!-- /input-group -->
+            </div><!-- /.col-lg-6 -->
+        </div><!-- /.row -->
+    </div>
+</div>
+}
+

@@ -32,12 +32,35 @@ figure img {
 
 .messagingMemberList {
     height: 400px;
-    width: 50%;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y:scroll;
 }
 
+.messageBody {
+    height: 380px;
+    margin-top: 20px;
+    width: inherit;
+    resize: none;
+}
 
+.messenger-header {
+    width: 100%;
+}
+
+.messenger-header-text {
+    width: 50%;
+}
+
+.messenger-text {
+    font-size: 14px;
+    text-overflow:clip;
+}
+
+.messenger-content {
+    height: 400px;
+    overflow: hidden;
+    overflow-y:scroll;
+}
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
@@ -149,7 +172,7 @@ p {
 }
 
 .item .eventtime {
-  text-align = center;
+  text-align: center;
 }
 
 p .date {

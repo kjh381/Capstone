@@ -1,0 +1,44 @@
+﻿@model SARDT.Models.MessagesVM
+
+@{
+    ViewBag.Title = "Send EMail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Send Reminder to Team Members</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="col-md-6">
+            @Html.Label("To")
+            <ul class="messagingMemberList list-group">
+                @for (int i = 0; i < Model.SelectedMembers.Count; i++)
+                {
+                    <li class="list-group-item">
+                            <p align="left">@Html.EditorFor(listItem => Model.SelectedMembers[i])
+                            @Model.Members[i].Name</p>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div id="col-md-6">     
+            @Html.TextBoxFor(model => model.Message.Subject, new { placeholder = "Message Subject" })
+            @Html.ValidationMessageFor(model => model.Message.Subject)
+
+            @Html.TextAreaFor(model => model.Message.Body, new { @class = "messageBody col-md-12", placeholder = "Message Body" })
+            @Html.ValidationMessageFor(model => model.Message.Body)
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" value="Send Message" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

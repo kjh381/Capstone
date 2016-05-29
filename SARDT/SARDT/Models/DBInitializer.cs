@@ -98,10 +98,10 @@ namespace SARDT.Models
             var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens"};
             var modCreateResult = userManager.Create(userMod, "password");
 
-            var userBob = new Member { UserName = "bob", Email = "bob@gmail.com", Name = "Bob Dylan"};
+            var userBob = new Member { UserName = "bob", Email = "andreweskild@gmail.com", Name = "Bob Dylan"};
             var bobCreateResult = userManager.Create(userBob, "password");
 
-            var userGuy = new Member { UserName = "guy", Email = "guy@gmail.com", Name = "Guy Pierce"};
+            var userGuy = new Member { UserName = "guy", Email = "5blkcrow5@gmail.com", Name = "Guy Pierce"};
             var guyCreateResult = userManager.Create(userGuy, "password");
 
 

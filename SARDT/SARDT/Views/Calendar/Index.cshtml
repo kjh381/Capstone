@@ -25,6 +25,8 @@
         <li class="next pager-text"><a href="@Url.Action("NextMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num })">Next <span aria-hidden="true">&rarr;</span></a></li>
     </ul>
 </nav>
+
+
 <div class="table-responsive">
     <table class="table table-bordered">
         <tr>
@@ -53,15 +55,15 @@
     @{
         foreach (var item in Model.Month.Days)
         {   
-            if (item.DayOfMonth == 1)
+            if (item.Date.Day == 1)
             {
                 @:<tr>
-                for(int i = 0; i < item.DayOfWeek; i++)
+                for(int i = 0; i < (int)item.Date.DayOfWeek; i++)
                 {
                     @:<td></td>
                 }
             }
-            if (item.Month == DateTime.Today.Month && item.DayOfMonth == DateTime.Today.Day)
+            if (item.Date.Month == DateTime.Today.Month && item.Date.Day == DateTime.Today.Day)
             { 
                 @:<td class="alert-info">
             }
@@ -69,7 +71,7 @@
             {
                 @:<td>
             }
-                @item.DayOfMonth <br/>
+                @item.Date.Day <br/>
                         if (item.Events.Count > 0)
                         {
                             <div class="btn-group">
@@ -83,19 +85,19 @@
                                             @Model.ParseMilitaryAsNormalTime(CurrentEvent.StartTime) - @Model.ParseMilitaryAsNormalTime(CurrentEvent.EndTime): @CurrentEvent.EventTitle
                                         </a></li>
                                     }
-                                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                                    @if (HttpContext.Current.User.IsInRole("Admin") && (item.Date >= DateTime.Today))
                                     {
                                         <li role="separator" class="divider"></li>
-                                        <li><a href="@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })">Add New Event</a></li>
+                                        <li><a href="@Url.Action("Create", "Event", new { month=item.Date.Month, day=item.Date.Day, year=Model.Year })">Add New Event</a></li>
                                     }
                                 </ul>
                             </div>
                         }
                         else
                         {
-                            if (HttpContext.Current.User.IsInRole("Admin"))
+                            if (HttpContext.Current.User.IsInRole("Admin") && (item.Date >= DateTime.Today))
                             { 
-                                <button type="button" class="btn" onclick="location.href = '@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })';">Add Event</button>
+                                <button type="button" class="btn" onclick="location.href = '@Url.Action("Create", "Event", new { month=item.Date.Month, day=item.Date.Day, year=Model.Year })';">Add Event</button>
                             }
                             else
                             {
@@ -104,14 +106,14 @@
                         }
 
             @:</td>
-            if (item.DayOfWeek == 6 && item.DayOfMonth != Model.Month.DaysInMonth)
+            if ((int)item.Date.DayOfWeek == 6 && item.Date.Month != Model.Month.DaysInMonth)
             {
                 @:</tr>
                 @:<tr>
             }
-            if (item.DayOfMonth == Model.Month.DaysInMonth)
+            if (item.Date.Day == Model.Month.DaysInMonth)
             {
-                for (int i = item.DayOfWeek; i < 6; i++)
+                for (int i = (int)item.Date.DayOfWeek; i < 6; i++)
                 {
                     @:<td></td>
                 }

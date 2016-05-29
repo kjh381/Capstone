@@ -38,6 +38,10 @@ C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Deploy
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Razor.xml
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\System.Web.Helpers.xml
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\System.Web.Mvc.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\Hangfire.Core.dll
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\Hangfire.SqlServer.dll
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\Hangfire.Core.xml
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\bin\Hangfire.SqlServer.xml
+C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
