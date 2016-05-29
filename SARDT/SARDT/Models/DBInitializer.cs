@@ -18,7 +18,7 @@ namespace SARDT.Models
         {
             //TODO: Add seeds to context here.
             //context.class.Add(newObjName)
-
+            /*
             UserManager<Member> userManager = new UserManager<Member>(
                    new UserStore<Member>(context));
 
@@ -124,8 +124,8 @@ namespace SARDT.Models
             context.Events.Add(secondEvent);
             context.Events.Add(thirdEvent);
 
-
-            context.SaveChanges();
+            */
+            //context.SaveChanges();
             base.Seed(context);
         }
     }

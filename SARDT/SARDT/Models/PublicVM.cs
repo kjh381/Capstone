@@ -42,13 +42,5 @@ namespace SARDT.Models
             return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
 
-        public int compareDates(DateTime d)
-        {
-            DateTime today = DateTime.Today;
-
-            int result = DateTime.Compare(d, today);
-
-            return result;
-        }
-    }
+     }
 }

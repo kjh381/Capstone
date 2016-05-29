@@ -13,7 +13,7 @@ namespace SARDT
     {
         protected void Application_Start()
         {
-            Database.SetInitializer(new DBInitializer());
+         //   Database.SetInitializer(new DBInitializer());
 
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

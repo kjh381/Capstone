@@ -1,0 +1,123 @@
+﻿@model SARDT.Models.CalendarVM
+@using SARDT.Models
+
+@{
+    ViewBag.Title = Model.Month.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Year</h2>
+<h2>@Model.Month.Name</h2>
+
+<!--<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <a href="Url.Action("PreviousMonth", "Calendar", new { year = Model.Year, month = Model.Month.Num})" class="btn btn-default navbar-btn navbar-left">Previous Month</a>
+
+            <a href="Url.Action("NextMonth", "Calendar", new { year = Model.Year, month = Model.Month.Num })" class="btn btn-default navbar-btn navbar-right">Next Month</a>
+        </div>
+    </div>
+</nav>-->
+
+<nav>
+    <ul class="pager">
+        <li class="previous pager-text"><a href="@Url.Action("PreviousMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num})"><span aria-hidden="true">&larr;</span> Previous</a></li>
+        <li class="next pager-text"><a href="@Url.Action("NextMonth", "Calendar" , new { year=Model.Year, month=Model.Month.Num })">Next <span aria-hidden="true">&rarr;</span></a></li>
+    </ul>
+</nav>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tr>
+            <th class="text-center">
+                @Html.LabelForModel("Sunday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Monday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Tuesday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Wednesday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Thursday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Friday")
+            </th>
+            <th class="text-center">
+                @Html.LabelForModel("Saturday")
+            </th>
+        </tr>
+    @{
+        foreach (var item in Model.Month.Days)
+        {   
+            if (item.DayOfMonth == 1)
+            {
+                @:<tr>
+                for(int i = 0; i < item.DayOfWeek; i++)
+                {
+                    @:<td></td>
+                }
+            }
+            if (item.Month == DateTime.Today.Month && item.DayOfMonth == DateTime.Today.Day)
+            { 
+                @:<td class="alert-info">
+            }
+            else
+            {
+                @:<td>
+            }
+                @item.DayOfMonth <br/>
+                        if (item.Events.Count > 0)
+                        {
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    @item.Events.Count Event(s)<span class="caret"></span>
+                                </button><ul class="dropdown-menu">
+                                    @for (int i = 0; i < item.Events.Count; i++)
+                                    {
+                                        Event CurrentEvent = item.Events[i];
+                                        <li><a href="@Url.Action("Details", "Event", new { id=CurrentEvent.EventID })">
+                                            @Model.ParseMilitaryAsNormalTime(CurrentEvent.StartTime) - @Model.ParseMilitaryAsNormalTime(CurrentEvent.EndTime): @CurrentEvent.EventTitle
+                                        </a></li>
+                                    }
+                                    @if (HttpContext.Current.User.IsInRole("Admin"))
+                                    {
+                                        <li role="separator" class="divider"></li>
+                                        <li><a href="@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })">Add New Event</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+                        else
+                        {
+                            if (HttpContext.Current.User.IsInRole("Admin"))
+                            { 
+                                <button type="button" class="btn" onclick="location.href = '@Url.Action("Create", "Event", new { month=item.Month, day=item.DayOfMonth, year=Model.Year })';">Add Event</button>
+                            }
+                            else
+                            {
+                                <br/>
+                            }
+                        }
+
+            @:</td>
+            if (item.DayOfWeek == 6 && item.DayOfMonth != Model.Month.DaysInMonth)
+            {
+                @:</tr>
+                @:<tr>
+            }
+            if (item.DayOfMonth == Model.Month.DaysInMonth)
+            {
+                for (int i = item.DayOfWeek; i < 6; i++)
+                {
+                    @:<td></td>
+                }
+                @:</tr>
+            }
+        }
+    }
+    </table>
+</div>

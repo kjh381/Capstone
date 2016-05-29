@@ -4,8 +4,6 @@
         ViewBag.Title = "Home";
     }
 
-    @*@Html.ActionLink("Im just here for testing purposes", "EditText", "WebContent")*@
-
     <!-- Jumbotron -->
     <div class="jumbotron">
         <p>
@@ -23,15 +21,19 @@
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-7 col-sm-push-5 text-left" >
-            <figure>
-                <img src="~/Images/@Model.imageList[0].FileName" />
-                <figcaption>@Model.imageList[0].Caption</figcaption>
-            </figure>
-        </div>
 
-        <div class="col-sm-5 col-sm-pull-7 text-left">
+    <div class="row">
+        <div  class="col-sm-6 col-sm-push-6 text-left imgcontain imgright" style="background-image: url('../Images/@Model.imageList[0].FileName');">
+            <!-- style="height: inherit;"
+        <figure>
+            <img class=" imgright" src="~/Images/@Model.imageList[0].FileName" />
+            <figcaption>@Model.imageList[0].Caption</figcaption>
+        </figure>
+        -->
+            <h2 style="visibility: hidden;;">@Html.DisplayFor(model => model.textList[1].Section)</h2>
+            <p style="visibility: hidden;">@Html.DisplayFor(model => model.textList[1].Body)</p>
+        </div>
+        <div class="col-sm-6 col-sm-pull-6 text-left">
             <h2>@Html.DisplayFor(model => model.textList[1].Section)</h2>
             <p>@Html.DisplayFor(model => model.textList[1].Body)</p>
         </div>
@@ -43,27 +45,27 @@
             <div class="col-sm-12">
                     @foreach (var item in Model.eventList)
                     { 
-                        if (Model.compareDates(item.EventDate) >= 0)
-                        {                         
-                            <div class="event">
-                                <div class="item row">
-                                    <div class="col-sm-2">
-                                        <p class="date">@item.EventDate.ToString("d")</p>
+                       @* if (Model.compareDates(item.EventDate) == true)
+                        {*@                       
+                                <div class="event">
+                                    <div class="item row">
+                                        <div class="col-sm-2">
+                                            <p class="date">@item.EventDate.ToString("d")</p>
+                                        </div>
+                                        <div class="col-sm-8">
+                                            <p class="title"> @item.EventTitle</p>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <p class="eventtime">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
+                                        </div>
                                     </div>
-                                    <div class="col-sm-8">
-                                        <p class="title"> @item.EventTitle</p>
-                                    </div>
-                                    <div class="col-sm-2">
-                                        <p class="eventtime">@Model.ParseMilitaryTime(item.StartTime).ToString("t")</p>
+                                    <div class="description row text-left">
+                                        <div class="col-sm-12">
+                                            <p>@item.Description</p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="description row text-left">
-                                    <div class="col-sm-12">
-                                        <p>@item.Description</p>
-                                    </div>
-                                </div>
-                               </div>
-                        }
+                        @*}*@
                     }
                 </div>
             </div>

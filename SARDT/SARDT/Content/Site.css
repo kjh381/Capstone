@@ -22,14 +22,27 @@
 figure {
     width:100%;
     text-align:center;
+    height:inherit;
 }
+
 figure img {
     width:100%;
     margin-top:25px;
-    max-height:700px;
+    /*max-height:700px;*/
+    /*max-height:inherit;*/
     max-width:500px;
+    height:inherit;
 }
 
+.imgcontain {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imgright {
+    margin-top:50px;
+}
 .messagingMemberList {
     height: 400px;
     overflow: hidden;

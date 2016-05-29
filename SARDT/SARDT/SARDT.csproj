@@ -153,13 +153,21 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Application\Application.pdf" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
     <Content Include="Scripts\hideShowEvent.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -173,6 +181,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\CalendarVM.cs" />
     <Compile Include="Models\Conversation.cs" />
