@@ -6,11 +6,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>Manage video displayed on home page</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+@if (Model.CurrentVideos == null)
+{
+    <h3 class="text-danger">No Current Video is set</h3>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -31,13 +33,20 @@
             @Html.DisplayFor(listItem => item.URL)
         </td>
         <td>
-            @if (Model.CurrentVideos.CurrentVideo.ID != item.ID)
+            @if (Model.CurrentVideos != null)
             { 
-                @Html.ActionLink("Set Current ", "SetCurrent", new { id = item.ID });
+                if (Model.CurrentVideos.CurrentVideo.ID != item.ID)
+                { 
+                    @Html.ActionLink("Set Active Video ", "SetCurrent", new { id = item.ID });
+                }
+                else
+                {
+                    @Html.LabelForModel("Active Video");
+                }
             }
             else
             {
-                @Html.LabelForModel("Current");
+                @Html.ActionLink("Set Active Video ", "SetCurrent", new { id = item.ID });
             }
             @Html.LabelForModel(" | ")
             @Html.ActionLink("Delete", "Delete", new { id=item.ID })
@@ -46,3 +55,7 @@
 }
 
 </table>
+
+<p>
+    @Html.ActionLink("Add New Video", "Create")
+</p>

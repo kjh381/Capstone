@@ -25,10 +25,17 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EventDate, new { @class = "control-label col-md-2" })
+            <label class="control-label col-md-2" for="EventDate">Event Date</label>
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EventDate)
-                @Html.ValidationMessageFor(model => model.EventDate)
+                @if (Model == null)
+                { 
+                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")"  />
+                }
+                else
+                {
+                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@Model.EventDate.ToString("yyyy-MM-dd")"  />
+                }
+                <span class="field-validation-valid" data-valmsg-for="EventDate" data-valmsg-replace="true"></span>
             </div>
         </div>
 
@@ -89,5 +96,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Calendar", "Index", "Calendar", new { year = Model.EventDate.Year, month = Model.EventDate.Month }, new { })
 </div>

@@ -11,12 +11,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - SARDT</title>
 
     <!-- Bootstrap core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Custom styles for this site -->
     <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
     <!-- font Awesome core -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
@@ -34,140 +35,284 @@
             @switch(page)
             {
                 case "Home":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li class="active"><a href="Index">Home</a></li>
-                                <li><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-
-                                <li><a href="@Url.Action("LogIn", "Auth")">Login</a></li>                               
-                                <li><a href="@Url.Action("LogOut", "Auth")">LogOut</a></li>
-
-
-
-                            </ul>
+                       <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li class="active"><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li><a href="@Url.Action("Index", "Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                     break;
                 case "Team":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li class="active"><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                       <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li class="active"><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
                 case "History":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li class ="active"><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                        <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li class="active"><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
-                case "Member":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li class="active"><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
-                        </nav>
-                break;
+               
                 case "Donate":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li class="active"><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                        <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li class="active"><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
                 case "Application":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li class="active"><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                       <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li class="active"><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
                 case "Contact":
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li class="active"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                      <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li class="active"><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                                  <li class="active"><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+                                  }
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
 
 
                 default:
-                        <nav>
-                            <ul class="nav nav-justified">
-                                <li ><a href="Index">Home</a></li>
-                                <li ><a href="@Url.Action("Team", "Home")">Team</a></li>
-                                <li ><a href="@Url.Action("History", "Home")">History</a></li>
-                                <li><a href="@Url.Action("Member", "Home")">Members</a></li>
-                                <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
-                                <li><a href="@Url.Action("Application", "Home")">Application</a></li>
-                                <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
-                            </ul>
+                      <nav class="navbar navbar-default">
+                          <div class="container-fluid">
+                            <div class="navbar-header">
+                              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                              </button>
+                                <a class="navbar-brand" href="@Url.Action("Index", "Home")">LCSAR Dive Team</a>
+                            </div>
+                            <div class="collapse navbar-collapse" id="myNavbar">
+                              <ul class="nav navbar-nav">
+                                  <li ><a href="@Url.Action("Index", "Home")">Home</a></li>
+                                  <li><a href="@Url.Action("Team", "Home")">Team</a></li>
+                                  <li><a href="@Url.Action("History", "Home")">History</a></li>
+                                  <li><a href="@Url.Action("Donate", "Home")">Donate</a></li>
+                                  <li><a href="@Url.Action("Application", "Home")">Application</a></li>
+                                  <li><a href="@Url.Action("Contact", "Home")">Contact</a></li>
+                              </ul>
+                              <ul class="nav navbar-nav navbar-right">
+                                  @{
+                                        if (User.Identity.IsAuthenticated)
+                                        {
+                                                  <li class="active"><a href="@Url.Action("Index","Calendar")">Member</a></li>
+                                                  <li><a href="@Url.Action("LogOut", "Auth")">Log Out</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li class="active"><a href="@Url.Action("Index","Calendar")">Log In</a></li>
+                                        }
+}
+                              </ul>
+                            </div>
+                          </div>
                         </nav>
                 break;
-
-                
                 
             }
 
         </div>
         <!-- Jumbotron -->
         <div class="jumbotron">
-            <div class="Social">
-                <i class="fa fa-facebook-square fa-2x"></i>
-                <i class="fa fa-twitter-square fa-2x"></i>
-                <i class="fa fa-youtube-square fa-2x"></i>
-            </div>
             @RenderBody()
         </div>
 
             <!-- Site footer -->
             <footer class="footer">
-                <p>&copy; 2016 Company, Inc.</p>
+                <p>&copy;2016 Lane Co. Search and Rescue</p>
             </footer>
 
         </div> <!-- /container -->
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/hideShowEvent.js"></script>
 </body>
 </html>

@@ -10,28 +10,21 @@ namespace SARDT.Models
     public class Member : IdentityUser
     {
 
-        public string MemberName { get; set; }
-      public int MemberID { get; set; }
-
-
-        public string FirstName { get; set; }
-
-        public string LastName { get; set; }
+        public string Name { get; set; }
 
         public string Address { get; set; }
         public int AttendencePercent { get; set; }
 
         public string City { get; set; }
-       
+        [DataType(DataType.PostalCode)]
         public int ZipCode { get; set; }
-       
-        public string DOB { get; set; }
-        public bool IsDiveEligible { get; set; }
         
-        [DataType(DataType.EmailAddress)]
-        //public string EmailAddress { get; set; }
-        public string EmergencyContact { get; set; }
-        public int HomeNumber { get; set; }
-        public int WorkPhone { get; set; }
+        [DataType(DataType.Date)]
+        public int DOB { get; set; }
+        public bool IsDiveEligible { get; set; }
+
+        public string EmergencyContactName { get; set; }
+        [DataType(DataType.PhoneNumber)]
+        public string EmergencyContactPhone { get; set; }
     }
 }

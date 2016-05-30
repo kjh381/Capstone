@@ -6,46 +6,57 @@
 }
 
 <h2>Details</h2>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Page)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Page)
+    </div>
+    </div>
 
-<div>
-    <h4>WebText</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Section)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Section)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Body)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Body)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastChangedOn)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastChangedOn)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LastChangeBy)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LastChangeBy)
-        </dd>
-
-    </dl>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Section)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Section)
+    </div>
 </div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Body)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.LastChangeBy)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.LastChangeBy)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.LastChangedOn)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.LastChangedOn)
+    </div>
+</div>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.WebTextID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "TextEditorIndex", new { pageName = Model.Page })
 </p>
