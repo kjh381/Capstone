@@ -1,3 +1,48 @@
+<<<<<<< HEAD
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll.config
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.pdb
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\BouncyCastle.Crypto.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\EntityFramework.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\EntityFramework.SqlServer.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\log4net.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Security.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Newtonsoft.Json.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Owin.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Mvc.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Razor.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Deployment.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Razor.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Zlib.Portable.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\BouncyCastle.Crypto.pdb
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\EntityFramework.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\EntityFramework.SqlServer.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\log4net.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Security.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Newtonsoft.Json.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\Zlib.Portable.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Razor.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Deployment.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Webpages.Razor.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Helpers.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Mvc.xml
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
+C:\Users\Student\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
+=======
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll.config
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.dll
 C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT\bin\SARDT.pdb
@@ -84,3 +129,4 @@ C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\bin\System.Web.Mvc.xml
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.dll
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.pdb
 C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT\obj\Debug\SARDT.csprojResolveAssemblyReference.cache
+>>>>>>> origin

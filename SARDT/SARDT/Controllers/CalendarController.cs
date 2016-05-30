@@ -15,6 +15,7 @@ namespace SARDT.Controllers
         private SARDTContext db = new SARDTContext();
 
         // GET: /Calendar/
+        [Authorize(Roles = "Member, Admin")]
         public ActionResult Index()
         {
             DateTime currentDate = DateTime.Now;

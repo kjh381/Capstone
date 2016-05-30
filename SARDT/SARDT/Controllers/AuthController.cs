@@ -23,7 +23,7 @@ namespace SARDT.Controllers
         UserManager<Member> userManager = new UserManager<Member>(
                new UserStore<Member>(new SARDTContext()));
 
-        [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize]
         public ActionResult Index()
         {
 
