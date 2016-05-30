@@ -96,5 +96,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Calendar", "Index", "Calendar", new { year = Model.EventDate.Year, month = Model.EventDate.Month }, new { })
 </div>

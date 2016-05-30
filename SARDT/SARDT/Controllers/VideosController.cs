@@ -23,11 +23,6 @@ namespace SARDT.Controllers
             return View(indexVM);
         }
 
-        public ActionResult VideoView()
-        {
-            Video video = db.CurrentVideo.Include("CurrentVideo").FirstOrDefault().CurrentVideo;
-            return View(video);
-        }
 
         // GET: /Videos/Create
         public ActionResult Create()
@@ -44,11 +39,15 @@ namespace SARDT.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Videos.Add(video);
                 string dirtyURL = video.URL;
                 video.URL = ScrubYouTubeURL(dirtyURL);
-                ChangeCurrentVideo(video);
+                db.Videos.Add(video);
                 db.SaveChanges();
+                var createdVideo = (from vid in db.Videos
+                                    where vid.Title == video.Title &&
+                                    vid.URL == video.URL
+                                    select vid).FirstOrDefault();
+                ChangeCurrentVideo(createdVideo);
                 return RedirectToAction("Index");
             }
 
@@ -108,41 +107,57 @@ namespace SARDT.Controllers
         }
 
 
-        private void ChangeCurrentVideo(Video video)
+        public void ChangeCurrentVideo(Video video)
         {
-            if (db.CurrentVideo.Count() > 0)
+            if (db.Videos.Any(vid => vid.Title == video.Title) && db.Videos.Any(vid => vid.URL == video.URL))
             {
-                CurrentVideos oldCurrentVideo = db.CurrentVideo.FirstOrDefault();
-                db.CurrentVideo.Remove(oldCurrentVideo);
+                if (db.CurrentVideo.Count() > 0)
+                {
+                    CurrentVideos oldCurrentVideo = db.CurrentVideo.FirstOrDefault();
+                    db.CurrentVideo.Remove(oldCurrentVideo);
+                }
+                CurrentVideos newCurrentVideo = new CurrentVideos();
+                newCurrentVideo.CurrentVideo = video;
+                db.CurrentVideo.Add(newCurrentVideo);
+                db.SaveChanges();
             }
-            CurrentVideos newCurrentVideo = new CurrentVideos();
-            newCurrentVideo.CurrentVideo = video;
-            db.CurrentVideo.Add(newCurrentVideo);
-            db.SaveChanges();
+            else
+            {
+                throw new Exception("Video not in Database");
+            }
         }
 
         public string ScrubYouTubeURL(string URL)
         {
-            string videoKey = URL;
-            if (URL.Length > 11 || URL.Contains("http") || URL.Contains("www"))
+            string returnString = "";
+            if (URL == null || URL == "" || URL.Length < 11)
             {
-                // example 1 - https://www.youtube.com/watch?v=tRMZ2Icpz6s
-                // example 2 - https://www.youtube.com/watch?v=Y-orMndwuSE&ebc=ANyPxKoSFuYCSPtESFOr9_j-I_YrR1Ewk8Z9892MNtjkq5CwqNMuKpqWeofe0Y0urZGuufnUg_-rEmMygvqfv9dtiOoNhEmZiw
-                string searchSub = "";
-                int x = 0;
-                int subLength = 3;
-                while (x + subLength != (URL.Length - 1) && searchSub != "?v=")
-                {
-                    searchSub = URL.Substring(x, subLength);
-                    if (searchSub != "?v=")
-                        x++;
-                }
-                if (searchSub == "?v=")
-                {
-                    videoKey = URL.Substring(x + subLength, 11);
-                }
+                returnString = "ERROR";
             }
-            return "https://www.youtube.com/embed/" + videoKey + "?rel=0";
+            else
+            {
+                string videoKey = URL;
+                if (URL.Length > 11 || URL.Contains("http") || URL.Contains("www"))
+                {
+                    // example 1 - https://www.youtube.com/watch?v=tRMZ2Icpz6s
+                    // example 2 - https://www.youtube.com/watch?v=Y-orMndwuSE&ebc=ANyPxKoSFuYCSPtESFOr9_j-I_YrR1Ewk8Z9892MNtjkq5CwqNMuKpqWeofe0Y0urZGuufnUg_-rEmMygvqfv9dtiOoNhEmZiw
+                    string searchSub = "";
+                    int x = 0;
+                    int subLength = 3;
+                    while (x + subLength != (URL.Length - 1) && searchSub != "?v=")
+                    {
+                        searchSub = URL.Substring(x, subLength);
+                        if (searchSub != "?v=")
+                            x++;
+                    }
+                    if (searchSub == "?v=")
+                    {
+                        videoKey = URL.Substring(x + subLength, 11);
+                    }
+                }
+                returnString = "https://www.youtube.com/embed/" + videoKey + "?rel=0";
+            }
+            return returnString;
         }
 
 

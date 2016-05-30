@@ -13,13 +13,28 @@ namespace SARDT.Controllers
     public class CalendarController : Controller
     {
         private SARDTContext db = new SARDTContext();
-
+        /*
         // GET: /Calendar/
+        [Authorize(Roles = "Member, Admin")]
         public ActionResult Index()
         {
             DateTime currentDate = DateTime.Now;
             CalendarVM calendarVM = CreateCalendarFromDate(currentDate.Year, currentDate.Month);
 
+            return View(calendarVM);
+        }
+        */
+        // GET: /Calendar/5
+        public ActionResult Index(int? year, int? month)
+        {
+            CalendarVM calendarVM;
+            if (month == null || year == null)
+            {
+                DateTime currentDate = DateTime.Now;
+                calendarVM = CreateCalendarFromDate(currentDate.Year, currentDate.Month);
+                return View(calendarVM);
+            }
+            calendarVM = CreateCalendarFromDate((int)year, (int)month);
             return View(calendarVM);
         }
 
@@ -59,9 +74,7 @@ namespace SARDT.Controllers
             while (date.Month == month)
             {
                 Day newDay = new Day();
-                newDay.Month = date.Month;
-                newDay.DayOfWeek = (int)date.DayOfWeek;
-                newDay.DayOfMonth = date.Day;
+                newDay.Date = date;
                 newDay.Events = (from e in db.Events
                                     where e.EventDate == date
                                     select e).OrderBy(thisEvent => thisEvent.StartTime).ToList();
