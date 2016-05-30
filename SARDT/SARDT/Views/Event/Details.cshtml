@@ -79,5 +79,6 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Delete", "Delete", new { id = Model.EventID }) |
+    @Html.ActionLink("Back to Calendar", "Index", "Calendar", new { year = Model.EventDate.Year, month = Model.EventDate.Month }, new { })
 </p>

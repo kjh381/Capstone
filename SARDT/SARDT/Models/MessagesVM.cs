@@ -22,6 +22,7 @@ namespace SARDT.Models
                 selectedMembers = value;
             }
         }
-        public Message Message { get; set; }
+        public SystemMessage Message { get; set; }
+
     }
 }

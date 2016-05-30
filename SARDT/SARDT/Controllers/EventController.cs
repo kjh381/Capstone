@@ -81,7 +81,7 @@ namespace SARDT.Controllers
 
                 db.Events.Add(newEvent);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Calendar", new { year = newEvent.EventDate.Year, month = newEvent.EventDate.Month});
             }
 
             return View(@event);
