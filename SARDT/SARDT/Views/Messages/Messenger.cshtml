@@ -20,23 +20,7 @@
         </table>
     </div>
     <div class="panel-body messenger-content">
-        @foreach (var item in Model.Conversation.UserMessages)
-        {
-            <div class="row">
-                @if (item.AuthorID == Model.CurrentMember.Id)
-                {
-                    <div class="alert alert-info col-sm-7" role="alert">
-                        <p class="text-left messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
-                    </div>
-                }
-                else
-                {
-                    <div class="alert alert-success col-sm-7 col-sm-offset-5" role="alert">
-                        <p class="text-right messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
-                    </div>
-                }
-            </div>
-        }
+        @Html.Partial("MessengerPartial", Model)
     </div>
     @Html.HiddenFor(model => model.Conversation.FirstMemberID)
     @Html.HiddenFor(model => model.Conversation.ID)
@@ -47,7 +31,7 @@
         <div class="row">
             <div>
                 <div class="input-group">
-                    @Html.TextBoxFor(message => Model.CurrentMessage)
+                    <input id="CurrentMessage" name="CurrentMessage" class="form-control" placeholder="Enter Message Here..." type="text" value="" />
                     <span class="input-group-btn">
                         <button class="btn btn-info" type="submit" >Send</button>
                     </span>

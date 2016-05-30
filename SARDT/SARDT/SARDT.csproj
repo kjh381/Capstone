@@ -269,6 +269,7 @@
     <Content Include="Views\Messages\Messenger.cshtml" />
     <Content Include="Views\Messages\StartConversation.cshtml" />
     <Content Include="Views\Shared\ResultPage.cshtml" />
+    <Content Include="Views\Messages\MessengerPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

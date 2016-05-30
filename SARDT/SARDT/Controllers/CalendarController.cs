@@ -15,13 +15,13 @@ namespace SARDT.Controllers
         private SARDTContext db = new SARDTContext();
 
         // GET: /Calendar/
-        //public ActionResult Index()
-        //{
-        //    DateTime currentDate = DateTime.Now;
-        //    CalendarVM calendarVM = CreateCalendarFromDate(currentDate.Year, currentDate.Month);
+        public ActionResult Index()
+        {
+            DateTime currentDate = DateTime.Now;
+            CalendarVM calendarVM = CreateCalendarFromDate(currentDate.Year, currentDate.Month);
 
-        //    return View(calendarVM);
-        //}
+            return View(calendarVM);
+        }
 
         // GET: /Calendar/5
         public ActionResult Index(int? year, int? month)
