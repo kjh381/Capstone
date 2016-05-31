@@ -14,6 +14,8 @@ namespace SARDT.Models
 
         public Video currentVideo { get; set; }
 
+        public Application application { get; set; }
+
         public DateTime ParseMilitaryTime(string time)
         {
             //
@@ -40,5 +42,36 @@ namespace SARDT.Models
             return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
 
+        public bool compareDates(DateTime d)
+        {
+            DateTime today = DateTime.Today;
+            int result = DateTime.Compare(d, today);
+            int todayMonth = today.Month;
+            int compareMonth = d.Month;
+            int compareDay = d.Day;
+            int todayDay = today.Day;
+            int todayYear = today.Year;
+            int compareYear = d.Year;
+
+            if (result >= 0)
+            {
+                if ((compareYear - todayYear) == 0)
+                {
+                    if ((compareMonth - todayMonth) <= 6)
+                    {
+                        if (compareDay >= todayDay)
+                            return true;
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                }
+                else
+                    return false;
+            }
+            else
+                return false;
+        } 
     }
 }

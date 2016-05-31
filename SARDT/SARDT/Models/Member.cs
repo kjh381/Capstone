@@ -9,6 +9,7 @@ namespace SARDT.Models
 {
     public class Member : IdentityUser
     {
+        public string Name { get; set; }
 
         public string MemberName { get; set; }
 
@@ -22,6 +23,7 @@ namespace SARDT.Models
 
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string LastName { get; set; }
+
 
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public string Address { get; set; }
@@ -52,8 +54,6 @@ namespace SARDT.Models
 
         [System.Web.Mvc.HiddenInput(DisplayValue = false)]
         public override bool PhoneNumberConfirmed { get; set; }
-
-
     }
     
 }

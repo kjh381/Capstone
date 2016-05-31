@@ -1,193 +1,4 @@
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Client.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Extensions.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.YouTube.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Owin.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.pdb
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
-C:\Users\5blkc\Documents\Git\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Client.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Extensions.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.YouTube.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Owin.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.pdb
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
-C:\Users\Kyle\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Client.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.Extensions.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.GData.YouTube.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Owin.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Auth.PlatformServices.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.Core.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.PlatformServices.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.pdb
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Google.Apis.YouTube.v3.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\log4net.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
-C:\Users\Kyle Hoppe\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll.config
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.Tests.pdb
@@ -209,15 +20,18 @@ C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microso
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Web.Infrastructure.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Owin.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Helpers.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.dll
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.dll
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.dll
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.dll
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\SARDT.pdb
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\BouncyCastle.Crypto.pdb
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\EntityFramework.xml
@@ -241,12 +55,13 @@ C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microso
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Security.Cookies.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Newtonsoft.Json.xml
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Helpers.xml
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Mvc.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.Razor.xml
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Deployment.xml
-C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.csprojResolveAssemblyReference.cache
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Zlib.Portable.xml
+C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.dll
 C:\Users\karri_000\Documents\GitHub\Capstone\SARDT\SARDT.Tests\obj\Debug\SARDT.Tests.pdb
