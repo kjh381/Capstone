@@ -1,0 +1,62 @@
+﻿@model SARDT.Models.WebText
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Page)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Page)
+    </div>
+    </div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Section)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Section)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.Body)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.Body)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.LastChangeBy)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.LastChangeBy)
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-3 text-left">
+        <b>@Html.DisplayNameFor(model => model.LastChangedOn)</b>
+    </div>
+    <div class="col-sm-7 text-left">
+        @Html.DisplayFor(model => model.LastChangedOn)
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WebTextID }) |
+    @Html.ActionLink("Back to List", "TextEditorIndex", new { pageName = Model.Page })
+</p>

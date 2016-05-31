@@ -1,0 +1,47 @@
+﻿@model SARDT.Models.WebImage
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit Image Caption</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.WebImageID)
+        @Html.HiddenFor(model => model.FileName)
+        @Html.HiddenFor(model => model.InUse)
+        @Html.HiddenFor(model => model.Page)
+        @Html.HiddenFor(model => model.Location)
+
+        <div class="row text-center col-sm-12">
+            <img src="~/Images/@Model.FileName" style="max-height:300px;max-width:100%;"/>
+        </div>
+        <br />
+
+        <div class="row form-group">
+            <div class="col-sm-2"></div>
+            @Html.LabelFor(model => model.Caption, new { @class = "control-label col-sm-2 text-left" })
+            <div class="col-md-8" >
+                @Html.EditorFor(model => model.Caption)
+                @Html.ValidationMessageFor(model => model.Caption)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="col-sm-12 text-center">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to Images", "WebImageIndex")
+</div>

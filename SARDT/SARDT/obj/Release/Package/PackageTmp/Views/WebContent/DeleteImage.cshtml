@@ -1,0 +1,47 @@
+﻿@model SARDT.Models.WebImage
+
+@{
+    ViewBag.Title = "DeleteImage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>DeleteImage</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>WebImage</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FileName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FileName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Caption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Caption)
+        </dd>
+        
+        <dt>
+            Preview
+        </dt>
+        <dd>
+            <img src="~/Images/@Model.FileName" width="50" height="50" />
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="DeleteImage" class="btn btn-default" /> |
+            @Html.ActionLink("Back to unused images", "ChangeImage")
+        </div>
+    }
+</div>
