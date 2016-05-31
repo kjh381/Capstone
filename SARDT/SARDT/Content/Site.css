@@ -22,26 +22,62 @@
 figure {
     width:100%;
     text-align:center;
+    height:inherit;
 }
+
 figure img {
     width:100%;
     margin-top:25px;
-    max-height:700px;
+    /*max-height:700px;*/
+    /*max-height:inherit;*/
     max-width:500px;
+    height:inherit;
 }
 
+.imgcontain {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.imgright {
+    margin-top:50px;
+}
 .messagingMemberList {
     height: 400px;
-    width: 50%;
     overflow: hidden;
-    overflow-y: scroll;
+    overflow-y:scroll;
 }
 
+.messageBody {
+    height: 380px;
+    margin-top: 20px;
+    width: inherit;
+    resize: none;
+}
 
+.messenger-header {
+    width: 100%;
+}
+
+.messenger-header-text {
+    width: 50%;
+}
+
+.messenger-text {
+    font-size: 14px;
+    text-overflow:clip;
+}
+
+.messenger-content {
+    height: 400px;
+    overflow: hidden;
+    overflow-y:scroll;
+}
 
 /* Customize the nav-justified links to be fill the entire space of the .navbar */
 
-.nav-justified {
+/*.nav-justified {
   background-color: #eee;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -53,14 +89,14 @@ figure img {
   font-weight: bold;
   color: #777;
   text-align: center;
-  background-color: #e5e5e5; /* Old browsers */
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
+  background-color: #e5e5e5;*/ /* Old browsers */
+  /*background-image: -webkit-gradient(linear, left top, left bottom, from(#f5f5f5), to(#e5e5e5));
   background-image: -webkit-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
   background-image:      -o-linear-gradient(top, #f5f5f5 0%, #e5e5e5 100%);
   background-image:         linear-gradient(to bottom, #f5f5f5 0%,#e5e5e5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-  background-repeat: repeat-x; /* Repeat the gradient */
-  border-bottom: 1px solid #d5d5d5;
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f5f5f5', endColorstr='#e5e5e5',GradientType=0 );*/ /* IE6-9 */
+  /*background-repeat: repeat-x;*/ /* Repeat the gradient */
+  /*border-bottom: 1px solid #d5d5d5;
 }
 .nav-justified > .active > a,
 .nav-justified > .active > a:hover,
@@ -94,6 +130,33 @@ figure img {
     border-right: 0;
     border-radius: 0 5px 5px 0;
   }
+}*/
+
+.navbar
+{
+    background-color: #BCD3CA;
+    border-color: #0F0F0F;
+    
+}
+
+.nav
+{
+    color: #0F0F0F;
+    font-size: 150%;
+}
+
+.panel-primary
+{
+    border-color: #0F0F0F;
+    
+}
+
+.panel-primary > .panel-heading
+{
+    background-color: #BCD3CA;
+    color: #0F0F0F;
+    border-color: #0F0F0F;
+    text-align: left;
 }
 
 /*event hiding and showing on public page*/
@@ -149,7 +212,7 @@ p {
 }
 
 .item .eventtime {
-  text-align = center;
+  text-align: center;
 }
 
 p .date {

@@ -59,9 +59,8 @@ namespace SARDT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="WebTextID,Section,Page,Body,LastChangedOn,LastChangeBy")] WebText webtext)
         {
-            webtext.LastChangedOn = DateTime.Now;
-            //TODO: Enable after identity is implemented.
-            //webtext.LastChangeBy = User.Identity.Name;
+            webtext.LastChangedOn = DateTime.Today;
+            webtext.LastChangeBy = User.Identity.Name;
 
             if (ModelState.IsValid)
             {
@@ -326,22 +325,6 @@ namespace SARDT.Controllers
 
             return RedirectToAction("UploadNewApplication", new { message = ViewBag.Message });
         }
-
-        public ActionResult Test()
-        {
-            PublicVM pageContent = new PublicVM();
-
-            pageContent.textList = (from t in db.WebTexts
-                                    where t.Page == "Home"
-                                    select t).ToList();
-
-            pageContent.imageList = (from i in db.WebImages
-                                     where i.Page == "Home"
-                                     select i).ToList();
-
-            return View(pageContent);
-        }
-
 
         protected override void Dispose(bool disposing)
         {

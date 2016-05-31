@@ -32,5 +32,6 @@ namespace SARDT.Models
         [DataType(DataType.Date)]
         public DateTime LastChangedOn { get; set; }
         public string LastChangeBy { get; set; }
+        public bool Recurring { get; set; }
     }
 }

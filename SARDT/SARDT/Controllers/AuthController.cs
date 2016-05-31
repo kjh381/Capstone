@@ -24,6 +24,7 @@ namespace SARDT.Controllers
                new UserStore<Member>(new SARDTContext()));
 
         [Authorize(Roles = "Moderator")]
+
         public ActionResult Index()
         {
 

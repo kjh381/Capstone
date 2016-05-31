@@ -34,12 +34,6 @@ namespace SARDT.Controllers
             return View(pageContent);
         }
 
-        //[Authorize(Roles="Member, Admin")]
-        public ActionResult Member()
-        {
-            return View(db.Users.ToList());
-        }
-
         public ActionResult Donate()
         {
             return View();
@@ -63,7 +57,7 @@ namespace SARDT.Controllers
             return View(pageContent);
         }
 
-
+        
         private PublicVM GetPageContent(string pageName, bool getVideo, string getEvents)
         {
             PublicVM pageContent = new PublicVM();
@@ -73,6 +67,21 @@ namespace SARDT.Controllers
                 pageContent.eventList = (from ev in db.Events
                                          where ev.Type == "public"
                                          select ev).ToList();
+
+                foreach (Event e in pageContent.eventList.ToList())
+                {
+                    if (compareDates(e.EventDate) != true)
+                    {
+                        pageContent.eventList.Remove(e);
+                    }
+                }
+
+                if (pageContent.eventList.Count() == 0)
+                {
+                    Event noUpcomingEvents = new Event { EventTitle = "No Upcoming Events, Please Check Back", Description = "", EventDate = DateTime.Today, StartTime = "0000" };
+                    pageContent.eventList.Add(noUpcomingEvents);
+                }
+           
             }
             if (getEvents == "team")
             {
@@ -80,6 +89,8 @@ namespace SARDT.Controllers
                                          where ev.Type == "team"
                                          select ev).ToList();
             }
+            
+
 
             if (getVideo == true)
             {
@@ -108,7 +119,41 @@ namespace SARDT.Controllers
                                      select i).ToList();
 
             return (pageContent);
-        }
+         }
+
+         public bool compareDates(DateTime d)
+                {
+                    DateTime today = DateTime.Today;
+                    int result = DateTime.Compare(d, today);
+            
+                    int todayMonth = today.Month;
+                    int todayDay = today.Day;
+                    int todayYear = today.Year;
+
+                    int compareMonth = d.Month;
+                    int compareDay = d.Day;
+                    int compareYear = d.Year;
+
+                    if (result >= 0)
+                    {
+                        if ((compareYear - todayYear) == 0)
+                        {
+                            if ((compareMonth - todayMonth) <= 6)
+                            {
+                                if (compareDay >= todayDay)
+                                    return true;
+                                else
+                                    return false;
+                            }
+                            else
+                                return false;
+                        }
+                        else
+                            return false;
+                    }
+                    else
+                        return false;
+                } 
 
         public static DateTime ParseMilitaryTime(string time)
         {
@@ -135,5 +180,7 @@ namespace SARDT.Controllers
 	    //
 	    return new DateTime(2016, 04, 20, hourInt, minuteInt, 0);
         }
+
+       
     }
 }

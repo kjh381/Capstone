@@ -15,13 +15,118 @@ namespace SARDT.Controllers
 {
     public class MessagesController : Controller
     {
-        private SARDTContext db = new SARDTContext();
+        SARDTContext db = new SARDTContext();
         UserManager<Member> userManager = new UserManager<Member>(
                new UserStore<Member>(new SARDTContext()));
+        private EMailer messenger = new EMailer();
+
+        // GET: /Messages/Index
+        public ActionResult Index()
+        {
+            return View();
+        }
+
 
         [Authorize]
-        // GET: /Messages/
-        public ActionResult Index()
+        // GET: /Messages/StartConversation
+        public ActionResult StartConversation()
+        {
+            ConversationsVM conversationsVM = new ConversationsVM();
+            string userID = User.Identity.GetUserId();
+            conversationsVM.Members = (from user in db.Users
+                                       where user.Id != userID
+                                       select user).OrderBy(item => item.Name).ToList();
+            return View(conversationsVM);
+        }
+
+        [Authorize]
+        // GET: /Messages/Messenger/5
+        public ActionResult Messenger(string id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Member currentMember = userManager.FindById(User.Identity.GetUserId());
+            Member secondMember = db.Users.Find(id);
+            if (secondMember == null || currentMember == null)
+            {
+                return HttpNotFound();
+            }
+            var conversation = (from c in db.Conversations
+                                where (c.FirstMemberID == currentMember.Id && c.SecondMemberID == secondMember.Id) || (c.FirstMemberID == secondMember.Id && c.SecondMemberID == currentMember.Id)
+                                      select c).FirstOrDefault();
+            MessengerVM messengerVM = new MessengerVM();
+
+            if (conversation == null)
+            {
+                Conversation newConv = new Conversation { FirstMemberID = currentMember.Id, SecondMemberID = secondMember.Id };
+                db.Conversations.Add(newConv);
+                db.SaveChanges();
+                Conversation createdConv = (from c in db.Conversations
+                                            where (c.FirstMemberID == currentMember.Id && c.SecondMemberID == secondMember.Id) || (c.FirstMemberID == secondMember.Id && c.SecondMemberID == currentMember.Id)
+                                select c).FirstOrDefault();
+                messengerVM.Conversation = createdConv;
+            }
+            else
+            {
+                conversation.UserMessages = (from m in db.UserMessages
+                                             where m.ConversationID == conversation.ID
+                                             select m).ToList();
+                messengerVM.Conversation = conversation;
+            }
+            messengerVM.CurrentMember = currentMember;
+            messengerVM.SecondMember = secondMember;
+            return View(messengerVM);
+        }
+
+
+        [Authorize]
+        // GET: /Messages/Messenger/5
+        [HttpPost, ActionName("Messenger")]
+        [ValidateAntiForgeryToken]
+        public ActionResult MessengerSend(MessengerVM model)
+        {
+            if (model == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (model.CurrentMessage == null || model.CurrentMessage == "")
+            {
+                return View("Messenger", new { id = model.SecondMember.Id });
+            }
+            else
+            {
+                Message userMessage = new Message { AuthorID = User.Identity.GetUserId(), Body = model.CurrentMessage, Date = DateTime.Now, ConversationID = model.Conversation.ID, Unread = false };
+                db.UserMessages.Add(userMessage);
+                db.SaveChanges();
+            }
+            return RedirectToAction("Messenger", new { id = model.SecondMember.Id });
+        }
+
+        // POST: /Messages/SendMessage
+        public ActionResult SendMessage(int conversationID, string secondMemberID, string messageBody)
+        {
+            if (secondMemberID == null || conversationID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            if (messageBody == null || messageBody == "")
+            {
+                return View("Messenger", new { id = secondMemberID });
+            }
+            else
+            {
+                Message userMessage = new Message { AuthorID = User.Identity.GetUserId(), Body = messageBody, Date = DateTime.Now, ConversationID = conversationID, Unread = false };
+                db.UserMessages.Add(userMessage);
+                db.SaveChanges();
+            }
+            return View("Messenger", new { id = secondMemberID });
+        }
+
+        [Authorize]
+        // GET: /Messages/SystemSend
+        public ActionResult SystemSend()
         {
             MessagesVM messagesVM = new MessagesVM();
             messagesVM.Members = db.Users.OrderBy(user => user.Name).ToList();
@@ -29,15 +134,15 @@ namespace SARDT.Controllers
             {
                 messagesVM.SelectedMembers.Add(false);
             }
-            messagesVM.Message = new Message();
+            messagesVM.Message = new SystemMessage();
             messagesVM.Message.From = userManager.FindById(User.Identity.GetUserId());
             return View(messagesVM);
         }
 
-        // POST: /Messages/
+        // POST: /Messages/SystemSend
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Index([Bind(Include = "Members,SelectedMembers,Message")] MessagesVM messagesVM)
+        public ActionResult SystemSend([Bind(Include = "Members,SelectedMembers,Message")] MessagesVM messagesVM)
         {
             if (messagesVM == null)
             {
@@ -51,8 +156,29 @@ namespace SARDT.Controllers
                     messagesVM.Message.To.Add(messagesVM.Members[i]);
                 }
             }
-            SendMessageFromUser(messagesVM.Message);
-            return View();
+            ResultVM resultVM = new ResultVM();
+            if(messenger.SendMessageFromSystem(messagesVM.Message))
+            {
+                resultVM.ErrorOccurred = false;
+                resultVM.Title = "Send Successful";
+                resultVM.Message = "Your Notification has been sent successfully.";
+                resultVM.RedirectViewName = "Member";
+                resultVM.RedirectControllerName = "Home";
+            }
+            return View("ResultPage", resultVM);
+        }
+
+        [Authorize]
+        // GET: /Messages/ResultPage
+        public ActionResult ResultPage()
+        {
+            ResultVM resultVM = new ResultVM();
+            resultVM.ErrorOccurred = false;
+            resultVM.Title = "Redirect";
+            resultVM.Message = "Click continue to return to the Member Page";
+            resultVM.RedirectViewName = "Member";
+            resultVM.RedirectControllerName = "Home";
+            return View(resultVM);
         }
 
         // GET: /Messages/Details/5
@@ -62,7 +188,7 @@ namespace SARDT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Message message = db.Messages.Find(id);
+            SystemMessage message = db.Messages.Find(id);
             if (message == null)
             {
                 return HttpNotFound();
@@ -81,7 +207,7 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Subject,Body")] Message message)
+        public ActionResult Create([Bind(Include="ID,Subject,Body")] SystemMessage message)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +226,7 @@ namespace SARDT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Message message = db.Messages.Find(id);
+            SystemMessage message = db.Messages.Find(id);
             if (message == null)
             {
                 return HttpNotFound();
@@ -113,7 +239,7 @@ namespace SARDT.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Subject,Body")] Message message)
+        public ActionResult Edit([Bind(Include="ID,Subject,Body")] SystemMessage message)
         {
             if (ModelState.IsValid)
             {
@@ -131,7 +257,7 @@ namespace SARDT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Message message = db.Messages.Find(id);
+            SystemMessage message = db.Messages.Find(id);
             if (message == null)
             {
                 return HttpNotFound();
@@ -144,7 +270,7 @@ namespace SARDT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Message message = db.Messages.Find(id);
+            SystemMessage message = db.Messages.Find(id);
             db.Messages.Remove(message);
             db.SaveChanges();
             return RedirectToAction("Index");
@@ -157,48 +283,6 @@ namespace SARDT.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private void SendMessageFromUser(Message message)
-        {
-            {
-                /// Author, Md. Marufuzzaman
-                /// Created,
-                /// Local dependency, Microsoft .Net framework
-                /// Description, Send an email using (SMTP).
-
-                MailMessage mailMessage = new MailMessage();
-
-                try
-                {
-                    mailMessage.From = new MailAddress("andreweskild@gmail.com");
-                    foreach (Member member in message.To)
-                    {
-                        mailMessage.To.Add(new MailAddress(member.Email));
-                    }
-                    mailMessage.Subject = message.Subject;
-                    mailMessage.Body = message.Body;
-
-                    var gmailClient = new System.Net.Mail.SmtpClient {
-                        Host = "smtp.gmail.com",
-                        Port = 587,
-                        EnableSsl = true,
-                        UseDefaultCredentials = false,
-                        Credentials = new System.Net.NetworkCredential("andreweskild", "***************")
-                    };
-
-                    gmailClient.Send(mailMessage);
-                } 
-                catch (Exception ex)
-                { 
-                    throw ex; 
-                }
-
-                finally
-                {
-                    mailMessage = null;
-                }
-            }
         }
     }
 }
