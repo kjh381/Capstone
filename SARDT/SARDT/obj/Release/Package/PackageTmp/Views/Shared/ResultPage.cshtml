@@ -1,0 +1,26 @@
+﻿@model SARDT.Models.ResultVM
+
+@{
+    if (Model.ErrorOccurred)
+    {
+        ViewBag.Title = Model.Title;
+    }
+    else
+    {    
+        ViewBag.Title = Model.Title;
+    }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Title</h2>
+
+@if (Model.ErrorOccurred)
+{
+    <h3 class="alert-danger">@Model.Message</h3>
+}
+else
+{ 
+    <h3 class="alert-success">@Model.Message</h3>
+}
+
+<button type="button" class="btn" onclick="location.href = '@Url.Action(Model.RedirectViewName, @Model.RedirectControllerName)';">Continue</button>

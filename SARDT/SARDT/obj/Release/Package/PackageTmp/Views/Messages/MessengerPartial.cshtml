@@ -1,0 +1,21 @@
+﻿@model SARDT.Models.MessengerVM
+
+    @foreach (var item in Model.Conversation.UserMessages)
+    {
+        <div class="row">
+            @if (item.AuthorID == Model.CurrentMember.Id)
+            {
+                <div class="alert alert-info col-sm-7" role="alert">
+                    <p class="text-left messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-success col-sm-7 col-sm-offset-5" role="alert">
+                    <p class="text-right messenger-text">@Html.DisplayTextFor(listItem => item.Body)</p>
+                </div>
+            }
+        </div>
+    }
+
+
