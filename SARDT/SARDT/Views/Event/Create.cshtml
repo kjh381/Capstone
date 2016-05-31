@@ -14,6 +14,9 @@
     <div class="form-horizontal">
         <h4>Event</h4>
         <hr />
+        @Html.HiddenFor(model => model.LastChangeBy)
+        @Html.HiddenFor(model => model.LastChangedOn)
+
         @Html.ValidationSummary(true)
 
         <div class="form-group">
@@ -68,22 +71,6 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description)
                 @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangedOn, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangedOn)
-                @Html.ValidationMessageFor(model => model.LastChangedOn)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangeBy, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangeBy)
-                @Html.ValidationMessageFor(model => model.LastChangeBy)
             </div>
         </div>
 

@@ -37,8 +37,6 @@ namespace SARDT.Controllers
             return View(@event);
         }
 
-
-
         //Custom Create with Month, Day, Year passed in
         [Authorize]
         public ActionResult Create(int? month, int? day, int? year)
@@ -75,8 +73,8 @@ namespace SARDT.Controllers
                     EndTime = @event.EndTime,
                     EventTitle = @event.EventTitle,
                     Description = @event.Description,
-                    LastChangedOn = @event.LastChangedOn,
-                    LastChangeBy = @event.LastChangeBy
+                    LastChangedOn = DateTime.Today,
+                    LastChangeBy = User.Identity.Name
                 };
 
                 db.Events.Add(newEvent);
@@ -110,8 +108,11 @@ namespace SARDT.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description")] Event @event)
+        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangedBy")] Event @event)
         {
+            @event.LastChangedOn = DateTime.Today;
+            @event.LastChangeBy = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 if (@event.Type == "public" || @event.Type == "team")
