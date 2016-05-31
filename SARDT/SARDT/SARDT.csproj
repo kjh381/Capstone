@@ -51,6 +51,14 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Hangfire.Core, Version=1.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.5.6\lib\net45\Hangfire.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Hangfire.SqlServer, Version=1.5.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.SqlServer.1.5.6\lib\net45\Hangfire.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
       <Private>True</Private>
@@ -153,13 +161,23 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Application\Application.pdf" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %282%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %283%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy %284%29.pubxml" />
+    <None Include="Properties\PublishProfiles\divelcso - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\DatePickerReady.js" />
     <Content Include="Scripts\hideShowEvent.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -173,13 +191,22 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Application.cs" />
     <Compile Include="Models\CalendarVM.cs" />
+    <Compile Include="Models\Conversation.cs" />
+    <Compile Include="Models\ConversationsVM.cs" />
     <Compile Include="Models\CurrentVideo.cs" />
     <Compile Include="Models\Day.cs" />
     <Compile Include="Models\DBInitializer.cs" />
+    <Compile Include="Models\EventReminder.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\MessengerVM.cs" />
+    <Compile Include="Models\ResultVM.cs" />
+    <Compile Include="Models\SystemMessage.cs" />
     <Compile Include="Models\MessagesVM.cs" />
+    <Compile Include="Models\EMailer.cs" />
+    <Compile Include="Models\Messenger.cs" />
     <Compile Include="Models\Month.cs" />
     <Compile Include="Models\LogInModel.cs" />
     <Compile Include="Models\Member.cs" />
@@ -211,7 +238,6 @@
     <Content Include="Views\Auth\LogIn.cshtml" />
     <Content Include="Views\Home\Team.cshtml" />
     <Content Include="Views\Home\History.cshtml" />
-    <Content Include="Views\Home\Member.cshtml" />
     <Content Include="Views\Home\Donate.cshtml" />
     <Content Include="Views\Home\Application.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
@@ -237,7 +263,6 @@
     <Content Include="Views\Videos\Create.cshtml" />
     <Content Include="Views\Videos\Delete.cshtml" />
     <Content Include="Views\Videos\Index.cshtml" />
-    <Content Include="Views\Videos\VideoView.cshtml" />
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\WebContent\ChangeImageConfirm.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
@@ -249,6 +274,11 @@
     <Content Include="Views\Auth\EditProfile.cshtml" />
     <Content Include="Views\Auth\Profile.cshtml" />
     <Content Include="Views\WebContent\UploadNewApplication.cshtml" />
+    <Content Include="Views\Messages\SystemSend.cshtml" />
+    <Content Include="Views\Messages\Messenger.cshtml" />
+    <Content Include="Views\Messages\StartConversation.cshtml" />
+    <Content Include="Views\Shared\ResultPage.cshtml" />
+    <Content Include="Views\Messages\MessengerPartial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

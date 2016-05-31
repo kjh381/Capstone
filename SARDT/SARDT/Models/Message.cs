@@ -7,12 +7,11 @@ namespace SARDT.Models
 {
     public class Message
     {
-    
         public int ID { get; set; }
-        public Member From { get; set; }
-        public List<Member> To { get; set; }
-        public string Subject { get; set; }
+        public int ConversationID { get; set; }
+        public DateTime Date { get; set; }
+        public string AuthorID { get; set; }
         public string Body { get; set; }
-        public bool Recurring { get; set; }
+        public bool Unread { get; set; }
     }
 }

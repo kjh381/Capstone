@@ -1,0 +1,30 @@
+﻿@model SARDT.Models.ConversationsVM
+
+@{
+    ViewBag.Title = "Converstations";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Conversations</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="row">
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="col-md-offset-3 col-md-6" >
+            @Html.Label("Select Member to Message")
+            <div class="messagingMemberList list-group">
+                @for (int i = 0; i < Model.Members.Count; i++)
+                {
+                    <a href="@Url.Action("Messenger", "Messages", new { id = Model.Members[i].Id })" class="list-group-item">
+                        @Model.Members[i].Name
+                    </a>
+                }
+            </div>
+        </div>
+    </div>
+}
