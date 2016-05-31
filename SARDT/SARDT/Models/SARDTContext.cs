@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +21,9 @@ namespace SARDT.Models
         public System.Data.Entity.DbSet<SARDT.Models.Video> Videos { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.CurrentVideos> CurrentVideo { get; set; }
         public System.Data.Entity.DbSet<SARDT.Models.Application> Applications { get; set; }
-        public System.Data.Entity.DbSet<SARDT.Models.Message> Messages { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.SystemMessage> Messages { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.EventReminder> EventReminders { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.Message> UserMessages { get; set; }
+        public System.Data.Entity.DbSet<SARDT.Models.Conversation> Conversations { get; set; }
     }
 }
