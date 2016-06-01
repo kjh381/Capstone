@@ -37,10 +37,8 @@ namespace SARDT.Controllers
             return View(@event);
         }
 
-
-
         //Custom Create with Month, Day, Year passed in
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         public ActionResult Create(int? month, int? day, int? year)
         {
             typeSelectList();
@@ -62,7 +60,7 @@ namespace SARDT.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangeBy")] Event @event, string EventType)
         {
@@ -75,8 +73,8 @@ namespace SARDT.Controllers
                     EndTime = @event.EndTime,
                     EventTitle = @event.EventTitle,
                     Description = @event.Description,
-                    LastChangedOn = @event.LastChangedOn,
-                    LastChangeBy = @event.LastChangeBy
+                    LastChangedOn = DateTime.Today,
+                    LastChangeBy = User.Identity.Name
                 };
 
                 db.Events.Add(newEvent);
@@ -84,11 +82,11 @@ namespace SARDT.Controllers
                 return RedirectToAction("Index", "Calendar", new { year = newEvent.EventDate.Year, month = newEvent.EventDate.Month});
             }
 
-            return View(@event);
+            return RedirectToAction("Create", new { month =  @event.EventDate.Month, day = @event.EventDate.Day, year = @event.EventDate.Year });
         }
 
         // GET: /Event/Edit/5
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -108,10 +106,13 @@ namespace SARDT.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description")] Event @event)
+        public ActionResult Edit([Bind(Include="EventID,Type,EventDate,StartTime,EndTime,EventTitle,Description,LastChangedOn,LastChangedBy")] Event @event)
         {
+            @event.LastChangedOn = DateTime.Today;
+            @event.LastChangeBy = User.Identity.Name;
+
             if (ModelState.IsValid)
             {
                 if (@event.Type == "public" || @event.Type == "team")
@@ -129,7 +130,7 @@ namespace SARDT.Controllers
         }
 
         // GET: /Event/Delete/5
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -146,7 +147,7 @@ namespace SARDT.Controllers
 
         // POST: /Event/Delete/5
         [HttpPost, ActionName("Delete")]
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

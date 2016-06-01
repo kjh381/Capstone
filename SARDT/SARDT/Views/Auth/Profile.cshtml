@@ -42,67 +42,100 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>            
-            @Html.DisplayName("Date-of-Birth")
-        </dt>
-
-        <dd>
-            @if (Model.DOB == null || Model.DOB == 0)
-            {
-                @Html.Label("Not Set", new { @class = "label label-warning"})
-            }
-            else
-            {
-                @Html.DisplayFor(model => model.DOB)
-            }
-        </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.Address)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Address)
+            @if (Model.Address == null || Model.Address == "")
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Address)
+            }        
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.City)
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.City)
+            @if (Model.City == null || Model.City == "")
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.City)
+            }
         </dd>
 
         <dt>
             @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.ZipCode)
+            @if (Model.ZipCode == null || Model.ZipCode == 0)
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.ZipCode)
+            }
         </dd>
 
         <dt>            
             @Html.DisplayName("Phone Number")
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.PhoneNumber)
+            @if (Model.PhoneNumber == null || Model.PhoneNumber == "")
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.PhoneNumber)
+            }
         </dd>
 
         <dt>            
             @Html.DisplayName("Name of Emergency Contact")
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.EmergencyContactName)
+            @if (Model.EmergencyContactName == null || Model.EmergencyContactName == "")
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.EmergencyContactName)
+            }
         </dd>
 
-        <dt>            
-            @Html.DisplayName("Phone Number of Emergency Contact")
+        <dt>
+            @Html.DisplayName("Phone # of Emergency Contact")
         </dt>
 
+
         <dd>
-            @Html.DisplayFor(model => model.EmergencyContactPhone)
+            @if (Model.EmergencyContactPhone == null || Model.EmergencyContactPhone == "")
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning" })
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.EmergencyContactPhone)
+            }
         </dd>
     </dl>
 </div>

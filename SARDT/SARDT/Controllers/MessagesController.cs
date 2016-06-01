@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SARDT.Controllers
 {
+    [Authorize]
     public class MessagesController : Controller
     {
         SARDTContext db = new SARDTContext();
@@ -26,8 +27,6 @@ namespace SARDT.Controllers
             return View();
         }
 
-
-        [Authorize]
         // GET: /Messages/StartConversation
         public ActionResult StartConversation()
         {
@@ -39,7 +38,6 @@ namespace SARDT.Controllers
             return View(conversationsVM);
         }
 
-        [Authorize]
         // GET: /Messages/Messenger/5
         public ActionResult Messenger(string id)
         {
@@ -55,7 +53,7 @@ namespace SARDT.Controllers
             }
             var conversation = (from c in db.Conversations
                                 where (c.FirstMemberID == currentMember.Id && c.SecondMemberID == secondMember.Id) || (c.FirstMemberID == secondMember.Id && c.SecondMemberID == currentMember.Id)
-                                      select c).FirstOrDefault();
+                                select c).FirstOrDefault();
             MessengerVM messengerVM = new MessengerVM();
 
             if (conversation == null)
@@ -65,7 +63,7 @@ namespace SARDT.Controllers
                 db.SaveChanges();
                 Conversation createdConv = (from c in db.Conversations
                                             where (c.FirstMemberID == currentMember.Id && c.SecondMemberID == secondMember.Id) || (c.FirstMemberID == secondMember.Id && c.SecondMemberID == currentMember.Id)
-                                select c).FirstOrDefault();
+                                            select c).FirstOrDefault();
                 messengerVM.Conversation = createdConv;
             }
             else
@@ -80,8 +78,6 @@ namespace SARDT.Controllers
             return View(messengerVM);
         }
 
-
-        [Authorize]
         // GET: /Messages/Messenger/5
         [HttpPost, ActionName("Messenger")]
         [ValidateAntiForgeryToken]
@@ -124,9 +120,8 @@ namespace SARDT.Controllers
             return View("Messenger", new { id = secondMemberID });
         }
 
-        [Authorize]
         // GET: /Messages/SystemSend
-        public ActionResult SystemSend()
+        public ActionResult SystemSend(bool? noUserSelectedOccured)
         {
             MessagesVM messagesVM = new MessagesVM();
             messagesVM.Members = db.Users.OrderBy(user => user.Name).ToList();
@@ -136,6 +131,8 @@ namespace SARDT.Controllers
             }
             messagesVM.Message = new SystemMessage();
             messagesVM.Message.From = userManager.FindById(User.Identity.GetUserId());
+            if (noUserSelectedOccured != null)
+                messagesVM.NoUsersSelectedOccured = (bool)noUserSelectedOccured;
             return View(messagesVM);
         }
 
@@ -148,27 +145,39 @@ namespace SARDT.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+
             messagesVM.Members = db.Users.OrderBy(user => user.Name).ToList();
-            for (int i = 0; i < messagesVM.Members.Count; i++ )
+            for (int i = 0; i < messagesVM.Members.Count; i++)
             {
                 if (messagesVM.SelectedMembers[i])
                 {
                     messagesVM.Message.To.Add(messagesVM.Members[i]);
                 }
             }
+            if (messagesVM.Message.To.Count == 0)
+            {
+                return RedirectToAction("SystemSend", new { noUserSelectedOccured = true});
+            }
             ResultVM resultVM = new ResultVM();
-            if(messenger.SendMessageFromSystem(messagesVM.Message))
+            if (messenger.SendMessageFromSystem(messagesVM.Message))
             {
                 resultVM.ErrorOccurred = false;
                 resultVM.Title = "Send Successful";
                 resultVM.Message = "Your Notification has been sent successfully.";
-                resultVM.RedirectViewName = "Member";
-                resultVM.RedirectControllerName = "Home";
+                resultVM.RedirectViewName = "Index";
+                resultVM.RedirectControllerName = "Calendar";
+            }
+            else
+            {
+                resultVM.ErrorOccurred = true;
+                resultVM.Title = "Send Failed";
+                resultVM.Message = "There was an error sending your Notification";
+                resultVM.RedirectViewName = "Index";
+                resultVM.RedirectControllerName = "Calendar";
             }
             return View("ResultPage", resultVM);
         }
 
-        [Authorize]
         // GET: /Messages/ResultPage
         public ActionResult ResultPage()
         {
@@ -179,110 +188,6 @@ namespace SARDT.Controllers
             resultVM.RedirectViewName = "Index";
             resultVM.RedirectControllerName = "Calendar";
             return View(resultVM);
-        }
-
-        // GET: /Messages/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SystemMessage message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
-        }
-
-        // GET: /Messages/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: /Messages/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Subject,Body")] SystemMessage message)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Messages.Add(message);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-
-            return View(message);
-        }
-
-        // GET: /Messages/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SystemMessage message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
-        }
-
-        // POST: /Messages/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Subject,Body")] SystemMessage message)
-        {
-            if (ModelState.IsValid)
-            {
-                db.Entry(message).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(message);
-        }
-
-        // GET: /Messages/Delete/5
-        public ActionResult Delete(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            SystemMessage message = db.Messages.Find(id);
-            if (message == null)
-            {
-                return HttpNotFound();
-            }
-            return View(message);
-        }
-
-        // POST: /Messages/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            SystemMessage message = db.Messages.Find(id);
-            db.Messages.Remove(message);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

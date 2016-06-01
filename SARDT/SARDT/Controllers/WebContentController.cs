@@ -11,7 +11,7 @@ using System.IO;
 
 namespace SARDT.Controllers
 {
-    //[Authorize(Roles="Admin")]
+    [Authorize(Roles = "Moderator")]
     public class WebContentController : Controller
     {
         private SARDTContext db = new SARDTContext();
@@ -59,9 +59,8 @@ namespace SARDT.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include="WebTextID,Section,Page,Body,LastChangedOn,LastChangeBy")] WebText webtext)
         {
-            webtext.LastChangedOn = DateTime.Now;
-            //TODO: Enable after identity is implemented.
-            //webtext.LastChangeBy = User.Identity.Name;
+            webtext.LastChangedOn = DateTime.Today;
+            webtext.LastChangeBy = User.Identity.Name;
 
             if (ModelState.IsValid)
             {
@@ -82,7 +81,6 @@ namespace SARDT.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
 
         public ActionResult EditText()
         {

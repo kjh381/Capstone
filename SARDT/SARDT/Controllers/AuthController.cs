@@ -23,16 +23,12 @@ namespace SARDT.Controllers
         UserManager<Member> userManager = new UserManager<Member>(
                new UserStore<Member>(new SARDTContext()));
 
-        [Authorize]
+        [Authorize(Roles = "Moderator")]
+
         public ActionResult Index()
         {
-
-             
             var roles = db.Roles.ToList();
             return View(roles);
-            
-
-
         }
 
         [AllowAnonymous]
@@ -76,13 +72,15 @@ namespace SARDT.Controllers
             return View();
         }
 
-        [AllowAnonymous]
+        //Yes this is intended behavior - we only want a moderator to be able to add a new member
+        [Authorize(Roles = "Moderator")]
         [HttpGet]
         public ActionResult Register()
         {
             return View();
         }
 
+        [Authorize(Roles = "Moderator")]
         [HttpPost]
         public ActionResult Register(RegistrationModel model)
         {
@@ -101,8 +99,8 @@ namespace SARDT.Controllers
 
             if (result.Succeeded)
             {
-                SignIn(user);
-                return RedirectToAction("index", "home");
+                //SignIn(user); REMOVE - Moderator adds members
+                return RedirectToAction("index", "calendar");
             }
 
             foreach (var error in result.Errors)
@@ -147,14 +145,6 @@ namespace SARDT.Controllers
             return RedirectToAction("index", "home");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing && userManager != null)
-            {
-                userManager.Dispose();
-            }
-            base.Dispose(disposing);
-        }
 
         [Authorize]
         public ActionResult Profile()
@@ -172,8 +162,7 @@ namespace SARDT.Controllers
 
         [Authorize]
         // POST: /Auth/EditProfile
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProfile([Bind(Include = "Id,Name,Email,UserName,Address,City,ZipCode,DOB,EmergencyContactName,EmergencyContactPhone")] Member member)
@@ -185,7 +174,7 @@ namespace SARDT.Controllers
 
         //*************************************  Roles   ***************************
         //GET: /Roles/Create
-       [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize(Roles = "Moderator")]
         public ActionResult CreateRole()
         {
             return View();
@@ -193,6 +182,8 @@ namespace SARDT.Controllers
 
         //
         //POST: /Roles/Create
+        //TODO: REMOVE - Unneeded for final version
+        [Authorize(Roles = "Moderator")]
         [HttpPost]
         public ActionResult CreateRole(FormCollection collection)
         {
@@ -212,19 +203,19 @@ namespace SARDT.Controllers
             }
         }
 
-       [Authorize(Roles = "Admin, BossesBoss")]
-        public ActionResult Delete(string RoleName)
+        //Delete Role from member?
+        [Authorize(Roles = "Moderator")]
+        public ActionResult Delete(string UserName, string RoleName)
         {
-            var thisRole = db.Roles.Where(r => r.Name.Equals(
-                RoleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
-            db.Roles.Remove(thisRole);
+            Member user = db.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
+            userManager.RemoveFromRole(user.Id, RoleName);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
 
         //
         //GET: /Roles/Edit
-      [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize(Roles = "Moderator")]
         public ActionResult EditRole(string roleName)
         {
             var thisRole = db.Roles.Where(r => r.Name.Equals(roleName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
@@ -233,6 +224,7 @@ namespace SARDT.Controllers
 
         //
         //POST: /Roles/Edit
+        [Authorize(Roles = "Moderator")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditRole(Microsoft.AspNet.Identity.EntityFramework.IdentityRole role)
@@ -249,32 +241,45 @@ namespace SARDT.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize(Roles = "Moderator")]
         public ActionResult ManageUserRoles()
         {
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr =>
                 new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+
+            var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+                new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
+
+
             ViewBag.Roles = list;
+            ViewBag.Users = Userlist;
+
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-    [Authorize(Roles = "Admin, BossesBoss")]
+        [Authorize(Roles = "Moderator")]
         public ActionResult RoleAddToUser(string UserName, string RoleName)
         {
             Member user = db.Users.Where(u => u.UserName.Equals(UserName, StringComparison.CurrentCultureIgnoreCase)).FirstOrDefault();
             userManager.AddToRole(user.Id, RoleName);
+            
+            var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+               new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
 
-            ViewBag.ResultMessage = "Role created successfully!";
+            ViewBag.ResultMessage = "Role added successfully!";
 
             var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
             ViewBag.Roles = list;
+
+            ViewBag.Users = Userlist;
             return View("ManageUserRoles");
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Moderator")]
         public ActionResult GetRoles(string UserName)
         {
             if (!string.IsNullOrWhiteSpace(UserName))
@@ -283,10 +288,22 @@ namespace SARDT.Controllers
 
                 ViewBag.RolesForThisUser = userManager.GetRoles(user.Id);
 
+                var Userlist = db.Users.OrderBy(r => r.UserName).ToList().Select(rr =>
+               new SelectListItem { Value = rr.UserName.ToString(), Text = rr.UserName }).ToList();
+
                 var list = db.Roles.OrderBy(r => r.Name).ToList().Select(rr => new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
                 ViewBag.Roles = list;
+                ViewBag.Users = Userlist;
             }
             return View("ManageUserRoles");
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && userManager != null)
+            {
+                userManager.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
     }

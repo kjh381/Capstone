@@ -10,6 +10,7 @@ using SARDT.Models;
 
 namespace SARDT.Controllers
 {
+    [Authorize(Roles = "Moderator")]
     public class VideosController : Controller
     {
         private SARDTContext db = new SARDTContext();
@@ -97,16 +98,6 @@ namespace SARDT.Controllers
             return RedirectToAction("Index");
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-
         public void ChangeCurrentVideo(Video video)
         {
             if (db.Videos.Any(vid => vid.Title == video.Title) && db.Videos.Any(vid => vid.URL == video.URL))
@@ -179,6 +170,15 @@ namespace SARDT.Controllers
                 returnString = "https://www.youtube.com/embed/" + videoKey + "?rel=0";
             }
             return returnString;
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
 
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -22,7 +23,9 @@ namespace SARDT.Models
                 to = value;
             }
         }
+        [Required(ErrorMessage = "Subject is Required")]
         public string Subject { get; set; }
+        [Required(ErrorMessage = "Subject is Required")]
         public string Body { get; set; }
     }
 }

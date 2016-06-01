@@ -18,13 +18,12 @@ namespace SARDT.Models
         public string City { get; set; }
         [DataType(DataType.PostalCode)]
         public int ZipCode { get; set; }
-        
-        [DataType(DataType.Date)]
-        public int DOB { get; set; }
+
         public bool IsDiveEligible { get; set; }
 
         public string EmergencyContactName { get; set; }
         [DataType(DataType.PhoneNumber)]
         public string EmergencyContactPhone { get; set; }
     }
+    
 }

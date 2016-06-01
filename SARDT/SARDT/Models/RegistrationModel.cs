@@ -6,7 +6,9 @@ using System.Web;
 
 namespace SARDT.Models
 {
+
     public class RegistrationModel
+
     {
         [Required]
         public string UserName { get; set; }
@@ -18,6 +20,8 @@ namespace SARDT.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+      
 
     }
 }

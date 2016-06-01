@@ -14,12 +14,15 @@
     <div class="form-horizontal">
         <h4>Event</h4>
         <hr />
+        @Html.HiddenFor(model => model.LastChangeBy)
+        @Html.HiddenFor(model => model.LastChangedOn)
+
         @Html.ValidationSummary(true)
 
         <div class="form-group">
             @Html.LabelFor(model => model.Type, new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("EventType", string.Empty)
+                @Html.DropDownList("EventType", (IEnumerable<SelectListItem>)ViewBag.EventType)
                 @Html.ValidationMessageFor(model => model.Type)
             </div>
         </div>
@@ -29,61 +32,45 @@
             <div class="col-md-10">
                 @if (Model == null)
                 { 
-                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")"  />
+                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@DateTime.Today.ToString("yyyy-MM-dd")" required />
                 }
                 else
                 {
-                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@Model.EventDate.ToString("yyyy-MM-dd")"  />
+                    <input class="text-box single-line" data-val="true" data-val-date="The field EventDate must be a date." data-val-required="The EventDate field is required." id="EventDate" name="EventDate" type="date" value="@Model.EventDate.ToString("yyyy-MM-dd")" required  />
                 }
                 <span class="field-validation-valid" data-valmsg-for="EventDate" data-valmsg-replace="true"></span>
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.StartTime, new { @class = "control-label col-md-2" })
+            @Html.Label("Start Time", new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StartTime)
+                @Html.TextBoxFor(model => model.StartTime, new {required = "required" })
                 @Html.ValidationMessageFor(model => model.StartTime)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EndTime, new { @class = "control-label col-md-2" })
+            @Html.Label("End Time", new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EndTime)
+                @Html.TextBoxFor(model => model.EndTime, new { required = "required" })
                 @Html.ValidationMessageFor(model => model.EndTime)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.EventTitle, new { @class = "control-label col-md-2" })
+            @Html.Label("Event Title", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.EventTitle)
+                @Html.TextBoxFor(model => model.EventTitle, new { required = "required" })
                 @Html.ValidationMessageFor(model => model.EventTitle)
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Description, new { @class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Description)
+                @Html.TextAreaFor(model => model.Description, new { required = "required" } )
                 @Html.ValidationMessageFor(model => model.Description)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangedOn, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangedOn)
-                @Html.ValidationMessageFor(model => model.LastChangedOn)
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.LastChangeBy, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.LastChangeBy)
-                @Html.ValidationMessageFor(model => model.LastChangeBy)
             </div>
         </div>
 
@@ -96,5 +83,12 @@
 }
 
 <div>
-    @Html.ActionLink("Back to Calendar", "Index", "Calendar", new { year = Model.EventDate.Year, month = Model.EventDate.Month }, new { })
+    @if (Model != null)
+    {
+        @Html.ActionLink("Back to Calendar", "Index", "Calendar", new { year = Model.EventDate.Year, month = Model.EventDate.Month }, new { })
+    }
+    else
+    {
+        @Html.ActionLink("Back to Calendar", "Index", "Calendar")
+    }
 </div>

@@ -17,8 +17,6 @@ namespace SARDT.Migrations
 
         protected override void Seed(SARDT.Models.SARDTContext context)
         {
-            //SARDTContext context = new SARDTContext();
-
             UserManager<Member> userManager = new UserManager<Member>(
                   new UserStore<Member>(context));
 
@@ -91,10 +89,7 @@ namespace SARDT.Migrations
             context.CurrentVideo.AddOrUpdate(video);
 
 
-            // create various users
-            var userAdmin = new Member { UserName = "admin", Email = "admin@gmail.com", Name = "Admin Johnson" };
-            var adminCreateResult = userManager.Create(userAdmin, "password");
-
+            
             var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens" };
             var modCreateResult = userManager.Create(userMod, "password");
 
@@ -103,55 +98,38 @@ namespace SARDT.Migrations
 
             var userGuy = new Member { UserName = "guy", Email = "5blkcrow5@gmail.com", Name = "Guy Pierce" };
             var guyCreateResult = userManager.Create(userGuy, "password");
-
-
+            
 
             //##### START OF CHANGES TO FIX ISSUE WITH DATABASE SEEDING #####
             //###############################################################
 
-            // --- CHECK TO SEE IF THERE IS ALREADY AN ADMIN ROLE IN THE DATABASE
-            var adminRole = (from role in context.Roles
-                             where role.Name == "Admin"
-                             select role).FirstOrDefault();
 
 
             // --- CHECK TO SEE IF THERE IS ALREADY A MODERATOR ROLE IN THE DATABASE
             var moderatorRole = (from role in context.Roles
-                             where role.Name == "Moderator"
-                             select role).FirstOrDefault();
-
-            // --- IF QUERY DID NOT FIND AN ADMIN ROLE IN DATABASE, ADD IT.
-            if (adminRole == null)
-            {
-                context.Roles.AddOrUpdate(new IdentityRole() { Name = "Admin" });
-            }
+                                 where role.Name == "Moderator"
+                                 select role).FirstOrDefault();
+            
 
             // --- IF QUERY DID NOT FIND A MODERATOR ROLE IN DATABASE, ADD IT.
             if (moderatorRole == null)
             {
                 context.Roles.AddOrUpdate(new IdentityRole() { Name = "Moderator" });
+                context.SaveChanges();
             }
-            context.SaveChanges();
-
-            // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
-            // --- AddToRole FUNCTION.
-            userAdmin = (from user in context.Users
-                         where user.UserName == "admin"
-                         select user).FirstOrDefault();
 
 
             // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
             // --- AddToRole FUNCTION.
             userMod = (from user in context.Users
-                         where user.UserName == "moderator"
-                         select user).FirstOrDefault();
+                       where user.UserName == "moderator"
+                       select user).FirstOrDefault();
 
             // ########################################################
             // ##### END OF CHANGES TO FIX DATABASE SEEDING ERROR #####
 
 
             // Add role to user
-            userManager.AddToRole(userAdmin.Id, "Admin");
             userManager.AddToRole(userMod.Id, "Moderator");
 
             Event firstEvent = new Event { Description = "This is the first event!", StartTime = "1200", EndTime = "1400", EventDate = Convert.ToDateTime("04/30/2016"), EventTitle = "First Event", LastChangeBy = "guy", LastChangedOn = Convert.ToDateTime("04/30/2016"), Type = "public" };

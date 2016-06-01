@@ -11,6 +11,8 @@ namespace SARDT.Models
         List<bool> selectedMembers = new List<bool>();
         public List<Member> Members { get; set; }
 
+        public bool NoUsersSelectedOccured { get; set; }
+
         public List<bool> SelectedMembers
         {
             get

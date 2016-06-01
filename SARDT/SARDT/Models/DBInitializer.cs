@@ -7,12 +7,13 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Microsoft.AspNet.Identity;
 
+
 //using SARDT.Models;
 
 namespace SARDT.Models
 {
-      public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
-    //public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
+public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
+   // public class DBInitializer : DropCreateDatabaseIfModelChanges<SARDTContext>
     {
         protected override void Seed(SARDTContext context)
         {
