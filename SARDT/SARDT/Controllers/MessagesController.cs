@@ -13,6 +13,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace SARDT.Controllers
 {
+    [Authorize(Roles = "Moderator, Member")]
     public class MessagesController : Controller
     {
         SARDTContext db = new SARDTContext();
@@ -25,9 +26,7 @@ namespace SARDT.Controllers
         {
             return View();
         }
-
-
-        [Authorize]
+        
         // GET: /Messages/StartConversation
         public ActionResult StartConversation()
         {
@@ -39,7 +38,6 @@ namespace SARDT.Controllers
             return View(conversationsVM);
         }
 
-        [Authorize]
         // GET: /Messages/Messenger/5
         public ActionResult Messenger(string id)
         {
@@ -80,8 +78,6 @@ namespace SARDT.Controllers
             return View(messengerVM);
         }
 
-
-        [Authorize]
         // GET: /Messages/Messenger/5
         [HttpPost, ActionName("Messenger")]
         [ValidateAntiForgeryToken]
@@ -124,7 +120,6 @@ namespace SARDT.Controllers
             return View("Messenger", new { id = secondMemberID });
         }
 
-        [Authorize]
         // GET: /Messages/SystemSend
         public ActionResult SystemSend()
         {
@@ -168,7 +163,6 @@ namespace SARDT.Controllers
             return View("ResultPage", resultVM);
         }
 
-        [Authorize]
         // GET: /Messages/ResultPage
         public ActionResult ResultPage()
         {
