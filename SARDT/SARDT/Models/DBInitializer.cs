@@ -17,7 +17,6 @@ public class DBInitializer : DropCreateDatabaseAlways<SARDTContext>
     {
         protected override void Seed(SARDTContext context)
         {
-
             //TODO: Add seeds to context here.
             //context.class.Add(newObjName)
             /*
