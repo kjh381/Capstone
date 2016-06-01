@@ -24,6 +24,7 @@ namespace SARDT.Controllers
             return View(calendarVM);
         }
         */
+        [Authorize]
         // GET: /Calendar/5
         public ActionResult Index(int? year, int? month)
         {

@@ -139,20 +139,41 @@ namespace SARDT.Controllers
                 string videoKey = URL;
                 if (URL.Length > 11 || URL.Contains("http") || URL.Contains("www"))
                 {
-                    // example 1 - https://www.youtube.com/watch?v=tRMZ2Icpz6s
-                    // example 2 - https://www.youtube.com/watch?v=Y-orMndwuSE&ebc=ANyPxKoSFuYCSPtESFOr9_j-I_YrR1Ewk8Z9892MNtjkq5CwqNMuKpqWeofe0Y0urZGuufnUg_-rEmMygvqfv9dtiOoNhEmZiw
-                    string searchSub = "";
-                    int x = 0;
-                    int subLength = 3;
-                    while (x + subLength != (URL.Length - 1) && searchSub != "?v=")
+                    if (URL.Contains("embed"))
                     {
-                        searchSub = URL.Substring(x, subLength);
-                        if (searchSub != "?v=")
-                            x++;
+                        // example 1 - https://www.youtube.com/watch?v=tRMZ2Icpz6s
+                        // example 2 - https://www.youtube.com/watch?v=Y-orMndwuSE&ebc=ANyPxKoSFuYCSPtESFOr9_j-I_YrR1Ewk8Z9892MNtjkq5CwqNMuKpqWeofe0Y0urZGuufnUg_-rEmMygvqfv9dtiOoNhEmZiw
+                        string searchSub = "";
+                        int x = 0;
+                        int subLength = 7;
+                        while (x + subLength != (URL.Length - 1) && searchSub != "/embed/")
+                        {
+                            searchSub = URL.Substring(x, subLength);
+                            if (searchSub != "/embed/")
+                                x++;
+                        }
+                        if (searchSub == "/embed/")
+                        {
+                            videoKey = URL.Substring(x + subLength, 11);
+                        }
                     }
-                    if (searchSub == "?v=")
+                    else
                     {
-                        videoKey = URL.Substring(x + subLength, 11);
+                        // example 1 - https://www.youtube.com/watch?v=tRMZ2Icpz6s
+                        // example 2 - https://www.youtube.com/watch?v=Y-orMndwuSE&ebc=ANyPxKoSFuYCSPtESFOr9_j-I_YrR1Ewk8Z9892MNtjkq5CwqNMuKpqWeofe0Y0urZGuufnUg_-rEmMygvqfv9dtiOoNhEmZiw
+                        string searchSub = "";
+                        int x = 0;
+                        int subLength = 3;
+                        while (x + subLength != (URL.Length - 1) && searchSub != "?v=")
+                        {
+                            searchSub = URL.Substring(x, subLength);
+                            if (searchSub != "?v=")
+                                x++;
+                        }
+                        if (searchSub == "?v=")
+                        {
+                            videoKey = URL.Substring(x + subLength, 11);
+                        }
                     }
                 }
                 returnString = "https://www.youtube.com/embed/" + videoKey + "?rel=0";

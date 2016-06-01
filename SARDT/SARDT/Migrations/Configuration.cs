@@ -104,10 +104,51 @@ namespace SARDT.Migrations
             var userGuy = new Member { UserName = "guy", Email = "5blkcrow5@gmail.com", Name = "Guy Pierce" };
             var guyCreateResult = userManager.Create(userGuy, "password");
 
-            // Add all roles
-            context.Roles.AddOrUpdate(new IdentityRole() { Name = "Admin" });
-            context.Roles.AddOrUpdate(new IdentityRole() { Name = "Moderator" });
+
+
+            //##### START OF CHANGES TO FIX ISSUE WITH DATABASE SEEDING #####
+            //###############################################################
+
+            // --- CHECK TO SEE IF THERE IS ALREADY AN ADMIN ROLE IN THE DATABASE
+            var adminRole = (from role in context.Roles
+                             where role.Name == "Admin"
+                             select role).FirstOrDefault();
+
+
+            // --- CHECK TO SEE IF THERE IS ALREADY A MODERATOR ROLE IN THE DATABASE
+            var moderatorRole = (from role in context.Roles
+                             where role.Name == "Moderator"
+                             select role).FirstOrDefault();
+
+            // --- IF QUERY DID NOT FIND AN ADMIN ROLE IN DATABASE, ADD IT.
+            if (adminRole == null)
+            {
+                context.Roles.AddOrUpdate(new IdentityRole() { Name = "Admin" });
+            }
+
+            // --- IF QUERY DID NOT FIND A MODERATOR ROLE IN DATABASE, ADD IT.
+            if (moderatorRole == null)
+            {
+                context.Roles.AddOrUpdate(new IdentityRole() { Name = "Moderator" });
+            }
             context.SaveChanges();
+
+            // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
+            // --- AddToRole FUNCTION.
+            userAdmin = (from user in context.Users
+                         where user.UserName == "admin"
+                         select user).FirstOrDefault();
+
+
+            // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
+            // --- AddToRole FUNCTION.
+            userMod = (from user in context.Users
+                         where user.UserName == "moderator"
+                         select user).FirstOrDefault();
+
+            // ########################################################
+            // ##### END OF CHANGES TO FIX DATABASE SEEDING ERROR #####
+
 
             // Add role to user
             userManager.AddToRole(userAdmin.Id, "Admin");

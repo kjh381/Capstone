@@ -12,15 +12,22 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayName("Name")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Name)
+            @if (Model.Name == null || Model.Name == "")
+            {
+                @Html.Display("Not Set", new { @class = "label label-warning"})
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.Name)
+            }
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.UserName)
+            @Html.DisplayName("User Name")
         </dt>
 
         <dd>
@@ -35,12 +42,19 @@
             @Html.DisplayFor(model => model.Email)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DOB)
+        <dt>            
+            @Html.DisplayName("Date-of-Birth")
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.DOB)
+            @if (Model.DOB == null || Model.DOB == 0)
+            {
+                @Html.Label("Not Set", new { @class = "label label-warning"})
+            }
+            else
+            {
+                @Html.DisplayFor(model => model.DOB)
+            }
         </dd>
 
         <dt>
@@ -67,24 +81,24 @@
             @Html.DisplayFor(model => model.ZipCode)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+        <dt>            
+            @Html.DisplayName("Phone Number")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmergencyContactName)
+        <dt>            
+            @Html.DisplayName("Name of Emergency Contact")
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EmergencyContactName)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.EmergencyContactPhone)
+        <dt>            
+            @Html.DisplayName("Phone Number of Emergency Contact")
         </dt>
 
         <dd>

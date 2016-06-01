@@ -156,18 +156,21 @@ namespace SARDT.Controllers
             base.Dispose(disposing);
         }
 
+        [Authorize]
         public ActionResult Profile()
         {
             var user = userManager.FindById(User.Identity.GetUserId());
             return View(user);
         }
 
+        [Authorize]
         public ActionResult EditProfile()
         {
             var user = userManager.FindById(User.Identity.GetUserId());
             return View(user);
         }
 
+        [Authorize]
         // POST: /Auth/EditProfile
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.

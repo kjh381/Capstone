@@ -176,8 +176,8 @@ namespace SARDT.Controllers
             resultVM.ErrorOccurred = false;
             resultVM.Title = "Redirect";
             resultVM.Message = "Click continue to return to the Member Page";
-            resultVM.RedirectViewName = "Member";
-            resultVM.RedirectControllerName = "Home";
+            resultVM.RedirectViewName = "Index";
+            resultVM.RedirectControllerName = "Calendar";
             return View(resultVM);
         }
 
