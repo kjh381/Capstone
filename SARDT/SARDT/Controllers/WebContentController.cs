@@ -11,7 +11,7 @@ using System.IO;
 
 namespace SARDT.Controllers
 {
-    //[Authorize(Roles="Admin")]
+    [Authorize(Roles = "Moderator")]
     public class WebContentController : Controller
     {
         private SARDTContext db = new SARDTContext();
@@ -81,7 +81,6 @@ namespace SARDT.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
 
         public ActionResult EditText()
         {

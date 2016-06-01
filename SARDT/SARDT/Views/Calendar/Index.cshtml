@@ -127,41 +127,25 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">Content</div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <a href="@Url.Action("SystemSend", "Messages")">Send Message to Team Members</a><br />
-                            <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
-                            <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
-                        </div>
-                    </div>
+                    <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
+                    <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
+                    <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
+                    <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
                 </div>
             </div>
 
             <div class="panel panel-primary">
-                <div class="panel-heading">Users</div>
+                <div class="panel-heading">Member Management</div>
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            
-                        </div>
-                        <div class="col-sm-4">
-                            <a href="@Html.ActionLink("Index", "Auth")">Manage User Roles</a><br />
-                            <a href="@Url.Action("Register", "Auth")">Register New User</a><br />
-                        </div>
-                        <div class="col-sm-4">
-
-                        </div>
-                    </div>
+                    <a href="@Url.Action("Register", "Auth")">Register a new Member</a><br />
+					<a href="@Html.ActionLink("Index", "Auth")">Manage User Roles</a><br />
+                    <a href="@Url.Action("SystemSend", "Messages")">Send Message to Team Members</a><br />
+                    <a href="@Url.Action("EditProfile", "Auth")">Edit My Profile</a><br />
                 </div>
             </div>
         }
         else
         {
+            <a href="@Url.Action("EditProfile", "Auth")">Edit My Profile</a><br />
             <br />
         }

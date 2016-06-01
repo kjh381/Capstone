@@ -10,12 +10,12 @@ using SARDT.Models;
 
 namespace SARDT.Controllers
 {
+    [Authorize(Roles = "Moderator, Member")]
     public class CalendarController : Controller
     {
         private SARDTContext db = new SARDTContext();
         /*
         // GET: /Calendar/
-        [Authorize(Roles = "Member, Admin")]
         public ActionResult Index()
         {
             DateTime currentDate = DateTime.Now;
@@ -25,6 +25,7 @@ namespace SARDT.Controllers
         }
         */
         // GET: /Calendar/5
+
         public ActionResult Index(int? year, int? month)
         {
             CalendarVM calendarVM;
