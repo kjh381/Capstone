@@ -10,7 +10,7 @@
 
 
 
-<h2>Role Add to User</h2>
+<h2>Give Users Moderator Privileges</h2>
 
 @using (Html.BeginForm("RoleAddToUser", "Auth"))
 {
@@ -20,11 +20,11 @@
     
 <p>
 
-    User Name : @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.Users)
-    Role Name : @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)    
+    User Name : @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.NoModUsers)
+    Privileges : @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)    
 </p>
 
-    <input type="submit" value="Save" />
+    <input type="submit" value="Grant Moderator Privileges" />
 }
 <hr />
 <h3>Get Roles for a User</h3>
@@ -32,7 +32,7 @@
 {
     @Html.AntiForgeryToken()
     <p>
-        UserName : @Html.TextBox("UserName")
+        UserName : @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.AllUsers)
         <input type="submit" value="Get Roles for this User" />
     </p>
 }
@@ -50,7 +50,7 @@
 }
 
 <hr />
-<h3>Delete a User from a Role</h3>
+<h3>Take Moderator Privilege from User</h3>
 
 @using (Html.BeginForm("Delete", "Auth"))
 {
@@ -58,9 +58,9 @@
     @Html.ValidationSummary(true)
 
     <p>
-        User Name : @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.Users)
+        User Name : @Html.DropDownList("UserName", (IEnumerable<SelectListItem>)ViewBag.ModUsers)
         Role Name : @Html.DropDownList("RoleName", (IEnumerable<SelectListItem>)ViewBag.Roles)
     </p>
 
-    <input type="submit" value="Delete this user from Role" />
+    <input type="submit" value="Remove Moderator Privileges" />
 }

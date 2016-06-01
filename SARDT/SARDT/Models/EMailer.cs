@@ -43,7 +43,7 @@ namespace SARDT.Models
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    successful = false;
                 }
 
                 finally

@@ -6,6 +6,10 @@
 }
 
 <h2>Send Reminder to Team Members</h2>
+@if (Model.NoUsersSelectedOccured != null && Model.NoUsersSelectedOccured == true)
+{ 
+    <h4 class="alert alert-danger" >You must select at least one member</h4>
+}
 
 
 @using (Html.BeginForm())
@@ -20,19 +24,27 @@
             <ul class="messagingMemberList list-group">
                 @for (int i = 0; i < Model.SelectedMembers.Count; i++)
                 {
+                    string id = "SelectedMembers_" + i.ToString() + "_";
+                    string name = "SelectedMembers[" + i.ToString() + "]";
                     <li class="list-group-item">
-                            <p align="left">@Html.EditorFor(listItem => Model.SelectedMembers[i])
-                            @Model.Members[i].Name</p>
+
+                        <p align="left">
+                            <input class="check-box" data-val="true" data-val-required="The Boolean field is required." id=@id name=@name type="checkbox" value="true"/>
+                            <input name=@name type="hidden" value="false" />
+                            @Model.Members[i].Name
+                        </p>
+
                     </li>
                 }
             </ul>
         </div>
-        <div id="col-md-6">     
-            @Html.TextBoxFor(model => model.Message.Subject, new { placeholder = "Message Subject" })
-            @Html.ValidationMessageFor(model => model.Message.Subject)
 
-            @Html.TextAreaFor(model => model.Message.Body, new { @class = "messageBody col-md-12", placeholder = "Message Body" })
-            @Html.ValidationMessageFor(model => model.Message.Body)
+        <div>
+            <input data-val="true" data-val-required="Subject is Required" id="Message_Subject" name="Message.Subject" placeholder="Message Subject" type="text" value="" required/>
+            <span class="field-validation-valid" data-valmsg-for="Message.Subject" data-valmsg-replace="true"></span>
+
+            <textarea class="messageBody col-md-12" cols="20" data-val="true" data-val-required="Subject is Required" id="Message_Body" name="Message.Body" placeholder="Message Body" rows="2" required></textarea>
+            <span class="field-validation-valid" data-valmsg-for="Message.Body" data-valmsg-replace="true"></span>
         </div>
 
         <div class="form-group">

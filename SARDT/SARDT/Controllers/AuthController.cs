@@ -145,22 +145,24 @@ namespace SARDT.Controllers
             return RedirectToAction("index", "home");
         }
 
-        [Authorize(Roles = "Moderator, Member")]
+
+        [Authorize]
         public ActionResult Profile()
         {
             var user = userManager.FindById(User.Identity.GetUserId());
             return View(user);
         }
 
-        [Authorize(Roles = "Moderator, Member")]
+        [Authorize]
         public ActionResult EditProfile()
         {
             var user = userManager.FindById(User.Identity.GetUserId());
             return View(user);
         }
 
+        [Authorize]
         // POST: /Auth/EditProfile
-        [Authorize(Roles = "Moderator, Member")]
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProfile([Bind(Include = "Id,Name,Email,UserName,Address,City,ZipCode,DOB,EmergencyContactName,EmergencyContactPhone")] Member member)

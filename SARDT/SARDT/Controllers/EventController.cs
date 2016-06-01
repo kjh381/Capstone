@@ -15,14 +15,14 @@ namespace SARDT.Controllers
         private SARDTContext db = new SARDTContext();
 
         // GET: /Event/
-        [Authorize(Roles = "Moderator, Member")]
+        [Authorize]
         public ActionResult Index()
         {
             return View(db.Events.ToList());
         }
 
         // GET: /Event/Details/5
-        [Authorize(Roles = "Moderator, Member")]
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -82,7 +82,7 @@ namespace SARDT.Controllers
                 return RedirectToAction("Index", "Calendar", new { year = newEvent.EventDate.Year, month = newEvent.EventDate.Month});
             }
 
-            return View(@event);
+            return RedirectToAction("Create", new { month =  @event.EventDate.Month, day = @event.EventDate.Day, year = @event.EventDate.Year });
         }
 
         // GET: /Event/Edit/5

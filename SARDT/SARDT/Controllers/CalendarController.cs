@@ -10,7 +10,7 @@ using SARDT.Models;
 
 namespace SARDT.Controllers
 {
-    [Authorize(Roles = "Moderator, Member")]
+    [Authorize]
     public class CalendarController : Controller
     {
         private SARDTContext db = new SARDTContext();
@@ -24,6 +24,7 @@ namespace SARDT.Controllers
             return View(calendarVM);
         }
         */
+        [Authorize]
         // GET: /Calendar/5
 
         public ActionResult Index(int? year, int? month)
@@ -39,6 +40,7 @@ namespace SARDT.Controllers
             return View(calendarVM);
         }
 
+        [Authorize]
         // GET: /Calendar/PreviousMonth/5
         public ActionResult PreviousMonth(int? year, int? month)
         {
@@ -51,6 +53,7 @@ namespace SARDT.Controllers
         }
 
 
+        [Authorize]
         // GET: /Calendar/NextMonth/5
         public ActionResult NextMonth(int? year, int? month)
         {

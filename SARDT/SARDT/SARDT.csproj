@@ -266,11 +266,6 @@
     <Content Include="Views\Calendar\Index.cshtml" />
     <Content Include="Views\WebContent\ChangeImageConfirm.cshtml" />
     <Content Include="Views\Auth\Register.cshtml" />
-    <Content Include="Views\Messages\Create.cshtml" />
-    <Content Include="Views\Messages\Delete.cshtml" />
-    <Content Include="Views\Messages\Details.cshtml" />
-    <Content Include="Views\Messages\Edit.cshtml" />
-    <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Auth\EditProfile.cshtml" />
     <Content Include="Views\Auth\Profile.cshtml" />
     <Content Include="Views\WebContent\UploadNewApplication.cshtml" />

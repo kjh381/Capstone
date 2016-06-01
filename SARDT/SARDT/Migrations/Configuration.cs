@@ -89,10 +89,7 @@ namespace SARDT.Migrations
             context.CurrentVideo.AddOrUpdate(video);
 
 
-            // create various users
-            var userMember = new Member { UserName = "member", Email = "member@gmail.com", Name = "Member Test" };
-            var adminCreateResult = userManager.Create(userMember, "password");
-
+            
             var userMod = new Member { UserName = "moderator", Email = "moderator@gmail.com", Name = "Moderator Stevens" };
             var modCreateResult = userManager.Create(userMod, "password");
 
@@ -101,41 +98,25 @@ namespace SARDT.Migrations
 
             var userGuy = new Member { UserName = "guy", Email = "5blkcrow5@gmail.com", Name = "Guy Pierce" };
             var guyCreateResult = userManager.Create(userGuy, "password");
-
-
+            
 
             //##### START OF CHANGES TO FIX ISSUE WITH DATABASE SEEDING #####
             //###############################################################
 
-            // --- CHECK TO SEE IF THERE IS ALREADY AN ADMIN ROLE IN THE DATABASE
-            var memberRole = (from role in context.Roles
-                             where role.Name == "member"
-                             select role).FirstOrDefault();
 
 
             // --- CHECK TO SEE IF THERE IS ALREADY A MODERATOR ROLE IN THE DATABASE
             var moderatorRole = (from role in context.Roles
                                  where role.Name == "Moderator"
                                  select role).FirstOrDefault();
-
-            // --- IF QUERY DID NOT FIND AN ADMIN ROLE IN DATABASE, ADD IT.
-            if (memberRole == null)
-            {
-                context.Roles.AddOrUpdate(new IdentityRole() { Name = "Member" });
-            }
+            
 
             // --- IF QUERY DID NOT FIND A MODERATOR ROLE IN DATABASE, ADD IT.
             if (moderatorRole == null)
             {
                 context.Roles.AddOrUpdate(new IdentityRole() { Name = "Moderator" });
+                context.SaveChanges();
             }
-            context.SaveChanges();
-
-            // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
-            // --- AddToRole FUNCTION.
-            userMember = (from user in context.Users
-                         where user.UserName == "member"
-                         select user).FirstOrDefault();
 
 
             // --- GET THE USER FROM THE DATABASE. THIS IS TO RESOLVE ISSUES WITH 
@@ -149,7 +130,6 @@ namespace SARDT.Migrations
 
 
             // Add role to user
-            userManager.AddToRole(userMember.Id, "Member");
             userManager.AddToRole(userMod.Id, "Moderator");
 
             Event firstEvent = new Event { Description = "This is the first event!", StartTime = "1200", EndTime = "1400", EventDate = Convert.ToDateTime("04/30/2016"), EventTitle = "First Event", LastChangeBy = "guy", LastChangedOn = Convert.ToDateTime("04/30/2016"), Type = "public" };
