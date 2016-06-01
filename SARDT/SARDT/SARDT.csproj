@@ -219,7 +219,7 @@
     <Compile Include="Models\VideoVM.cs" />
     <Compile Include="Models\WebText.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Startup.cs" />
+    <Compile Include="Views\Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config">

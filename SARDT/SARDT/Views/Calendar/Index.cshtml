@@ -81,7 +81,7 @@
                                             </a>
                                         </li>
                                     }
-                                    @if (HttpContext.Current.User.IsInRole("Admin") && (item.Date >= DateTime.Today))
+                                    @if (HttpContext.Current.User.IsInRole("Moderator") && (item.Date >= DateTime.Today))
                                     {
                                         <li role="separator" class="divider"></li>
                                         <li><a href="@Url.Action("Create", "Event", new { month=item.Date.Month, day=item.Date.Day, year=Model.Year })">Add New Event</a></li>
@@ -91,7 +91,7 @@
                         }
                         else
                         {
-                            if (HttpContext.Current.User.IsInRole("Admin") && (item.Date >= DateTime.Today))
+                            if (HttpContext.Current.User.IsInRole("Moderator") && (item.Date >= DateTime.Today))
                             { 
                                 <button type="button" class="btn" onclick="location.href = '@Url.Action("Create", "Event", new { month=item.Date.Month, day=item.Date.Day, year=Model.Year })';">Add Event</button>
                             }
@@ -122,16 +122,42 @@
     </div>
  </div>
 
-        @if (HttpContext.Current.User.IsInRole("Admin"))
+        @if (HttpContext.Current.User.IsInRole("Moderator"))
         {
             <div class="panel panel-primary">
-                <div class="panel-heading">Edit Content</div>
+                <div class="panel-heading">Content</div>
                 <div class="panel-body">
-                    <a href="@Url.Action("SystemSend", "Messages")">Send Message to Team Members</a><br />
-                    <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
-                    <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
-                    <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
-                    <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <a href="@Url.Action("SystemSend", "Messages")">Send Message to Team Members</a><br />
+                            <a href="@Url.Action("EditText", "WebContent")">Edit Text</a><br />
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="@Url.Action("WebImageIndex", "WebContent")">Edit Images</a><br />
+                            <a href="@Url.Action("Index", "Videos")">Edit Videos</a><br />
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="@Url.Action("UploadNewApplication", "WebContent")">Upload New Application Form</a><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-primary">
+                <div class="panel-heading">Users</div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            
+                        </div>
+                        <div class="col-sm-4">
+                            <a href="@Html.ActionLink("Index", "Auth")">Manage User Roles</a><br />
+                            <a href="@Url.Action("Register", "Auth")">Register New User</a><br />
+                        </div>
+                        <div class="col-sm-4">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         }
